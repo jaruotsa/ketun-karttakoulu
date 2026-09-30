@@ -103,3 +103,16 @@ test('works offline after the first visit', async ({ page, context, browserName 
   await page.goto('what-is-a-map.html');
   await expect(page.getByRole('slider', { name: text('mapPage.sliderLabel') })).toBeVisible();
 });
+
+test('the bubble on a sign page goes away after a while and comes back with a tap', async ({
+  page,
+}) => {
+  await page.goto('sign.html?id=lake');
+  await page.getByRole('button', { name: text('signPage.go') }).click();
+  await expect(page.getByRole('button', { name: text('signPage.again') })).toBeEnabled();
+  const bubble = page.getByText(text('signs.lake.bubble'));
+  await expect(bubble).toHaveCSS('opacity', '1');
+  await expect(bubble).toHaveCSS('opacity', '0', { timeout: 12_000 });
+  await page.getByRole('img', { name: text('signPage.landscapeLabel') }).click();
+  await expect(bubble).toHaveCSS('opacity', '1');
+});

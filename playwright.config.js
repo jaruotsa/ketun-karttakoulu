@@ -1,4 +1,5 @@
-// End-to-end tests: every page and every map symbol in both map types, at iPad size. The tests find
+// End-to-end tests: every page and every map symbol in both map types, at iPad size, plus layout
+// checks and screenshots on a phone and a desktop (tests/layout.spec.js). The tests find
 // elements by role and by texts from the language file (`js/locales/fi.json`), not by ids or class
 // names, so they stay valid while the code is renamed and restructured.
 import { defineConfig, devices } from '@playwright/test';
@@ -32,6 +33,22 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'], viewport: { width: 1180, height: 820 } },
+    },
+    // Other screen sizes run only the layout checks.
+    { name: 'phone', testMatch: 'layout.spec.js', use: { ...devices['iPhone 13'] } },
+    {
+      name: 'phone-landscape',
+      testMatch: 'layout.spec.js',
+      use: { ...devices['iPhone 13 landscape'] },
+    },
+    {
+      name: 'desktop',
+      testMatch: 'layout.spec.js',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        launchOptions: { args: ['--use-angle=metal', '--ignore-gpu-blocklist'] },
+      },
     },
   ],
   webServer: {

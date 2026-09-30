@@ -103,7 +103,28 @@ async function start() {
     terrain.setProgress(t, scene.terrain.lift?.(p.x, p.y) ?? 0);
   }
 
+  // The bubble goes away when there has been time to read it aloud, so that the terrain shows
+  // behind it. A tap on the terrain brings it back.
+  const bubble = $('#bubble');
+  let bubbleTimer = 0;
+  function showBubble() {
+    bubble.classList.add('visible');
+    clearTimeout(bubbleTimer);
+    bubbleTimer = window.setTimeout(
+      () => bubble.classList.remove('visible'),
+      3000 + 80 * sign.bubble.length,
+    );
+  }
+  function hideBubble() {
+    clearTimeout(bubbleTimer);
+    bubble.classList.remove('visible');
+  }
+  $('.terrain-frame').addEventListener('click', () => {
+    if (document.body.classList.contains('hint-open')) showBubble();
+  });
+
   function reset() {
+    hideBubble();
     setProgress(0);
     fox.poses.set('facingViewer');
     scene.terrain.reset?.(terrainSvg, terrain, mapSvg);
@@ -166,21 +187,11 @@ async function start() {
     fox.poses.remove('pawUp', 'curious');
     fox.poses.add('facingViewer', 'cheering');
     document.body.classList.add('hint-open');
+    showBubble();
     $('span', button).textContent = t('signPage.again');
     button.disabled = false;
     running = false;
   });
-
-  // On a phone and in the portrait orientation of an iPad the map and the terrain are switched with
-  // tabs.
-  document.querySelectorAll('[data-view]').forEach((v) =>
-    v.addEventListener('click', () => {
-      document.body.dataset.view = (v as HTMLElement).dataset.view;
-      document
-        .querySelectorAll('[data-view]')
-        .forEach((b) => b.setAttribute('aria-selected', String(b === v)));
-    }),
-  );
 
   // The lesson box: with the buttons the leader shows one item at a time (scene.lesson). On the
   // orienteering map the orienteering version of the scene (scene.orienteering.lesson) is used, if

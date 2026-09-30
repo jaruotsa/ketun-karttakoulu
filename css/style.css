@@ -14,6 +14,8 @@
   --scarf-knot: #1F4F86;
   --rounded: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, sans-serif;
   color-scheme: light;
+  /* The space between the blocks of a page, stacked or side by side. */
+  --gap: 24px;
 }
 
 * { box-sizing: border-box; }
@@ -36,6 +38,9 @@ main {
   margin: 0 auto;
   padding: 0 24px 48px;
 }
+
+/* The blocks of the sign page and What is a map? are spaced only by --gap. */
+.sign-page main, .map-page main { display: flex; flex-direction: column; gap: var(--gap); }
 
 button { font: inherit; color: inherit; cursor: pointer; }
 h1, h2 { margin: 0; line-height: 1.1; }
@@ -79,6 +84,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   padding: 16px 24px 8px;
 }
 .home-button {
+  flex: none;
   display: grid; place-items: center;
   width: 52px; height: 52px;
   border-radius: 16px;
@@ -143,7 +149,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   display: flex;
   align-items: center;
   gap: 20px;
-  margin: 8px 0 20px;
+  margin: 8px 0 0;
 }
 .page-title h1 { font-size: 56px; font-weight: 900; letter-spacing: -.5px; }
 .sentence { margin: 4px 0 0; font-size: 26px; color: var(--ink-muted); }
@@ -174,9 +180,9 @@ h1, h2 { margin: 0; line-height: 1.1; }
   border-bottom: 3px solid var(--ink);
   transform: rotate(45deg);
 }
-.hint-open .bubble, .bubble.visible { opacity: 1; transform: scale(1); }
+.bubble.visible { opacity: 1; transform: scale(1); }
 
-.page-nav { display: flex; justify-content: space-between; margin-top: 28px; }
+.page-nav { display: flex; justify-content: space-between; }
 .nav-button {
   padding: 14px 24px;
   border-radius: 999px;
@@ -204,7 +210,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .views {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: var(--gap);
 }
 .panel {
   margin: 0;
@@ -230,8 +236,6 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .terrain-frame.three-d canvas,
 .terrain-frame.three-d #terrain { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
-.tabs { display: none; }
-
 /* Map */
 #map .fox-track { stroke: var(--fox); stroke-width: 5; stroke-linecap: round; opacity: .8; }
 .feature-highlight { fill: none; stroke: var(--fox); stroke-width: 0; opacity: 0; }
@@ -243,7 +247,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .arrived #map .feature-name { opacity: 1; }
 .fox-map-marker { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .25)); }
 
-.actions { display: flex; justify-content: center; margin: 22px 0; }
+.actions { display: flex; justify-content: center; }
 
 .hint {
   display: flex; align-items: center; gap: 20px;
@@ -261,7 +265,6 @@ h1, h2 { margin: 0; line-height: 1.1; }
 
 /* Lesson box (e.g. the width of a stream): buttons and picture side by side. */
 .lesson {
-  margin-top: 28px;
   padding: 22px 24px;
   background: var(--card);
   border: 3px solid var(--border);
@@ -299,7 +302,6 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .lesson-figure figcaption { min-height: 1.4em; margin-top: 10px; font-size: 24px; font-weight: 800; text-align: center; }
 
 .quiz {
-  margin-top: 28px;
   padding: 22px 24px;
   background: var(--card);
   border: 3px solid var(--border);
@@ -334,7 +336,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .flight-and-legend {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 20px;
+  gap: var(--gap);
   align-items: start;
 }
 .flight {
@@ -356,8 +358,24 @@ h1, h2 { margin: 0; line-height: 1.1; }
 /* 3D view (Three.js): the canvas fills the frame and the fox's map marker is drawn on top of it. */
 .flight-3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .fox-3d { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
-/* Bubble on the left edge of the sky so that the hill shows in the middle. */
-.flight .bubble { left: 3%; top: 4%; max-width: 30%; }
+/* What the fox says is below the 3D view, like the text below the lesson panel's scene, so that
+   it never covers the map. */
+.flight-figure { margin: 0; }
+.flight-figure .bubble {
+  position: static;
+  max-width: none;
+  min-height: 2.8em;
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font-size: 24px;
+  line-height: 1.4;
+  text-align: center;
+  transform: none;
+}
+.flight-figure .bubble::after { content: none; }
 
 #part-highlight.pulsing { animation: highlight-pulse .8s ease-in-out 3 forwards; }
 
@@ -393,7 +411,6 @@ h1, h2 { margin: 0; line-height: 1.1; }
   display: flex;
   align-items: center;
   gap: 28px;
-  margin: 22px 0 0;
 }
 .slider { flex: 1; }
 .slider input { width: 100%; height: 44px; accent-color: var(--fox); }
@@ -410,23 +427,6 @@ h1, h2 { margin: 0; line-height: 1.1; }
 @media (max-width: 860px) {
   .type-switch .long { display: none; }
   .type-switch .short { display: inline; }
-  .views { grid-template-columns: 1fr; }
-  .tabs {
-    display: flex; gap: 8px;
-    margin-bottom: 12px;
-  }
-  .tabs button {
-    flex: 1;
-    min-height: 56px;
-    border-radius: 16px;
-    border: 3px solid var(--border);
-    background: var(--card);
-    font-weight: 800;
-    font-size: 22px;
-  }
-  .tabs button[aria-selected="true"] { background: var(--forest); border-color: var(--forest); color: #fff; }
-  [data-view="map"] .panel-terrain,
-  [data-view="terrain"] .panel-map { display: none; }
   .panel figcaption { display: none; }
   .page-title h1 { font-size: 44px; }
   .sign-icon { width: 96px; }
@@ -438,14 +438,40 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .lesson ol { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 }
 
+/* A small 3D view (phone) gets a small bubble, to leave the fox and the feature in sight. */
+.terrain-frame { container-type: inline-size; }
+@container (max-width: 480px) {
+  .bubble { max-width: 70%; padding: 6px 12px; border-width: 2px; border-radius: 14px; font-size: 16px; line-height: 1.3; }
+  .bubble::after { width: 14px; height: 14px; bottom: -9px; border-width: 2px; }
+}
+
+/* Narrow and tall (phone or iPad in portrait): the 3D terrain goes below the map, and the start
+   button above them, where a thumb reaches it without scrolling. */
+@media (max-width: 860px) and (orientation: portrait) {
+  .views { grid-template-columns: 1fr; }
+  .sign-page .page-title { order: -2; }
+  .sign-page .actions { order: -1; }
+  /* What is a map?: the fly button above the 3D view and the slider right below it, then the
+     legend. */
+  .map-page .flight-and-legend, .map-page .flight-controls { display: contents; }
+  .map-page .page-title { order: 1; }
+  .map-page #fly-button { order: 2; justify-content: center; }
+  .map-page .flight-figure { order: 3; }
+  .map-page .slider { order: 4; }
+  .map-page .legend { order: 5; }
+  .map-page .page-nav { order: 6; }
+}
+
 @media (max-width: 560px) {
+  :root { --gap: 16px; }
   main, .top-bar { padding-left: 16px; padding-right: 16px; }
   .top-bar { gap: 8px; }
-  .type-switch button { font-size: 16px; padding: 6px 10px 6px 6px; }
-  .type-switch i { width: 26px; height: 22px; }
+  /* Only the map type pictures; the buttons keep their names in aria-label. */
+  .type-switch .short { display: none; }
+  .type-switch button { padding: 6px 10px; }
   body { font-size: 18px; }
   .page-title h1 { font-size: 36px; }
-  .sentence, .hint p, .bubble { font-size: 19px; }
+  .sentence, .hint p, .flight-figure .bubble { font-size: 19px; }
   .hint { flex-direction: column; text-align: center; }
   .quiz-options { gap: 10px; }
   .legend ol { grid-template-columns: 1fr; }

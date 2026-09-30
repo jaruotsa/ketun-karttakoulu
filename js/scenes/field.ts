@@ -35,7 +35,6 @@ const scene: Scene = {
     nameColor: '#B8860B',
   }),
   feature: 'field',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 44, height: 21, ahead: 14, direction: [0, -35], fox: 5 },

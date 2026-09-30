@@ -50,7 +50,6 @@ const scene: Scene = {
     nameColor: '#3D0F06',
   }),
   feature: 'bridge',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: {

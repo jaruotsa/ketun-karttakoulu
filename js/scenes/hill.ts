@@ -35,7 +35,6 @@ const scene: Scene = {
     nameColor: '#B8652A',
   }),
   feature: 'hill',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 44, height: 19, ahead: 14, direction: [0, -15], fox: 5 },

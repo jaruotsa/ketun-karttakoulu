@@ -32,7 +32,6 @@ const scene: Scene = {
     nameColor: '#1B8FD6',
   }),
   feature: 'mire',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 38, height: 21, ahead: 12, direction: [0, 0], fox: 5 },

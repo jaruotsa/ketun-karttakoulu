@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema": Sss!
-    - text: Sss! Kissa vartioi pihaa.
+    - paragraph: Sss! Kissa vartioi pihaa.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

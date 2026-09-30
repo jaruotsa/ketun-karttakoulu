@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Sähkö kulkee johtoja pitkin taloon!
+    - paragraph: Sähkö kulkee johtoja pitkin taloon!
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

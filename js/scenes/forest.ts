@@ -66,7 +66,6 @@ const scene: Scene = {
   feature: 'forest',
   // On the orienteering map the highlight goes around the thicket.
   highlight: ORIENTEERING ? Foxwood.shapes.thicket[0] : undefined,
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: ORIENTEERING
     ? {

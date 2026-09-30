@@ -240,6 +240,27 @@ async function create({
   }
   stage.beforeDraw.push(() => pinned.forEach((position, el) => placeElement(el, position)));
 
+  // SVG groups above the fox's head at a fixed size (the fox's speech bubble), drawn with the point
+  // of the tail at the origin. The group stays inside the picture when the fox is at its edge, and
+  // is hidden when the fox is outside the picture (at the top of the lookout tower).
+  const aboveFox = new Set<Element>();
+  const BUBBLE = { left: 12, right: 86, top: 80 }; // the size of the group around its origin
+  function placeAboveFox(el: Element) {
+    const [x, y] = foxPoint();
+    const r = toScreen(x, y, lift + A.fox + 0.5);
+    const inside = r && r[0] >= 0 && r[0] <= L && r[1] >= 0 && r[1] <= K;
+    el.setAttribute('visibility', inside ? 'visible' : 'hidden');
+    if (!inside) return;
+    const sx = Math.min(Math.max(r[0], BUBBLE.left + 4), L - BUBBLE.right - 4);
+    const sy = Math.min(Math.max(r[1], BUBBLE.top + 4), K - 4);
+    el.setAttribute('transform', `translate(${sx} ${sy})`);
+  }
+  function followFox(el: Element) {
+    aboveFox.add(el);
+    placeAboveFox(el);
+  }
+  stage.beforeDraw.push(() => aboveFox.forEach(placeAboveFox));
+
   // Continuous movements (e.g. flames): f(time) before every draw. The stage is then drawn on every
   // frame. Returns a function that stops the movement.
   const continuous = new Set<(aika: number) => void>();
@@ -295,6 +316,7 @@ async function create({
     stage,
     fox,
     pin,
+    followFox,
     place,
     everyFrame,
     splash,

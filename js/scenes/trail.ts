@@ -39,7 +39,6 @@ const scene: Scene = {
     nameColor: ORIENTEERING ? '#A8652E' : '#B0412E',
   }),
   feature: 'carRoad',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 40, height: 19, ahead: 12, direction: [0, -30], fox: 5 },

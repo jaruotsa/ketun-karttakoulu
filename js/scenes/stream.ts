@@ -38,9 +38,6 @@ const scene: Scene = {
   feature: 'stream',
   // The road crosses the brook on a bridge, so it is drawn on top of the brook.
   drawOver: ['carRoad'],
-  // The bubble is at the bottom, because after the jump the fox is in the upper part of the picture
-  // behind the brook.
-  bubblePosition: { x: 4, y: 64 },
 
   terrain: {
     camera: { behind: 42, height: 21, ahead: 14, direction: [0, 0], fox: 5 },

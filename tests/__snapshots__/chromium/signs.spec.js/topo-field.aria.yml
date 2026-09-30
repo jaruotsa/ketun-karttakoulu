@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Hups, myyrä karkasi! Pelto on kartalla keltainen.
+    - paragraph: Hups, myyrä karkasi! Pelto on kartalla keltainen.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

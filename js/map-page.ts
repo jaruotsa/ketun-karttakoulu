@@ -142,7 +142,7 @@ stage.beforeDraw.push(() => updateCamera(p), updateFox);
 Fox.attachToStage(fox, stage);
 
 // ---------- Updating the view ----------
-const bubble = $('#bubble');
+const bubble = $('#fox-says');
 const slider = $<HTMLInputElement>('#altitude');
 const BUBBLES: [number, string | null][] = [
   [0.05, t('mapPage.bubbles.here')],

@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Makkaranpaistoon! Täällä saa tehdä tulen.
+    - paragraph: Makkaranpaistoon! Täällä saa tehdä tulen.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

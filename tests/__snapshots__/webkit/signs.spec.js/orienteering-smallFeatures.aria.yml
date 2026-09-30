@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Muurahaispesä! Tämä kannattaa kiertää.
+    - paragraph: Muurahaispesä! Tämä kannattaa kiertää.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

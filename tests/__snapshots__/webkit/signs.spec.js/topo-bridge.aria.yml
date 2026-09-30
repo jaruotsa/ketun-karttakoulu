@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Auto sillan yli, lehti sillan ali!
+    - paragraph: Auto sillan yli, lehti sillan ali!
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

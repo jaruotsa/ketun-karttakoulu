@@ -55,7 +55,6 @@ export interface Scene {
   // The id of the map part that the fox walks to (Foxwood.shapes / the class feature-<id> on the
   // map).
   feature: string;
-  bubblePosition: { x: number; y: number };
   // Own shape for the pulsing highlight (default: the shape of the feature).
   highlight?: string | string[];
   // Features drawn on top of the highlight (e.g. a road on a bridge).

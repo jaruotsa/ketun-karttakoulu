@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - text: Hyppy kiven päälle! Sisilisko säikähti.
+    - paragraph: Hyppy kiven päälle! Sisilisko säikähti.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

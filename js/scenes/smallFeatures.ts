@@ -80,7 +80,6 @@ const scene: Scene = {
   feature: 'smallFeatures',
   // The highlight goes around the ant nest that the fox is at at the end.
   highlight: `M${P.antNest[0] - 12},${P.antNest[1]} a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0 Z`,
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 34, height: 17, ahead: 8, direction: [0, -50], turnAt: 0.9, fox: 5 },

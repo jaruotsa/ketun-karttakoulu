@@ -32,7 +32,6 @@ const scene: Scene = {
     namePosition: [490, 150],
   }),
   feature: 'lake',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 46, height: 19, ahead: 16, direction: [0, -28], fox: 5 },

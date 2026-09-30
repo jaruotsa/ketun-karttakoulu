@@ -49,7 +49,6 @@ const scene: Scene = {
     nameColor: '#1a1a1a',
   }),
   feature: 'powerLine',
-  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     // At the end the camera is in the south-west and looks between the pole and the house, so that

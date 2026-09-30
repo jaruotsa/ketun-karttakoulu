@@ -97,7 +97,7 @@ async function start() {
   const signBubble = document.createElementNS(SVG_NS, 'g');
   signBubble.setAttribute('class', 'sign-bubble');
   signBubble.innerHTML = `<g class="sign-bubble-pop">
-    <path d="M16,-12 H72 A14,14 0 0 0 86,-26 V-66 A14,14 0 0 0 72,-80 H2 A14,14 0 0 0 -12,-66 V-26 A14,14 0 0 0 2,-12 H4 L0,0 Z"/>
+    <path class="sign-bubble-shape" d="M16,-12 H72 A14,14 0 0 0 86,-26 V-66 A14,14 0 0 0 72,-80 H2 A14,14 0 0 0 -12,-66 V-26 A14,14 0 0 0 2,-12 H4 L0,0 Z"/>
     ${sign.icon}</g>`;
   const signIcon = $('svg', signBubble);
   Object.entries({ x: -5, y: -74, width: 84, height: 59 }).forEach(([k, v]) =>

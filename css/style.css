@@ -169,7 +169,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   transition: opacity .25s, transform .35s cubic-bezier(.3, 1.6, .5, 1);
 }
 .hint-open .sign-bubble-pop { opacity: 1; transform: none; }
-.sign-bubble path { fill: #fff; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
+.sign-bubble-shape { fill: #fff; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
 .sign-bubble-pop { filter: drop-shadow(0 4px 6px rgba(35, 56, 43, .2)); }
 
 .page-nav { display: flex; justify-content: space-between; margin-top: 28px; }

@@ -355,8 +355,24 @@ h1, h2 { margin: 0; line-height: 1.1; }
 /* 3D view (Three.js): the canvas fills the frame and the fox's map marker is drawn on top of it. */
 .flight-3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .fox-3d { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
-/* Bubble on the left edge of the sky so that the hill shows in the middle. */
-.flight .bubble { left: 3%; top: 4%; max-width: 30%; }
+/* What the fox says is below the 3D view, like the text below the lesson panel's scene, so that
+   it never covers the map. */
+.flight-figure { margin: 0; }
+.flight-figure .bubble {
+  position: static;
+  max-width: none;
+  min-height: 2.8em;
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font-size: 24px;
+  line-height: 1.4;
+  text-align: center;
+  transform: none;
+}
+.flight-figure .bubble::after { content: none; }
 
 #part-highlight.pulsing { animation: highlight-pulse .8s ease-in-out 3 forwards; }
 
@@ -421,11 +437,10 @@ h1, h2 { margin: 0; line-height: 1.1; }
 }
 
 /* A small 3D view (phone) gets a small bubble, to leave the fox and the feature in sight. */
-.terrain-frame, .flight { container-type: inline-size; }
+.terrain-frame { container-type: inline-size; }
 @container (max-width: 480px) {
   .bubble { max-width: 70%; padding: 6px 12px; border-width: 2px; border-radius: 14px; font-size: 16px; line-height: 1.3; }
   .bubble::after { width: 14px; height: 14px; bottom: -9px; border-width: 2px; }
-  .flight .bubble { max-width: 55%; }
 }
 
 /* Narrow and tall (phone or iPad in portrait): the 3D terrain goes below the map, and the start
@@ -441,8 +456,8 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .map-page .flight-and-legend, .map-page .flight-controls { display: contents; }
   .map-page .page-title { order: 1; }
   .map-page #fly-button { order: 2; justify-content: center; margin-bottom: 16px; }
-  .map-page .flight { order: 3; }
-  .map-page .slider { order: 4; margin-top: 12px; }
+  .map-page .flight-figure { order: 3; }
+  .map-page .slider { order: 4; }
   .map-page .legend { order: 5; margin-top: 16px; }
   .map-page .page-nav { order: 6; }
 }
@@ -455,7 +470,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .type-switch button { padding: 6px 10px; }
   body { font-size: 18px; }
   .page-title h1 { font-size: 36px; }
-  .sentence, .hint p { font-size: 19px; }
+  .sentence, .hint p, .flight-figure .bubble { font-size: 19px; }
   .hint { flex-direction: column; text-align: center; }
   .quiz-options { gap: 10px; }
   .legend ol { grid-template-columns: 1fr; }

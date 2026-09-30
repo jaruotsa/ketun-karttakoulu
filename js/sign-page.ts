@@ -171,17 +171,6 @@ async function start() {
     running = false;
   });
 
-  // On a phone and in the portrait orientation of an iPad the map and the terrain are switched with
-  // tabs.
-  document.querySelectorAll('[data-view]').forEach((v) =>
-    v.addEventListener('click', () => {
-      document.body.dataset.view = (v as HTMLElement).dataset.view;
-      document
-        .querySelectorAll('[data-view]')
-        .forEach((b) => b.setAttribute('aria-selected', String(b === v)));
-    }),
-  );
-
   // The lesson box: with the buttons the leader shows one item at a time (scene.lesson). On the
   // orienteering map the orienteering version of the scene (scene.orienteering.lesson) is used, if
   // there is one. The picture is a 3D stage (lesson-panel.ts) where the 3D fox stands. The pressed

@@ -33,7 +33,16 @@ The site is designed for an iPad in landscape (1180 × 820). Phone and desktop l
 
 ## Hosting
 
-`npm run build` produces a static site in `dist/` that works in any folder on any web server, since all paths are relative. Serve it over HTTPS, which the service worker needs for offline use and home-screen install. A deploy script is [planned](https://github.com/jaruotsa/ketun-karttakoulu/issues/3).
+`npm run build` produces a static site in `dist/` that works in any folder on any web server, since all paths are relative. Serve it over HTTPS, which the service worker needs for offline use and home-screen install.
+
+To upload it to a server with rsync over SSH, copy `.env.example` to `.env` and set `DEPLOY_TARGET` to the server folder. `.env` is git-ignored, so the address stays on your machine.
+
+```sh
+npm run deploy -- --dry-run   # build and show what would change
+npm run deploy                # build and upload
+```
+
+The upload sends the new files first and deletes files from old builds last, so visitors never see a half-updated site. Installed copies update the next time they are opened online. To make that happen sooner, serve `sw.js` with `Cache-Control: no-cache`.
 
 ## Languages
 

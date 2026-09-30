@@ -131,7 +131,8 @@ function rock(size = 1, seed = 1) {
 }
 
 // A road or brook: a straight strip from the north (z = start) to the south (z = end), width in
-// metres. x(z) gives the centre line, so that the strip can curve.
+// metres. x(z) gives the centre line, so that the strip can curve. The strip remembers its shape
+// (userData.strip), so that the background forest can leave a clearing for it.
 function strip(
   x: (z: number) => number,
   width: number,
@@ -159,7 +160,14 @@ function strip(
     extra ?? new THREE.MeshLambertMaterial({ color: color ?? undefined }),
   );
   m.receiveShadow = true;
+  m.userData.strip = { x, width, start, end } satisfies StripShape;
   return m;
+}
+interface StripShape {
+  x: (z: number) => number;
+  width: number;
+  start: number;
+  end: number;
 }
 
 // A patch of ground (meadow, mire, field): an irregular area around the point (0, 0), radii rx and
@@ -364,8 +372,10 @@ async function create({
   for (let row = 0; row < 3; row++) {
     for (let x = -70; x <= 70; x += 4.5) {
       const z = -32 - row * 5 - r() * 3;
-      const tree = spruce(8 + r() * 5);
+      const height = 8 + r() * 5;
+      const tree = spruce(height);
       tree.position.set(x + r() * 3, 0, z);
+      tree.userData.radius = 0.3 * height; // the radius of the lowest branches
       background.add(tree);
     }
   }
@@ -374,6 +384,22 @@ async function create({
 
   const targets = group();
   scene.add(targets);
+
+  // A road or a stream is never covered by the forest: the background trees whose branches would
+  // reach a strip of the item are hidden until the next clear().
+  const point = new THREE.Vector3();
+  function clearForest(item: THREE.Object3D) {
+    item.updateWorldMatrix(true, true);
+    item.traverse((m) => {
+      const s = m.userData.strip as StripShape | undefined;
+      if (!s) return;
+      for (const tree of background.children) {
+        const { x, z } = m.worldToLocal(point.copy(tree.position));
+        if (z < Math.min(s.start, s.end) || z > Math.max(s.start, s.end)) continue;
+        if (Math.abs(x - s.x(z)) < s.width / 2 + tree.userData.radius) tree.visible = false;
+      }
+    });
+  }
 
   // Fox
   const fox = Fox.create();
@@ -472,6 +498,7 @@ async function create({
     foxTo(A.foxPosition[0], A.foxPosition[1]);
     turn(A.foxDirection);
     background.visible = A.background;
+    for (const tree of background.children) tree.visible = true;
     setCamera(camera?.position, camera?.gaze, camera?.fov);
   }
 
@@ -480,6 +507,7 @@ async function create({
     object.position.set(x, object.position.y, z);
     object.rotation.y = rotation * DEG;
     targets.add(object);
+    clearForest(object);
     stage.draw();
     return object;
   }

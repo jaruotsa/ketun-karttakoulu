@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Portista pääsee pihaan. Portti kiinni!
+    - text: Portista pääsee pihaan. Portti kiinni!
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

@@ -46,6 +46,7 @@ const scene: Scene = {
   // The engine draws the buildings and yards on top of the highlight, so the yard fence is drawn on
   // top of them.
   drawOver: ['fences'],
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     // At the end the camera looks between the fox and the cat.

@@ -40,6 +40,7 @@ const scene: Scene = {
     nameColor: '#5A4636',
   }),
   feature: 'lookoutTower',
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: {

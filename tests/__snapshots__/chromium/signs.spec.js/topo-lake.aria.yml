@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Järvi! Kartalla vesi on aina sinistä.
+    - text: Järvi! Kartalla vesi on aina sinistä.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

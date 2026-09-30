@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema": 1 2 3
-    - paragraph: Maalissa! Kävin kaikki rastit järjestyksessä.
+    - text: Maalissa! Kävin kaikki rastit järjestyksessä.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

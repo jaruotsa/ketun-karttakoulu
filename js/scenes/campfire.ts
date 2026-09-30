@@ -65,6 +65,7 @@ const scene: Scene = {
     nameColor: '#D35400',
   }),
   feature: 'campfire',
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     // At the end the camera looks between the fox and the fire, so that both are visible.

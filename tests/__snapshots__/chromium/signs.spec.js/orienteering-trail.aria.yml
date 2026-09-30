@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Leveä tie! Katso ensin, tuleeko auto.
+    - text: Leveä tie! Katso ensin, tuleeko auto.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

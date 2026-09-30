@@ -41,7 +41,9 @@ async function start() {
   $('#sign-sentence').textContent = sign.sentence;
   $('#sign-icon').innerHTML = sign.icon;
   $('#hint-text').textContent = sign.hint;
-  $('#fox-says').textContent = sign.bubble;
+  $('#bubble').textContent = sign.bubble;
+  $('#bubble').style.left = scene.bubblePosition.x + '%';
+  $('#bubble').style.top = scene.bubblePosition.y + '%';
 
   // Map and terrain
   const mapSvg = $<SVGSVGElement>('#map');
@@ -92,20 +94,6 @@ async function start() {
   // The 3D fox (fox.ts); the poses are facingViewer, curious, pawUp, walking and cheering.
   const fox = terrain.fox;
 
-  // When the fox arrives it says the map sign in a speech bubble above its head; what it says in
-  // words is below the picture (#fox-says), so that no text covers the terrain.
-  const signBubble = document.createElementNS(SVG_NS, 'g');
-  signBubble.setAttribute('class', 'sign-bubble');
-  signBubble.innerHTML = `<g class="sign-bubble-pop">
-    <path class="sign-bubble-shape" d="M16,-12 H72 A14,14 0 0 0 86,-26 V-66 A14,14 0 0 0 72,-80 H2 A14,14 0 0 0 -12,-66 V-26 A14,14 0 0 0 2,-12 H4 L0,0 Z"/>
-    ${sign.icon}</g>`;
-  const signIcon = $('svg', signBubble);
-  Object.entries({ x: -5, y: -74, width: 84, height: 59 }).forEach(([k, v]) =>
-    signIcon.setAttribute(k, String(v)),
-  );
-  terrainSvg.appendChild(signBubble);
-  terrain.followFox(signBubble);
-
   // A scene can raise the fox at a point of the route (a jump over an obstacle): terrain.lift(x, y)
   // in metres.
   function setProgress(t: number) {
@@ -115,7 +103,28 @@ async function start() {
     terrain.setProgress(t, scene.terrain.lift?.(p.x, p.y) ?? 0);
   }
 
+  // The bubble goes away when there has been time to read it aloud, so that the terrain shows
+  // behind it. A tap on the terrain brings it back.
+  const bubble = $('#bubble');
+  let bubbleTimer = 0;
+  function showBubble() {
+    bubble.classList.add('visible');
+    clearTimeout(bubbleTimer);
+    bubbleTimer = window.setTimeout(
+      () => bubble.classList.remove('visible'),
+      3000 + 80 * sign.bubble.length,
+    );
+  }
+  function hideBubble() {
+    clearTimeout(bubbleTimer);
+    bubble.classList.remove('visible');
+  }
+  $('.terrain-frame').addEventListener('click', () => {
+    if (document.body.classList.contains('hint-open')) showBubble();
+  });
+
   function reset() {
+    hideBubble();
     setProgress(0);
     fox.poses.set('facingViewer');
     scene.terrain.reset?.(terrainSvg, terrain, mapSvg);
@@ -178,6 +187,7 @@ async function start() {
     fox.poses.remove('pawUp', 'curious');
     fox.poses.add('facingViewer', 'cheering');
     document.body.classList.add('hint-open');
+    showBubble();
     $('span', button).textContent = t('signPage.again');
     button.disabled = false;
     running = false;

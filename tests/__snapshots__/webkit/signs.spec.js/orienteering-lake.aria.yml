@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Järvi! Tästä ei pääse yli, joten kierrän sen.
+    - text: Järvi! Tästä ei pääse yli, joten kierrän sen.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

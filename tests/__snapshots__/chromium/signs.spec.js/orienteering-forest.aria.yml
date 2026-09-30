@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Huh, tiheikkö! Vihreässä pääsee vain hitaasti.
+    - text: Huh, tiheikkö! Vihreässä pääsee vain hitaasti.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Auts, käpy! Kartalla metsä on valkoinen.
+    - text: Auts, käpy! Kartalla metsä on valkoinen.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

@@ -130,6 +130,7 @@ const scene: Scene = {
     nameColor: '#444444',
   }),
   feature: 'fences',
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 44, height: 21, ahead: 12, direction: [0, -45], turnAt: 0.9, fox: 5 },

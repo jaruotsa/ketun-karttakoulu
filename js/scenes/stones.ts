@@ -64,6 +64,7 @@ const scene: Scene = {
     nameColor: '#6E6C66',
   }),
   feature: 'stones',
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     camera: { behind: 42, height: 19, ahead: 12, direction: [0, -80], turnAt: 0.8, fox: 5 },

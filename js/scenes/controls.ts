@@ -83,6 +83,7 @@ const scene: Scene = {
   feature: 'controls',
   // The outer circle of the finish pulses when the fox is at the finish.
   highlight: `M${FINISH[0] - FINISH_R},${FINISH[1]} a${FINISH_R},${FINISH_R} 0 1,0 ${2 * FINISH_R},0 a${FINISH_R},${FINISH_R} 0 1,0 ${-2 * FINISH_R},0 Z`,
+  bubblePosition: { x: 4, y: 6 },
 
   terrain: {
     // A long course: the camera only turns in front of the finish gate on the last leg, so that the

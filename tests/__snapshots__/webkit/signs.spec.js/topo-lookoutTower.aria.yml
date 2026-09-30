@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Tornista näkee kauas. Ylhäältä maasto näyttää kartalta!
+    - text: Tornista näkee kauas. Ylhäältä maasto näyttää kartalta!
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

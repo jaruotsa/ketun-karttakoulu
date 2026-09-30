@@ -149,28 +149,33 @@ h1, h2 { margin: 0; line-height: 1.1; }
 .page-title h1 { font-size: 56px; font-weight: 900; letter-spacing: -.5px; }
 .sentence { margin: 4px 0 0; font-size: 26px; color: var(--ink-muted); }
 
-/* What the fox says is below the 3D view, like the text below the lesson panel's scene, so that
-   it never covers the fox, the feature or the map. On a sign page it appears when the fox arrives. */
-.fox-says {
-  min-height: 2.8em;
-  margin: 10px 0 0;
-  font-size: 24px;
+.bubble {
+  position: absolute;
+  max-width: 62%;
+  padding: 12px 18px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  font-size: 22px;
   font-weight: 800;
-  line-height: 1.4;
-  text-align: center;
-}
-.sign-page .fox-says { opacity: 0; transition: opacity .25s; }
-.hint-open .fox-says { opacity: 1; }
-
-/* On a sign page the fox says the map sign in a speech bubble above its head (sign-terrain.ts). */
-.sign-bubble-pop {
   opacity: 0;
-  transform: scale(.4);
+  transform: scale(.6);
+  transform-origin: 20% 100%;
   transition: opacity .25s, transform .35s cubic-bezier(.3, 1.6, .5, 1);
+  pointer-events: none;
+  box-shadow: 0 6px 16px rgba(35, 56, 43, .15);
 }
-.hint-open .sign-bubble-pop { opacity: 1; transform: none; }
-.sign-bubble-shape { fill: #fff; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
-.sign-bubble-pop { filter: drop-shadow(0 4px 6px rgba(35, 56, 43, .2)); }
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 30%; bottom: -14px;
+  width: 22px; height: 22px;
+  background: #fff;
+  border-right: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  transform: rotate(45deg);
+}
+.bubble.visible { opacity: 1; transform: scale(1); }
 
 .page-nav { display: flex; justify-content: space-between; margin-top: 28px; }
 .nav-button {
@@ -350,7 +355,24 @@ h1, h2 { margin: 0; line-height: 1.1; }
 /* 3D view (Three.js): the canvas fills the frame and the fox's map marker is drawn on top of it. */
 .flight-3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .fox-3d { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+/* What the fox says is below the 3D view, like the text below the lesson panel's scene, so that
+   it never covers the map. */
 .flight-figure { margin: 0; }
+.flight-figure .bubble {
+  position: static;
+  max-width: none;
+  min-height: 2.8em;
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font-size: 24px;
+  line-height: 1.4;
+  text-align: center;
+  transform: none;
+}
+.flight-figure .bubble::after { content: none; }
 
 #part-highlight.pulsing { animation: highlight-pulse .8s ease-in-out 3 forwards; }
 
@@ -414,6 +436,13 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .lesson ol { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 }
 
+/* A small 3D view (phone) gets a small bubble, to leave the fox and the feature in sight. */
+.terrain-frame { container-type: inline-size; }
+@container (max-width: 480px) {
+  .bubble { max-width: 70%; padding: 6px 12px; border-width: 2px; border-radius: 14px; font-size: 16px; line-height: 1.3; }
+  .bubble::after { width: 14px; height: 14px; bottom: -9px; border-width: 2px; }
+}
+
 /* Narrow and tall (phone or iPad in portrait): the 3D terrain goes below the map, and the start
    button above them, where a thumb reaches it without scrolling. */
 @media (max-width: 860px) and (orientation: portrait) {
@@ -441,7 +470,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .type-switch button { padding: 6px 10px; }
   body { font-size: 18px; }
   .page-title h1 { font-size: 36px; }
-  .sentence, .hint p, .fox-says { font-size: 19px; }
+  .sentence, .hint p, .flight-figure .bubble { font-size: 19px; }
   .hint { flex-direction: column; text-align: center; }
   .quiz-options { gap: 10px; }
   .legend ol { grid-template-columns: 1fr; }

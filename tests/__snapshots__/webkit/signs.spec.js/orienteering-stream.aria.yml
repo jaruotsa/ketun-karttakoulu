@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Hyppy puron yli! Vesi virtaa järveen.
+    - text: Hyppy puron yli! Vesi virtaa järveen.
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

@@ -7,7 +7,7 @@
   - figure "Maastossa":
     - text: ""
     - img "Maisema"
-    - paragraph: Ylhäältä mäki näyttää ruskeilta renkailta!
+    - text: Ylhäältä mäki näyttää ruskeilta renkailta!
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]

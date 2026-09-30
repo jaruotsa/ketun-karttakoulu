@@ -1,6 +1,6 @@
 # Ketun karttakoulu (Fox's Map School)
 
-A static site that teaches map symbols and scale to Cub Scouts (a boys' group called Ketut, ages 7–10). The group leader shows it on an iPad and reads the texts aloud. It installs as a PWA, so it also works offline. Open work and open questions are GitHub issues (`gh issue list`).
+A static site that teaches map symbols and scale to children aged about 7–10, at home, at school or in a group such as Cub Scouts. It is designed for a tablet first. It installs as a PWA, so it also works offline. Open work and open questions are GitHub issues (`gh issue list`).
 
 ## Language
 
@@ -10,7 +10,7 @@ A static site that teaches map symbols and scale to Cub Scouts (a boys' group ca
 
 ## Product rules
 
-- **Audience:** big buttons and short sentences, with more pictures and animation than words. The leader reads the texts, so there is no speech synthesis.
+- **Audience:** big buttons and short sentences, with more pictures and animation than words, so a child can follow along and an adult can read the texts aloud. There is no speech synthesis.
 - **Style:** light paper background. The fox is cute but not babyish: a big round head, shiny black eyes with highlights, a thin line for a mouth, and a blue scarf. It sometimes turns to look at the viewer (`facingViewer`).
 - **Map standards:** topo symbols and colours follow the [MML terrain map legend 2025](https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2025/09/maastokartta_karttamerkkien_selite_2025.pdf). Orienteering symbols follow ISOM 2017 ([Suunnistusliitto: Yleisimmät karttamerkit](https://www.suunnistusliitto.fi/system/wp-content/uploads/2024/04/YleisimmatKarttamerkit_suunnistus.pdf)).
 - **One map type at a time:** the top-bar switch (`js/map-type.ts`, `topo` or `orienteering`) sets every sign, map and text on the site. Never show the two map types side by side, because their colours mean different things: on an orienteering map, colour tells how easy it is to run.

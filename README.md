@@ -1,6 +1,6 @@
 # Ketun karttakoulu (Fox's Map School)
 
-A web app that teaches map symbols to Cub Scouts aged 7–10. A group leader shows it on a tablet and reads the texts aloud, while a 3D fox walks through a small forest world and shows what each symbol on the map means in the terrain.
+A web app that teaches map symbols to children aged about 7–10. A 3D fox walks through a small forest world and shows what each symbol on the map means in the terrain.
 
 ![Home page with the 3D fox and the map symbols](docs/screenshots/home.png)
 

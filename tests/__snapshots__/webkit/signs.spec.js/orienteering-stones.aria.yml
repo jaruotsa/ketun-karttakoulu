@@ -1,0 +1,40 @@
+- main:
+  - heading "Kivet ja kalliot" [level=1]
+  - paragraph: Musta piste on kivi. Piikkiviiva on jyrkänne.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": KIVI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hyppy kiven päälle! Sisilisko säikähti.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla kivi on musta piste. Mitä isompi piste, sitä isompi kivi. Mustat kolmiot ovat kivikko, ja harmaa on paljas kallio. Musta viiva on jyrkänne. Jos viivassa on piikit, jyrkänteen yli ei pääse, vaan se pitää kiertää.
+  - heading "Kiviä ja kallioita" [level=2]
+  - list:
+    - listitem:
+      - button "Kivi musta piste"
+    - listitem:
+      - button "Kivikko mustat kolmiot"
+    - listitem:
+      - button "Kallio harmaa"
+    - listitem:
+      - button "Matala jyrkänne ohut viiva"
+    - listitem:
+      - button "Korkea jyrkänne viiva ja piikit"
+  - figure "Paina merkkiä!":
+    - img "Kiviä ja kallioita"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on kivi?" [level=2]
+    - button "Metsä"
+    - button "Kivet ja kalliot"
+    - button "Suo"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=hill
+    - link "Seuraava →":
+      - /url: sign.html?id=controls

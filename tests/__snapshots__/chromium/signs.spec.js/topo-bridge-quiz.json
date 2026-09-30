@@ -1,0 +1,14 @@
+[
+  {
+    "option": "Polku ja tie",
+    "feedback": "Tuo on polku ja tie. Kokeile toista!"
+  },
+  {
+    "option": "Puro",
+    "feedback": "Tuo on puro. Kokeile toista!"
+  },
+  {
+    "option": "Silta",
+    "feedback": "Oikein! Tuo on silta."
+  }
+]

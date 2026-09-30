@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Soistuva maa siniset katkoviivat",
+    "text": "Vähän märkää metsää. Tassut kastuvat, mutta kulku on helppoa."
+  },
+  {
+    "button": "Suo siniset viivat",
+    "text": "Märkä suo. Tassut uppoavat, ja kulku on hidasta."
+  },
+  {
+    "button": "Avosuo keltainen ja viivat",
+    "text": "Avosuo: suo, jossa ei kasva puita. Sieltä näkee kauas."
+  },
+  {
+    "button": "Ylipääse­mätön suo tiheät viivat, musta reuna",
+    "text": "Ylipääsemätön suo. Liian märkä! Kettu kiertää sen."
+  }
+]

@@ -1,0 +1,40 @@
+- main:
+  - heading "Rakennukset" [level=1]
+  - paragraph: Pienet laatikot ovat rakennuksia.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi TALO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema": Sss!
+    - text: Sss! Kissa vartioi taloa.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Kartalla rakennus on pieni laatikko. Väri kertoo, millainen talo se on: asuintalo on harmaa, kesämökki turkoosi ja kirkko violetti risti."
+  - heading "Mikä talo?" [level=2]
+  - list:
+    - listitem:
+      - button "Asuintalo tummanharmaa"
+    - listitem:
+      - button "Kesämökki turkoosi"
+    - listitem:
+      - button "Kauppa tai koulu pinkki"
+    - listitem:
+      - button "Kirkko violetti risti"
+    - listitem:
+      - button "Sauna tai lato vaaleanharmaa"
+  - figure "Paina merkkiä!":
+    - img "Mikä talo?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on talo?" [level=2]
+    - button "Polku ja tie"
+    - button "Nuotiopaikka"
+    - button "Rakennukset"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=trail
+    - link "Seuraava →":
+      - /url: sign.html?id=fences

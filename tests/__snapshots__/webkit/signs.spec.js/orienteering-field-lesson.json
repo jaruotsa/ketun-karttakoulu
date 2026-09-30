@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Avoin alue keltainen",
+    "text": "Niitty tai nurmi. Täällä on helppo juosta, ja näkee kauas!"
+  },
+  {
+    "button": "Metsän aukea vaalea keltainen",
+    "text": "Metsän aukea. Puita ei ole, mutta varvut ja kannot hidastavat."
+  },
+  {
+    "button": "Puoliavoin alue valkoiset pisteet",
+    "text": "Avointa, mutta siellä täällä kasvaa puita ja pensaita."
+  },
+  {
+    "button": "Pelto mustat pisteet",
+    "text": "Pelto. Viljan päältä ei saa juosta, joten kettu kiertää pellon laitaa."
+  }
+]

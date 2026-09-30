@@ -1,0 +1,14 @@
+[
+  {
+    "option": "Mäki",
+    "feedback": "Tuo on mäki. Kokeile toista!"
+  },
+  {
+    "option": "Rastit",
+    "feedback": "Tuo on rastit. Kokeile toista!"
+  },
+  {
+    "option": "Pienet kohteet",
+    "feedback": "Oikein! Tuo on pienet kohteet."
+  }
+]

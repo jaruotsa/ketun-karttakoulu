@@ -1,0 +1,38 @@
+- main:
+  - heading "Metsä" [level=1]
+  - paragraph: Valkoinen metsä on helppo. Vihreä on tiheä.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": METSÄ
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Huh, tiheikkö! Vihreässä pääsee vain hitaasti.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla väri kertoo, kuinka helppo metsässä on juosta. Valkoisessa metsässä on helppo juosta. Vaalea vihreä hidastaa, ja vihreässä metsä on niin tiheää, että pääsee vain kävellen. Mitä tummempi vihreä, sitä hitaampaa.
+  - heading "Kuinka helppo juosta?" [level=2]
+  - list:
+    - listitem:
+      - button "Helppo metsä valkoinen"
+    - listitem:
+      - button "Hidastava metsä vaalea vihreä"
+    - listitem:
+      - button "Tiheikkö vihreä"
+    - listitem:
+      - button "Varvikko vihreät viivat"
+  - figure "Paina merkkiä!":
+    - img "Kuinka helppo juosta?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on tiheä metsä?" [level=2]
+    - button "Pelto"
+    - button "Metsä"
+    - button "Suo"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=stream
+    - link "Seuraava →":
+      - /url: sign.html?id=trail

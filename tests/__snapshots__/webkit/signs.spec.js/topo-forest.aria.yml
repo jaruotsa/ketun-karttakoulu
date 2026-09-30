@@ -1,0 +1,38 @@
+- main:
+  - heading "Metsä" [level=1]
+  - paragraph: Valkoinen väri on metsää.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi METSÄ
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Auts, käpy! Kartalla metsä on valkoinen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Kartalla metsä on valkoinen. Metsässä on helppo kulkea. Pienet mustat merkit kertovat, millaisia puita metsässä kasvaa.
+  - heading "Millaisia puita?" [level=2]
+  - list:
+    - listitem:
+      - button "Havumetsä kuuset ja männyt"
+    - listitem:
+      - button "Lehtimetsä koivut ja muut lehtipuut"
+    - listitem:
+      - button "Sekametsä havu- ja lehtipuita"
+    - listitem:
+      - button "Pensaikko matalat pensaat"
+  - figure "Paina merkkiä!":
+    - img "Millaisia puita?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on metsä?" [level=2]
+    - button "Pelto"
+    - button "Metsä"
+    - button "Suo"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=stream
+    - link "Seuraava →":
+      - /url: sign.html?id=trail

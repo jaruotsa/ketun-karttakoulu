@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Havumetsä kuuset ja männyt",
+    "text": "Havupuilla on neulaset. Merkki on kuin pieni kuusi."
+  },
+  {
+    "button": "Lehtimetsä koivut ja muut lehtipuut",
+    "text": "Lehtipuilla on lehdet. Merkki on kuin pyöreä latva."
+  },
+  {
+    "button": "Sekametsä havu- ja lehtipuita",
+    "text": "Sekametsässä kasvaa molempia. Merkissä on latva ja kuusi."
+  },
+  {
+    "button": "Pensaikko matalat pensaat",
+    "text": "Pensaat ovat matalia ja tiheitä. Merkissä on kolme pientä latvaa."
+  }
+]

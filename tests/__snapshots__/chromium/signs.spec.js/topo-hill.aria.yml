@@ -1,0 +1,25 @@
+- main:
+  - heading "Mäki" [level=1]
+  - paragraph: Ruskeat käyrät näyttävät mäen.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi MÄKI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Ylhäältä mäki näyttää ruskeilta renkailta!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Ruskea käyrä kiertää mäen ympäri aina samalla korkeudella. Mitä enemmän käyriä on sisäkkäin, sitä korkeampi mäki. Tiheät käyrät tarkoittavat jyrkkää rinnettä.
+  - region "Visa":
+    - heading "Missä kuvassa on mäki?" [level=2]
+    - button "Suo"
+    - button "Puro"
+    - button "Mäki"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=bridge
+    - link "Seuraava →":
+      - /url: sign.html?id=stones

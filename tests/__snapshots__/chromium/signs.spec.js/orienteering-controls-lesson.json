@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Lähtö kolmio",
+    "text": "Rata alkaa kolmiosta. Kolmion kärki näyttää, missä on ensimmäinen rasti."
+  },
+  {
+    "button": "1 Rasti ympyrä",
+    "text": "Rastilla on valkooranssi lippu. Leimaa, niin kaikki tietävät, että kävit siellä!"
+  },
+  {
+    "button": "1 2 Rastien järjestys numerot",
+    "text": "Rastit käydään numerojärjestyksessä. Viiva näyttää suunnan, mutta reitin saa valita itse."
+  },
+  {
+    "button": "Maali kaksi ympyrää",
+    "text": "Kaksi ympyrää sisäkkäin on maali. Juokse maaliin!"
+  }
+]

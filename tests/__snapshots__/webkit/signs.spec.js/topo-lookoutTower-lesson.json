@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Näkötorni ympyrä ja tikku",
+    "text": "Näkötorniin saa kiivetä. Sieltä näkee kauas metsän yli!"
+  },
+  {
+    "button": "Tuulivoimala ympyrä, tikku ja siivet",
+    "text": "Tuulivoimala tekee tuulesta sähköä. Se on tosi korkea!"
+  },
+  {
+    "button": "Vesitorni musta pallo",
+    "text": "Vesitornissa on vettä, joka virtaa kylän taloihin."
+  },
+  {
+    "button": "Masto piste ja nuoli",
+    "text": "Korkea ja kapea masto. Sen avulla puhelimet ja radiot toimivat."
+  }
+]

@@ -1,0 +1,2 @@
+<svg viewBox="0 0 600 380"> {display:block visibility:visible opacity:1 fill:rgb(0, 0, 0) fill-opacity:1 stroke:none stroke-width:1px stroke-opacity:1 stroke-dasharray:none font-size:20px font-weight:400}
+  <text fill="@missing" font-size="18" font-weight="800" opacity="0" paint-order="stroke" stroke-width="4" stroke="@missing" text-anchor="middle"> {display:block visibility:visible opacity:0 fill:rgb(46, 33, 27) fill-opacity:1 stroke:rgb(255, 255, 255) stroke-width:4px stroke-opacity:1 stroke-dasharray:none font-size:18px font-weight:800} "Sss!"

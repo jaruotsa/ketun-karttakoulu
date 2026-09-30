@@ -1,0 +1,14 @@
+[
+  {
+    "option": "Järvi",
+    "feedback": "Tuo on järvi. Kokeile toista!"
+  },
+  {
+    "option": "Suo",
+    "feedback": "Tuo on suo. Kokeile toista!"
+  },
+  {
+    "option": "Pelto",
+    "feedback": "Oikein! Tuo on pelto."
+  }
+]

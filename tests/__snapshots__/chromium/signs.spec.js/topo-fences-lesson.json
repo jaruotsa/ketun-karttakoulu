@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Aita pisteviiva",
+    "text": "Ohut musta viiva, jossa on pisteitä, on aita. Aidan viertä on helppo kulkea."
+  },
+  {
+    "button": "Kiviaita sama pisteviiva",
+    "text": "Kiviaitakin on kartalla aita. Matalan kiviaidan yli pääsee hyppäämällä."
+  },
+  {
+    "button": "Portti kaksi poikkiviivaa",
+    "text": "Aidan poikki kaksi pientä viivaa: siinä on portti. Muista sulkea portti!"
+  },
+  {
+    "button": "Pensasaita vihreät pisteet",
+    "text": "Rivi vihreitä pisteitä on pensasaita: tiheä rivi pensaita."
+  }
+]

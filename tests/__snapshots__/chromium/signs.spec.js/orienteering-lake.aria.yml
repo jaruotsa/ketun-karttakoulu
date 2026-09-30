@@ -1,0 +1,36 @@
+- main:
+  - heading "Järvi" [level=1]
+  - paragraph: Sininen on vettä. Musta viiva on ranta.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": JÄRVI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Järvi! Tästä ei pääse yli, joten kierrän sen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Suunnistuskartallakin vesi on sinistä. Järven rannassa on musta viiva. Se kertoo, että vedestä ei pääse yli: järvi pitää kiertää. Suunnistuskartalla ei ole nimiä."
+  - heading "Millainen vesi?" [level=2]
+  - list:
+    - listitem:
+      - button "Järvi sininen, musta ranta"
+    - listitem:
+      - button "Matala vesi vaalea, sininen reuna"
+    - listitem:
+      - button "Vesikuoppa sininen V"
+  - figure "Paina merkkiä!":
+    - img "Millainen vesi?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on järvi?" [level=2]
+    - button "Pelto"
+    - button "Järvi"
+    - button "Suo"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: what-is-a-map.html
+    - link "Seuraava →":
+      - /url: sign.html?id=field

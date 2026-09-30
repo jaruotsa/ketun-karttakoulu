@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Polku musta katkoviiva",
+    "text": "Kapea polku. Sitä kuljetaan jalan."
+  },
+  {
+    "button": "Ajotie musta viiva",
+    "text": "Hiekkatie metsässä tai pellolla. Traktori mahtuu."
+  },
+  {
+    "button": "Pieni autotie ohut punainen viiva",
+    "text": "Autotie. Katso ensin, tuleeko auto!"
+  },
+  {
+    "button": "Iso autotie paksu punainen viiva",
+    "text": "Iso tie, jolla ajaa paljon autoja. Tien yli vain aikuisen kanssa!"
+  }
+]

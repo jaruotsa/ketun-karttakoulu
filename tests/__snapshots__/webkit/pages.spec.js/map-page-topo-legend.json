@@ -1,0 +1,26 @@
+[
+  {
+    "button": "Metsä → valkoinen",
+    "bubble": "Ylhäältä metsä näkyy puiden latvoina. Kartalla metsä on valkoinen."
+  },
+  {
+    "button": "Pelto → keltainen",
+    "bubble": "Pellolla on pitkiä vakoja. Kartalla pelto on keltainen."
+  },
+  {
+    "button": "Suo → siniset viivat",
+    "bubble": "Suo on märkä ja lätäköinen. Kartalla se on sinisiä viivoja."
+  },
+  {
+    "button": "Mäki → ruskeat käyrät",
+    "bubble": "Mäki on korkea. Ruskeat käyrät kiertävät mäen ympäri samalla korkeudella."
+  },
+  {
+    "button": "Kettujärvi Järvi → sininen",
+    "bubble": "Järvi on vettä. Kartalla vesi on sininen."
+  },
+  {
+    "button": "Polku → musta katkoviiva",
+    "bubble": "Polku on kapea kulkureitti. Kartalla se on musta katkoviiva."
+  }
+]

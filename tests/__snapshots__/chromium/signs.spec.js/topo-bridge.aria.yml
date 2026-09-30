@@ -1,0 +1,36 @@
+- main:
+  - heading "Silta" [level=1]
+  - paragraph: Tien tumma kohta on silta.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi SILTA
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Auto sillan yli, lehti sillan ali!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Silta vie tien veden yli. Kartalla autotien punainen viiva on sillan kohdalla tumma. Puron sininen viiva jää tien alle, koska vesi virtaa sillan ali.
+  - heading "Miten pääsee yli?" [level=2]
+  - list:
+    - listitem:
+      - button "Silta tie tummuu"
+    - listitem:
+      - button "Pitkospuut pienet ristit"
+    - listitem:
+      - button "Lossi katkoviiva vedessä"
+  - figure "Paina merkkiä!":
+    - img "Miten pääsee yli?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on silta?" [level=2]
+    - button "Polku ja tie"
+    - button "Puro"
+    - button "Silta"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=powerLine
+    - link "Seuraava →":
+      - /url: sign.html?id=hill

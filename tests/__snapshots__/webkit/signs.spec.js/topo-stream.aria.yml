@@ -1,0 +1,36 @@
+- main:
+  - heading "Puro" [level=1]
+  - paragraph: Ohut sininen viiva on puro.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi PURO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hyppy puron yli! Vesi virtaa järveen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Puro on kapea virtaava vesi. Kartalla puro on sininen viiva. Samanlainen viiva voi olla myös oja. Puro vie veden usein järveen.
+  - heading "Kuinka leveä vesi?" [level=2]
+  - list:
+    - listitem:
+      - button "Pieni puro ohut sininen viiva"
+    - listitem:
+      - button "Leveä puro paksu sininen viiva"
+    - listitem:
+      - button "Joki sininen alue"
+  - figure "Paina merkkiä!":
+    - img "Kuinka leveä vesi?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on puro?" [level=2]
+    - button "Järvi"
+    - button "Puro"
+    - button "Mäki"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=mire
+    - link "Seuraava →":
+      - /url: sign.html?id=forest

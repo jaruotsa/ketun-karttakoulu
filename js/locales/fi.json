@@ -1,0 +1,999 @@
+{
+  "mapType": {
+    "label": "Karttatyyppi",
+    "topo": {
+      "long": "Maastokartta",
+      "short": "Maasto"
+    },
+    "orienteering": {
+      "long": "Suunnistuskartta",
+      "short": "Suunnistus"
+    }
+  },
+  "signs": {
+    "lake": {
+      "name": "Järvi",
+      "sentence": "Sininen väri on vettä.",
+      "bubble": "Järvi! Kartalla vesi on aina sinistä.",
+      "hint": "Kun näet kartalla sinistä, siellä on vettä. Järven reunassa on tummempi sininen viiva: se on ranta.",
+      "quiz": {
+        "question": "Missä kuvassa on järvi?"
+      },
+      "orienteering": {
+        "sentence": "Sininen on vettä. Musta viiva on ranta.",
+        "bubble": "Järvi! Tästä ei pääse yli, joten kierrän sen.",
+        "hint": "Suunnistuskartallakin vesi on sinistä. Järven rannassa on musta viiva. Se kertoo, että vedestä ei pääse yli: järvi pitää kiertää. Suunnistuskartalla ei ole nimiä."
+      }
+    },
+    "field": {
+      "name": "Pelto",
+      "sentence": "Keltainen väri on peltoa.",
+      "bubble": "Hups, myyrä karkasi! Pelto on kartalla keltainen.",
+      "hint": "Pellolla ei kasva metsää, joten sieltä näkee kauas. Kartalla pelto on keltainen.",
+      "quiz": {
+        "question": "Missä kuvassa on pelto?"
+      },
+      "orienteering": {
+        "sentence": "Keltainen on avointa. Pisteet kertovat pellosta.",
+        "bubble": "Hups, myyrä karkasi! Keltaisella näkee kauas.",
+        "hint": "Suunnistuskartalla keltainen on avoin paikka, jossa ei kasva puita. Siellä on helppo juosta, ja näkee kauas. Pelto on keltainen, ja siinä on pieniä mustia pisteitä. Kasvavan viljan päältä ei saa juosta."
+      }
+    },
+    "mire": {
+      "name": "Suo",
+      "sentence": "Siniset viivat ovat suota.",
+      "bubble": "Suo! Täällä tassut kastuvat.",
+      "hint": "Suolla maa on märkää ja upottavaa. Keltainen suo on puuton, harmaassa suossa kasvaa puita. Siniset vaakaviivat kertovat, että suo on märkä ja sitä on vaikea kulkea.",
+      "quiz": {
+        "question": "Missä kuvassa on suo?"
+      },
+      "orienteering": {
+        "sentence": "Siniset viivat ovat suota.",
+        "bubble": "Suo! Täällä tassut kastuvat.",
+        "hint": "Suunnistuskartallakin suo on sinisiä vaakaviivoja. Keltainen pohja kertoo, että suolla ei kasva puita. Tiheät viivat ja musta reuna tarkoittavat, että suon yli ei pääse."
+      }
+    },
+    "stream": {
+      "name": "Puro",
+      "sentence": "Ohut sininen viiva on puro.",
+      "bubble": "Hyppy puron yli! Vesi virtaa järveen.",
+      "hint": "Puro on kapea virtaava vesi. Kartalla puro on sininen viiva. Samanlainen viiva voi olla myös oja. Puro vie veden usein järveen.",
+      "quiz": {
+        "question": "Missä kuvassa on puro?"
+      },
+      "orienteering": {
+        "sentence": "Sininen viiva on puro tai oja.",
+        "bubble": "Hyppy puron yli! Vesi virtaa järveen.",
+        "hint": "Suunnistuskartallakin puro on sininen viiva. Samanlainen viiva voi olla myös oja. Leveä puro on paksumpi viiva, ja sen yli pääsee kahlaamalla. Jos joen reunassa on musta viiva, sen yli ei pääse."
+      }
+    },
+    "forest": {
+      "name": "Metsä",
+      "sentence": "Valkoinen väri on metsää.",
+      "bubble": "Auts, käpy! Kartalla metsä on valkoinen.",
+      "hint": "Kartalla metsä on valkoinen. Metsässä on helppo kulkea. Pienet mustat merkit kertovat, millaisia puita metsässä kasvaa.",
+      "quiz": {
+        "question": "Missä kuvassa on metsä?"
+      },
+      "orienteering": {
+        "sentence": "Valkoinen metsä on helppo. Vihreä on tiheä.",
+        "bubble": "Huh, tiheikkö! Vihreässä pääsee vain hitaasti.",
+        "hint": "Suunnistuskartalla väri kertoo, kuinka helppo metsässä on juosta. Valkoisessa metsässä on helppo juosta. Vaalea vihreä hidastaa, ja vihreässä metsä on niin tiheää, että pääsee vain kävellen. Mitä tummempi vihreä, sitä hitaampaa.",
+        "quiz": {
+          "question": "Missä kuvassa on tiheä metsä?"
+        }
+      }
+    },
+    "trail": {
+      "name": "Polku ja tie",
+      "sentence": "Mustat ja punaiset viivat ovat kulkureittejä.",
+      "bubble": "Katso ensin, tuleeko auto!",
+      "hint": "Polku on musta katkoviiva, ajotie musta viiva. Autotie on punainen viiva: mitä paksumpi viiva, sitä isompi tie.",
+      "quiz": {
+        "question": "Missä kuvassa on tie?"
+      },
+      "orienteering": {
+        "sentence": "Mustat viivat ovat polkuja ja teitä.",
+        "bubble": "Leveä tie! Katso ensin, tuleeko auto.",
+        "hint": "Suunnistuskartalla polut ja tiet ovat mustia. Mitä selvempi polku, sitä pidemmät viivat. Ajotie on yhtenäinen viiva, ja epäselvä polku on lyhyitä viivoja pareittain. Leveä tie on ruskea, ja sen reunoissa on mustat viivat. Polkua pitkin on nopea juosta.",
+        "quiz": {
+          "question": "Missä kuvassa on polku?"
+        }
+      }
+    },
+    "building": {
+      "name": "Rakennukset",
+      "sentence": "Pienet laatikot ovat rakennuksia.",
+      "bubble": "Sss! Kissa vartioi taloa.",
+      "hint": "Kartalla rakennus on pieni laatikko. Väri kertoo, millainen talo se on: asuintalo on harmaa, kesämökki turkoosi ja kirkko violetti risti.",
+      "quiz": {
+        "question": "Missä kuvassa on talo?"
+      },
+      "orienteering": {
+        "sentence": "Musta on talo. Oliivinvihreä on piha.",
+        "bubble": "Sss! Kissa vartioi pihaa.",
+        "hint": "Suunnistuskartalla kaikki talot ovat mustia, oli talo millainen tahansa. Oliivinvihreä on piha. Pihalle ei saa mennä, joten se kierretään. Vaaleanruskea on parkkipaikka tai sorakenttä.",
+        "quiz": {
+          "question": "Missä kuvassa on talo?"
+        }
+      }
+    },
+    "fences": {
+      "name": "Aidat",
+      "sentence": "Pisteviiva on aita.",
+      "bubble": "Portista pääsee pihaan. Portti kiinni!",
+      "hint": "Aita on kartalla ohut musta viiva, jossa on pisteitä. Kiviaitakin on kartalla aita. Portin kohdalla aidan poikki on kaksi pientä viivaa.",
+      "quiz": {
+        "question": "Missä kuvassa on aita?"
+      },
+      "orienteering": {
+        "sentence": "Piikkiviiva on aita, pisteviiva kiviaita.",
+        "bubble": "Portista pääsee pihaan. Portti kiinni!",
+        "hint": "Suunnistuskartalla aita on musta viiva, jossa on pieniä vinoja piikkejä. Kiviaita on musta viiva, jossa on pisteitä. Portin kohdalla aidassa on aukko. Aidan viertä on helppo kulkea.",
+        "quiz": {
+          "question": "Missä kuvassa on aita?"
+        }
+      }
+    },
+    "powerLine": {
+      "name": "Sähkölinja",
+      "sentence": "Viiva ja Z on sähkölinja.",
+      "bubble": "Sähkö kulkee johtoja pitkin taloon!",
+      "hint": "Sähkölinja on kartalla ohut musta viiva, jossa on välillä pieni Z. Mustat pisteet ovat pylväitä. Linjan alla metsässä on aukko. Älä koskaan kiipeä sähköpylvääseen!",
+      "quiz": {
+        "question": "Missä kuvassa on sähkölinja?"
+      },
+      "orienteering": {
+        "sentence": "Ohut viiva ja poikkiviivat on sähkölinja.",
+        "bubble": "Sähkö kulkee johtoja pitkin taloon!",
+        "hint": "Suunnistuskartalla sähkölinja on ohut musta viiva. Pienet poikkiviivat ovat pylväitä. Linjan alla on aukko, jota pitkin on helppo juosta.",
+        "quiz": {
+          "question": "Missä kuvassa on sähkölinja?"
+        }
+      }
+    },
+    "bridge": {
+      "name": "Silta",
+      "sentence": "Tien tumma kohta on silta.",
+      "bubble": "Auto sillan yli, lehti sillan ali!",
+      "hint": "Silta vie tien veden yli. Kartalla autotien punainen viiva on sillan kohdalla tumma. Puron sininen viiva jää tien alle, koska vesi virtaa sillan ali.",
+      "quiz": {
+        "question": "Missä kuvassa on silta?"
+      }
+    },
+    "hill": {
+      "name": "Mäki",
+      "sentence": "Ruskeat käyrät näyttävät mäen.",
+      "bubble": "Ylhäältä mäki näyttää ruskeilta renkailta!",
+      "hint": "Ruskea käyrä kiertää mäen ympäri aina samalla korkeudella. Mitä enemmän käyriä on sisäkkäin, sitä korkeampi mäki. Tiheät käyrät tarkoittavat jyrkkää rinnettä.",
+      "quiz": {
+        "question": "Missä kuvassa on mäki?"
+      },
+      "orienteering": {
+        "sentence": "Ruskeat käyrät näyttävät mäen.",
+        "bubble": "Ylhäältä mäki näyttää ruskeilta renkailta!",
+        "hint": "Suunnistuskartallakin mäki on ruskeita käyriä. Käyrä kiertää mäen aina samalla korkeudella. Tiheät käyrät tarkoittavat jyrkkää rinnettä. Katkoviiva on apukäyrä: se näyttää pienen nyppylän.",
+        "quiz": {
+          "question": "Missä kuvassa on mäki?"
+        }
+      }
+    },
+    "stones": {
+      "name": "Kivet ja kalliot",
+      "sentence": "Pieni musta merkki on iso kivi.",
+      "bubble": "Hyppy kiven päälle! Sisilisko säikähti.",
+      "hint": "Iso kivi on kartalla pieni musta merkki. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä.",
+      "quiz": {
+        "question": "Missä kuvassa on iso kivi?"
+      },
+      "orienteering": {
+        "sentence": "Musta piste on kivi. Piikkiviiva on jyrkänne.",
+        "bubble": "Hyppy kiven päälle! Sisilisko säikähti.",
+        "hint": "Suunnistuskartalla kivi on musta piste. Mitä isompi piste, sitä isompi kivi. Mustat kolmiot ovat kivikko, ja harmaa on paljas kallio. Musta viiva on jyrkänne. Jos viivassa on piikit, jyrkänteen yli ei pääse, vaan se pitää kiertää.",
+        "quiz": {
+          "question": "Missä kuvassa on kivi?"
+        }
+      }
+    },
+    "campfire": {
+      "name": "Nuotiopaikka",
+      "sentence": "Musta liekki on nuotiopaikka.",
+      "bubble": "Makkaranpaistoon! Täällä saa tehdä tulen.",
+      "hint": "Nuotiopaikalla saa sytyttää tulen. Kartalla se on musta liekki. Kartan selitteessä sen nimi on tulentekopaikka. Tulta tehdään aina aikuisen kanssa!",
+      "quiz": {
+        "question": "Missä kuvassa on nuotiopaikka?"
+      }
+    },
+    "lookoutTower": {
+      "name": "Näkötorni",
+      "sentence": "Ympyrä ja tikku on näkötorni.",
+      "bubble": "Tornista näkee kauas. Ylhäältä maasto näyttää kartalta!",
+      "hint": "Näkötornista näkee kauas metsän yli. Kartalla näkötorni on pieni ympyrä, jonka päällä on tikku. Ympyrä on tornin paikka.",
+      "quiz": {
+        "question": "Missä kuvassa on näkötorni?"
+      }
+    },
+    "controls": {
+      "name": "Rastit",
+      "sentence": "Violetti kolmio, ympyrät ja maali ovat rata.",
+      "bubble": "Maalissa! Kävin kaikki rastit järjestyksessä.",
+      "hint": "Suunnistusrata piirretään kartalle violetilla. Kolmio on lähtö. Ympyrän keskellä on rasti, jolla on valkooranssi lippu. Rastit käydään numerojärjestyksessä, ja kaksi ympyrää sisäkkäin on maali.",
+      "quiz": {
+        "question": "Missä kuvassa on rata?"
+      }
+    },
+    "smallFeatures": {
+      "name": "Pienet kohteet",
+      "sentence": "Pienet ruskeat merkit ovat pieniä maan muotoja.",
+      "bubble": "Muurahaispesä! Tämä kannattaa kiertää.",
+      "hint": "Ruskeat merkit ovat maan muotoja: kolmio on muurahaispesä, rengas on kumpare ja V on kuoppa. Pienikin kohde auttaa löytämään rastin.",
+      "quiz": {
+        "question": "Missä kuvassa on muurahaispesä?"
+      }
+    }
+  },
+  "foxwood": {
+    "lakeName": "Kettujärvi"
+  },
+  "scenes": {
+    "campfire": {
+      "mapLabel": "NUOTIO"
+    },
+    "hill": {
+      "mapLabel": "MÄKI",
+      "orienteeringLesson": {
+        "title": "Maan muodot",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "gentleHill": {
+            "name": "Loiva mäki",
+            "summary": "käyrät harvassa",
+            "text": "Käyrät ovat kaukana toisistaan. Rinne on loiva, ja ylös on helppo kiivetä."
+          },
+          "steepHill": {
+            "name": "Jyrkkä mäki",
+            "summary": "käyrät tiheässä",
+            "text": "Käyrät ovat lähellä toisiaan. Rinne on jyrkkä, ja ylös on vaikea kiivetä."
+          },
+          "mound": {
+            "name": "Nyppylä",
+            "summary": "katkoviiva eli apukäyrä",
+            "text": "Apukäyrä näyttää pienen nyppylän, joka on liian matala tavalliselle käyrälle."
+          }
+        }
+      }
+    },
+    "field": {
+      "mapLabel": "PELTO",
+      "orienteeringLesson": {
+        "title": "Kuinka avointa?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "openArea": {
+            "name": "Avoin alue",
+            "summary": "keltainen",
+            "text": "Niitty tai nurmi. Täällä on helppo juosta, ja näkee kauas!"
+          },
+          "forestClearing": {
+            "name": "Metsän aukea",
+            "summary": "vaalea keltainen",
+            "text": "Metsän aukea. Puita ei ole, mutta varvut ja kannot hidastavat."
+          },
+          "semiOpenArea": {
+            "name": "Puoliavoin alue",
+            "summary": "valkoiset pisteet",
+            "text": "Avointa, mutta siellä täällä kasvaa puita ja pensaita."
+          },
+          "field": {
+            "name": "Pelto",
+            "summary": "mustat pisteet",
+            "text": "Pelto. Viljan päältä ei saa juosta, joten kettu kiertää pellon laitaa."
+          }
+        }
+      }
+    },
+    "lake": {
+      "mapLabel": "JÄRVI",
+      "orienteeringLesson": {
+        "title": "Millainen vesi?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "lake": {
+            "name": "Järvi",
+            "summary": "sininen, musta ranta",
+            "text": "Musta rantaviiva: järven yli ei pääse. Kettu kiertää järven!"
+          },
+          "shallowWater": {
+            "name": "Matala vesi",
+            "summary": "vaalea, sininen reuna",
+            "text": "Sininen reuna: vesi on matalaa. Sen läpi pääsee kahlaamalla. Tassut kastuvat!"
+          },
+          "waterPit": {
+            "name": "Vesikuoppa",
+            "summary": "sininen V",
+            "text": "Pieni kuoppa, jossa on vettä. Kettu kurkistaa ja näkee oman kuvansa!"
+          }
+        }
+      }
+    },
+    "controls": {
+      "mapLabel": "RASTIT",
+      "orienteeringLesson": {
+        "title": "Suunnistusrata",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "start": {
+            "name": "Lähtö",
+            "summary": "kolmio",
+            "text": "Rata alkaa kolmiosta. Kolmion kärki näyttää, missä on ensimmäinen rasti."
+          },
+          "control": {
+            "name": "Rasti",
+            "summary": "ympyrä",
+            "text": "Rastilla on valkooranssi lippu. Leimaa, niin kaikki tietävät, että kävit siellä!"
+          },
+          "controlOrder": {
+            "name": "Rastien järjestys",
+            "summary": "numerot",
+            "text": "Rastit käydään numerojärjestyksessä. Viiva näyttää suunnan, mutta reitin saa valita itse."
+          },
+          "finish": {
+            "name": "Maali",
+            "summary": "kaksi ympyrää",
+            "text": "Kaksi ympyrää sisäkkäin on maali. Juokse maaliin!"
+          }
+        }
+      }
+    },
+    "lookoutTower": {
+      "mapLabel": "NÄKÖTORNI",
+      "lesson": {
+        "title": "Mikä torni?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "lookoutTower": {
+            "name": "Näkötorni",
+            "summary": "ympyrä ja tikku",
+            "text": "Näkötorniin saa kiivetä. Sieltä näkee kauas metsän yli!"
+          },
+          "windTurbine": {
+            "name": "Tuulivoimala",
+            "summary": "ympyrä, tikku ja siivet",
+            "text": "Tuulivoimala tekee tuulesta sähköä. Se on tosi korkea!"
+          },
+          "waterTower": {
+            "name": "Vesitorni",
+            "summary": "musta pallo",
+            "text": "Vesitornissa on vettä, joka virtaa kylän taloihin."
+          },
+          "mast": {
+            "name": "Masto",
+            "summary": "piste ja nuoli",
+            "text": "Korkea ja kapea masto. Sen avulla puhelimet ja radiot toimivat."
+          }
+        }
+      }
+    },
+    "stream": {
+      "mapLabel": "PURO",
+      "lesson": {
+        "title": "Kuinka leveä vesi?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "smallStream": {
+            "name": "Pieni puro",
+            "summary": "ohut sininen viiva",
+            "text": "Oja tai pieni puro, alle 2 metriä leveä. Kettu hyppää yli!"
+          },
+          "wideStream": {
+            "name": "Leveä puro",
+            "summary": "paksu sininen viiva",
+            "text": "2–5 metriä leveä. Liian leveä hypätä!"
+          },
+          "river": {
+            "name": "Joki",
+            "summary": "sininen alue",
+            "text": "Yli 5 metriä leveä joki. Kartalla sininen alue, kuten järvi."
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Pääseekö yli?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "smallStream": {
+            "name": "Pieni puro",
+            "summary": "ohut sininen viiva",
+            "text": "Pieni puro tai oja. Kettu hyppää yli!"
+          },
+          "wideStream": {
+            "name": "Leveä puro",
+            "summary": "paksumpi sininen viiva",
+            "text": "Leveä puro tai oja. Sen yli pääsee kahlaamalla. Tassut kastuvat!"
+          },
+          "unclearStream": {
+            "name": "Epäselvä puro",
+            "summary": "sininen katkoviiva",
+            "text": "Oja, jossa on vettä vain välillä. Kettu kävelee yli."
+          },
+          "river": {
+            "name": "Joki",
+            "summary": "sininen, musta reuna",
+            "text": "Musta reuna: joen yli ei pääse. Etsi silta!"
+          }
+        }
+      },
+      "widthLabels": {
+        "small": "alle 2 m",
+        "wide": "2–5 m",
+        "river": "yli 5 m"
+      }
+    },
+    "trail": {
+      "mapLabel": "TIE",
+      "lesson": {
+        "title": "Kuinka iso tie?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "trail": {
+            "name": "Polku",
+            "summary": "musta katkoviiva",
+            "text": "Kapea polku. Sitä kuljetaan jalan."
+          },
+          "track": {
+            "name": "Ajotie",
+            "summary": "musta viiva",
+            "text": "Hiekkatie metsässä tai pellolla. Traktori mahtuu."
+          },
+          "smallCarRoad": {
+            "name": "Pieni autotie",
+            "summary": "ohut punainen viiva",
+            "text": "Autotie. Katso ensin, tuleeko auto!"
+          },
+          "largeCarRoad": {
+            "name": "Iso autotie",
+            "summary": "paksu punainen viiva",
+            "text": "Iso tie, jolla ajaa paljon autoja. Tien yli vain aikuisen kanssa!"
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Kuinka selvä polku?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "wideRoad": {
+            "name": "Leveä tie",
+            "summary": "ruskea, mustat reunat",
+            "text": "Autotie. Katso ensin, tuleeko auto!"
+          },
+          "track": {
+            "name": "Ajotie",
+            "summary": "musta viiva",
+            "text": "Hiekkatie. Sitä pitkin juoksee tosi nopeasti!"
+          },
+          "trail": {
+            "name": "Polku",
+            "summary": "pitkät katkoviivat",
+            "text": "Selvä polku. Sitäkin pitkin on helppo juosta."
+          },
+          "unclearTrail": {
+            "name": "Epäselvä polku",
+            "summary": "viivat pareittain",
+            "text": "Polku on vaikea nähdä. Kettu etsii sitä nenä maassa."
+          }
+        }
+      }
+    },
+    "building": {
+      "mapLabel": "TALO",
+      "lesson": {
+        "title": "Mikä talo?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "residentialHouse": {
+            "name": "Asuintalo",
+            "summary": "tummanharmaa",
+            "text": "Talossa asutaan. Punainenkin talo on kartalla harmaa!"
+          },
+          "cabin": {
+            "name": "Kesämökki",
+            "summary": "turkoosi",
+            "text": "Mökillä ollaan lomalla. Se on usein järven rannalla."
+          },
+          "shopOrSchool": {
+            "name": "Kauppa tai koulu",
+            "summary": "pinkki",
+            "text": "Iso talo, jossa käy paljon ihmisiä."
+          },
+          "church": {
+            "name": "Kirkko",
+            "summary": "violetti risti",
+            "text": "Kirkko on kartalla risti. Maastossa sen tunnistaa tornista."
+          },
+          "saunaOrBarn": {
+            "name": "Sauna tai lato",
+            "summary": "vaaleanharmaa",
+            "text": "Sauna, lato tai varasto. Niissä ei asuta."
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Mikä talo?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "house": {
+            "name": "Talo",
+            "summary": "musta",
+            "text": "Musta laatikko on talo. Punainenkin talo on kartalla musta!"
+          },
+          "allBuildings": {
+            "name": "Kaikki talot",
+            "summary": "sama musta",
+            "text": "Kaikki talot ovat mustia: kirkko, kauppa ja sauna."
+          },
+          "yard": {
+            "name": "Piha",
+            "summary": "oliivinvihreä",
+            "text": "Piha. Sinne ei saa mennä, vaan se kierretään."
+          },
+          "parking": {
+            "name": "Parkkipaikka",
+            "summary": "vaaleanruskea",
+            "text": "Parkkipaikka tai sorakenttä. Varo autoja!"
+          }
+        }
+      },
+      "hiss": "Sss!"
+    },
+    "bridge": {
+      "mapLabel": "SILTA",
+      "lesson": {
+        "title": "Miten pääsee yli?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "bridge": {
+            "name": "Silta",
+            "summary": "tie tummuu",
+            "text": "Silta vie tien veden yli. Kartalla tie on sillan kohdalla tumma."
+          },
+          "boardwalk": {
+            "name": "Pitkospuut",
+            "summary": "pienet ristit",
+            "text": "Pitkospuut ovat lankkupolku suon yli. Tassut pysyvät kuivina!"
+          },
+          "ferry": {
+            "name": "Lossi",
+            "summary": "katkoviiva vedessä",
+            "text": "Lossi kuljettaa autot ja kulkijat joen yli. Kartalla se on katkoviiva veden päällä."
+          }
+        }
+      }
+    },
+    "mire": {
+      "mapLabel": "SUO",
+      "lesson": {
+        "title": "Millainen suo?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "treelessMire": {
+            "name": "Puuton suo",
+            "summary": "keltainen",
+            "text": "Suo, jossa ei kasva puita. Tämä suo on kuiva, joten kettu kulkee helposti."
+          },
+          "forestedMire": {
+            "name": "Metsäinen suo",
+            "summary": "harmaa",
+            "text": "Suo, jossa kasvaa puita. Tassut kastuvat vähän, mutta kulku on helppoa."
+          },
+          "wetOpenMire": {
+            "name": "Märkä avosuo",
+            "summary": "keltainen ja viivat",
+            "text": "Siniset viivat: suo on märkä. Tassut uppoavat, ja kulku on hidasta."
+          },
+          "wetForestMire": {
+            "name": "Märkä metsäsuo",
+            "summary": "harmaa ja viivat",
+            "text": "Märkä suo, jossa kasvaa pieniä mäntyjä. Upottaa!"
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Millainen suo?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "marshyGround": {
+            "name": "Soistuva maa",
+            "summary": "siniset katkoviivat",
+            "text": "Vähän märkää metsää. Tassut kastuvat, mutta kulku on helppoa."
+          },
+          "mire": {
+            "name": "Suo",
+            "summary": "siniset viivat",
+            "text": "Märkä suo. Tassut uppoavat, ja kulku on hidasta."
+          },
+          "openMire": {
+            "name": "Avosuo",
+            "summary": "keltainen ja viivat",
+            "text": "Avosuo: suo, jossa ei kasva puita. Sieltä näkee kauas."
+          },
+          "impassableMire": {
+            "name": "Ylipääse&shy;mätön suo",
+            "summary": "tiheät viivat, musta reuna",
+            "text": "Ylipääsemätön suo. Liian märkä! Kettu kiertää sen."
+          }
+        }
+      }
+    },
+    "powerLine": {
+      "mapLabel": "SÄHKÖLINJA",
+      "lesson": {
+        "title": "Mitä johtoja?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "powerLine": {
+            "name": "Sähkölinja",
+            "summary": "viiva ja Z",
+            "text": "Sähkölinja: pylväät ja johdot. Johtoja pitkin sähkö kulkee taloihin."
+          },
+          "pole": {
+            "name": "Pylväs",
+            "summary": "musta piste",
+            "text": "Musta piste on pylväs. Iso pylväs on puita korkeampi. Älä koskaan kiipeä pylvääseen!"
+          },
+          "gasPipe": {
+            "name": "Kaasujohto",
+            "summary": "katkoviiva ja K",
+            "text": "Kaasujohto on maan alla. Keltaiset tolpat näyttävät, missä se kulkee."
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Linjat metsässä",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "powerLine": {
+            "name": "Sähkölinja",
+            "summary": "viiva ja poikkiviivat",
+            "text": "Sähkölinja. Poikkiviiva on pylväs. Linjan alla on aukko, jota pitkin on helppo juosta."
+          },
+          "narrowClearing": {
+            "name": "Kapea linja",
+            "summary": "musta katkoviiva",
+            "text": "Kapea linja on kapea aukko metsässä. Sitä pitkin on helppo juosta."
+          }
+        }
+      }
+    },
+    "fences": {
+      "mapLabel": "AIDAT",
+      "lesson": {
+        "title": "Mikä aita?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "fence": {
+            "name": "Aita",
+            "summary": "pisteviiva",
+            "text": "Ohut musta viiva, jossa on pisteitä, on aita. Aidan viertä on helppo kulkea."
+          },
+          "stoneWall": {
+            "name": "Kiviaita",
+            "summary": "sama pisteviiva",
+            "text": "Kiviaitakin on kartalla aita. Matalan kiviaidan yli pääsee hyppäämällä."
+          },
+          "gate": {
+            "name": "Portti",
+            "summary": "kaksi poikkiviivaa",
+            "text": "Aidan poikki kaksi pientä viivaa: siinä on portti. Muista sulkea portti!"
+          },
+          "hedge": {
+            "name": "Pensasaita",
+            "summary": "vihreät pisteet",
+            "text": "Rivi vihreitä pisteitä on pensasaita: tiheä rivi pensaita."
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Aidat",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "fence": {
+            "name": "Aita",
+            "summary": "piikkiviiva",
+            "text": "Musta viiva, jossa on pieniä piikkejä, on aita. Aidan viertä on helppo kulkea."
+          },
+          "highFence": {
+            "name": "Korkea aita",
+            "summary": "piikkiparit",
+            "text": "Korkean aidan yli ei kannata kiivetä. Etsi portti tai kierrä!"
+          },
+          "stoneWall": {
+            "name": "Kiviaita",
+            "summary": "pisteviiva",
+            "text": "Musta viiva, jossa on pisteitä, on kiviaita. Matalan kiviaidan yli pääsee hyppäämällä."
+          },
+          "gate": {
+            "name": "Portti",
+            "summary": "aukko aidassa",
+            "text": "Aidassa on aukko, ja sen päissä on poikkiviivat: siinä on portti tai kulkupaikka."
+          }
+        }
+      }
+    },
+    "stones": {
+      "mapLabel": "KIVI",
+      "lesson": {
+        "title": "Kiviä ja kallioita",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "largeStone": {
+            "name": "Iso kivi",
+            "summary": "pieni musta merkki",
+            "text": "Iso kivi on kartalla pieni musta merkki."
+          },
+          "stoneField": {
+            "name": "Kivikko",
+            "summary": "tiheät kolmiot",
+            "text": "Kivikossa on paljon kiviä. Kulje varovasti!"
+          },
+          "boulderField": {
+            "name": "Louhikko",
+            "summary": "harvat kolmiot",
+            "text": "Louhikossa on valtavia lohkareita ja niiden välissä koloja."
+          },
+          "bedrock": {
+            "name": "Kallio",
+            "summary": "punaharmaa",
+            "text": "Paljas kallio. Siinä ei kasva puita."
+          },
+          "cliff": {
+            "name": "Jyrkänne",
+            "summary": "viiva ja piikit",
+            "text": "Jyrkkä kallioseinä. Piikit osoittavat alas. Älä hyppää!"
+          }
+        }
+      },
+      "orienteeringLesson": {
+        "title": "Kiviä ja kallioita",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "stones": {
+            "name": "Kivi",
+            "summary": "musta piste",
+            "text": "Musta piste on kivi. Mitä isompi piste, sitä isompi kivi."
+          },
+          "stoneField": {
+            "name": "Kivikko",
+            "summary": "mustat kolmiot",
+            "text": "Mustat kolmiot ovat kivikko. Siellä on paljon kiviä."
+          },
+          "bedrock": {
+            "name": "Kallio",
+            "summary": "harmaa",
+            "text": "Harmaa on paljas kallio. Siinä ei kasva puita."
+          },
+          "lowCliff": {
+            "name": "Matala jyrkänne",
+            "summary": "ohut viiva",
+            "text": "Ohut musta viiva on matala jyrkänne. Siitä pääsee kiipeämällä."
+          },
+          "highCliff": {
+            "name": "Korkea jyrkänne",
+            "summary": "viiva ja piikit",
+            "text": "Paksu viiva ja piikit: korkea jyrkänne. Sen yli ei pääse. Kierrä!"
+          }
+        }
+      }
+    },
+    "forest": {
+      "mapLabel": "METSÄ",
+      "orienteeringLesson": {
+        "title": "Kuinka helppo juosta?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "easyForest": {
+            "name": "Helppo metsä",
+            "summary": "valkoinen",
+            "text": "Isot puut kasvavat harvassa. Täällä on helppo juosta!"
+          },
+          "slowForest": {
+            "name": "Hidastava metsä",
+            "summary": "vaalea vihreä",
+            "text": "Tiheää nuorta metsää. Juoksu hidastuu."
+          },
+          "thicket": {
+            "name": "Tiheikkö",
+            "summary": "vihreä",
+            "text": "Tosi tiheää! Oksat raapivat, ja pääsee vain kävellen."
+          },
+          "heath": {
+            "name": "Varvikko",
+            "summary": "vihreät viivat",
+            "text": "Puita on harvassa, mutta maassa on tiheää varvikkoa ja risuja. Kettu pomppii hitaasti."
+          }
+        }
+      },
+      "lesson": {
+        "title": "Millaisia puita?",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "coniferForest": {
+            "name": "Havumetsä",
+            "summary": "kuuset ja männyt",
+            "text": "Havupuilla on neulaset. Merkki on kuin pieni kuusi."
+          },
+          "deciduousForest": {
+            "name": "Lehtimetsä",
+            "summary": "koivut ja muut lehtipuut",
+            "text": "Lehtipuilla on lehdet. Merkki on kuin pyöreä latva."
+          },
+          "mixedForest": {
+            "name": "Sekametsä",
+            "summary": "havu- ja lehtipuita",
+            "text": "Sekametsässä kasvaa molempia. Merkissä on latva ja kuusi."
+          },
+          "shrubland": {
+            "name": "Pensaikko",
+            "summary": "matalat pensaat",
+            "text": "Pensaat ovat matalia ja tiheitä. Merkissä on kolme pientä latvaa."
+          }
+        }
+      }
+    },
+    "smallFeatures": {
+      "mapLabel": "PIENET KOHTEET",
+      "orienteeringLesson": {
+        "title": "Pienet kohteet",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "antNest": {
+            "name": "Muurahais&shy;pesä",
+            "summary": "ruskea kolmio",
+            "text": "Ruskea kolmio on muurahaispesä. Älä astu siihen, muurahaiset puree!"
+          },
+          "knoll": {
+            "name": "Kumpare",
+            "summary": "ruskea rengas",
+            "text": "Pieni ruskea rengas on kumpare, pieni mäki. Tosi pieni kumpare on pelkkä ruskea piste."
+          },
+          "pit": {
+            "name": "Kuoppa",
+            "summary": "ruskea V",
+            "text": "Ruskea V on kuoppa. Kuopan pohjalle ei näe kaukaa."
+          }
+        }
+      }
+    }
+  },
+  "lessonPanel": {
+    "shopSign": "KAUPPA"
+  },
+  "home": {
+    "topoHeading": "Karttamerkit",
+    "orienteeringHeading": "Suunnistuskartan merkit",
+    "startTopo": "Mikä on kartta?",
+    "startOrienteering": "Mikä on suunnistuskartta?",
+    "startHere": "aloita tästä",
+    "learned": "opittu ✓",
+    "comingSoon": "tulossa",
+    "pageTitle": "Ketun karttakoulu",
+    "heroTitle": "Ketun <span>karttakoulu</span>",
+    "heroText": "Kartta on kuva maastosta ylhäältä katsottuna. Lähde ketun kanssa retkelle ja selvitä, mitä kartan merkit tarkoittavat!",
+    "letsStart": "Aloitetaan!",
+    "footer": "Karttamerkit: Maanmittauslaitoksen maastokartta ja Suomen Suunnistusliiton suunnistuskartta (ISOM 2017)."
+  },
+  "signPage": {
+    "title": "{{name}} – Ketun karttakoulu",
+    "again": "Uudestaan",
+    "correct": "Oikein! Tuo on {{name}}.",
+    "wrong": "Tuo on {{name}}. Kokeile toista!",
+    "defaultTitle": "Karttamerkki – Ketun karttakoulu",
+    "onMap": "Kartalla",
+    "inTerrain": "Maastossa",
+    "mapLabel": "Kartta",
+    "landscapeLabel": "Maisema",
+    "go": "Lähde matkaan!",
+    "foxKnows": "Kettu tietää",
+    "quiz": "Visa",
+    "previous": "← Edellinen",
+    "next": "Seuraava →"
+  },
+  "mapPage": {
+    "topo": {
+      "title": "Mikä on kartta?",
+      "sentence": "Kartta on kuva maastosta ylhäältä katsottuna.",
+      "ending": "Tadaa! Kartta on kuva ylhäältä."
+    },
+    "orienteering": {
+      "title": "Mikä on suunnistuskartta?",
+      "sentence": "Suunnistuskartalla väri kertoo, missä on helppo juosta.",
+      "ending": "Tadaa! Tämä on suunnistuskartta."
+    },
+    "parts": {
+      "orienteering": {
+        "forest": {
+          "name": "Metsä",
+          "onMap": "valkoinen tai vihreä",
+          "bubble": "Valkoisessa metsässä on helppo juosta. Vihreä on tiheää metsää."
+        },
+        "field": {
+          "name": "Pelto",
+          "onMap": "keltainen ja pisteet",
+          "bubble": "Pellolla juoksee helposti, joten se on keltainen. Pisteet kertovat, että se on pelto."
+        },
+        "mire": {
+          "name": "Suo",
+          "onMap": "keltainen ja siniset viivat",
+          "bubble": "Suolla ei kasva puita, joten se on keltainen. Siniset viivat kertovat, että se on märkä."
+        },
+        "hill": {
+          "name": "Mäki",
+          "onMap": "ruskeat käyrät",
+          "bubble": "Mäki on ruskeita käyriä, kuten maastokartassakin. Laen aukea on keltainen."
+        },
+        "lake": {
+          "name": "Järvi",
+          "onMap": "sininen",
+          "bubble": "Järvi on sininen, ja rannassa on musta viiva."
+        },
+        "trail": {
+          "name": "Polku",
+          "onMap": "musta katkoviiva",
+          "bubble": "Polut, tiet ja talot ovat mustia. Leveä tie on ruskea. Piha on vihreä: pihalle ei saa mennä!"
+        }
+      },
+      "topo": {
+        "forest": {
+          "name": "Metsä",
+          "onMap": "valkoinen",
+          "bubble": "Ylhäältä metsä näkyy puiden latvoina. Kartalla metsä on valkoinen."
+        },
+        "field": {
+          "name": "Pelto",
+          "onMap": "keltainen",
+          "bubble": "Pellolla on pitkiä vakoja. Kartalla pelto on keltainen."
+        },
+        "mire": {
+          "name": "Suo",
+          "onMap": "siniset viivat",
+          "bubble": "Suo on märkä ja lätäköinen. Kartalla se on sinisiä viivoja."
+        },
+        "hill": {
+          "name": "Mäki",
+          "onMap": "ruskeat käyrät",
+          "bubble": "Mäki on korkea. Ruskeat käyrät kiertävät mäen ympäri samalla korkeudella."
+        },
+        "lake": {
+          "name": "Järvi",
+          "onMap": "sininen",
+          "bubble": "Järvi on vettä. Kartalla vesi on sininen."
+        },
+        "trail": {
+          "name": "Polku",
+          "onMap": "musta katkoviiva",
+          "bubble": "Polku on kapea kulkureitti. Kartalla se on musta katkoviiva."
+        }
+      }
+    },
+    "bubbles": {
+      "here": "Tässä olen minä! Näetkö mäen ja metsän?",
+      "rising": "Nyt noustaan ilmaan!",
+      "above": "Ylhäältä näkyy kaikki kerralla!",
+      "becoming": "Nyt siitä tulee kartta…"
+    },
+    "pageTitle": "Mikä on kartta? – Ketun karttakoulu",
+    "canvasLabel": "Kettu ja Kettula maastossa ja ylhäältä katsottuna",
+    "legendHeading": "Paina ja katso",
+    "flyUp": "Lennä ylös!",
+    "sliderLabel": "Maastosta kartaksi",
+    "sliderTerrain": "Maastossa",
+    "sliderAbove": "Ylhäältä",
+    "sliderMap": "Kartalla",
+    "firstSign": "Ensimmäinen merkki: Järvi →"
+  },
+  "common": {
+    "appName": "Karttakoulu",
+    "pawprints": "Ketunjäljet",
+    "toHome": "Etusivulle",
+    "fox": "Kettu"
+  }
+}

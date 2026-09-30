@@ -1,0 +1,38 @@
+- main:
+  - heading "Suo" [level=1]
+  - paragraph: Siniset viivat ovat suota.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi SUO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Suo! Täällä tassut kastuvat.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suolla maa on märkää ja upottavaa. Keltainen suo on puuton, harmaassa suossa kasvaa puita. Siniset vaakaviivat kertovat, että suo on märkä ja sitä on vaikea kulkea.
+  - heading "Millainen suo?" [level=2]
+  - list:
+    - listitem:
+      - button "Puuton suo keltainen"
+    - listitem:
+      - button "Metsäinen suo harmaa"
+    - listitem:
+      - button "Märkä avosuo keltainen ja viivat"
+    - listitem:
+      - button "Märkä metsäsuo harmaa ja viivat"
+  - figure "Paina merkkiä!":
+    - img "Millainen suo?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on suo?" [level=2]
+    - button "Suo"
+    - button "Pelto"
+    - button "Järvi"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=field
+    - link "Seuraava →":
+      - /url: sign.html?id=stream

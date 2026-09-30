@@ -1,0 +1,38 @@
+- main:
+  - heading "Pelto" [level=1]
+  - paragraph: Keltainen on avointa. Pisteet kertovat pellosta.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": PELTO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hups, myyrä karkasi! Keltaisella näkee kauas.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla keltainen on avoin paikka, jossa ei kasva puita. Siellä on helppo juosta, ja näkee kauas. Pelto on keltainen, ja siinä on pieniä mustia pisteitä. Kasvavan viljan päältä ei saa juosta.
+  - heading "Kuinka avointa?" [level=2]
+  - list:
+    - listitem:
+      - button "Avoin alue keltainen"
+    - listitem:
+      - button "Metsän aukea vaalea keltainen"
+    - listitem:
+      - button "Puoliavoin alue valkoiset pisteet"
+    - listitem:
+      - button "Pelto mustat pisteet"
+  - figure "Paina merkkiä!":
+    - img "Kuinka avointa?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on pelto?" [level=2]
+    - button "Järvi"
+    - button "Suo"
+    - button "Pelto"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=lake
+    - link "Seuraava →":
+      - /url: sign.html?id=mire

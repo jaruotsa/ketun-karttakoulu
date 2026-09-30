@@ -1,0 +1,22 @@
+[
+  {
+    "button": "Iso kivi pieni musta merkki",
+    "text": "Iso kivi on kartalla pieni musta merkki."
+  },
+  {
+    "button": "Kivikko tiheät kolmiot",
+    "text": "Kivikossa on paljon kiviä. Kulje varovasti!"
+  },
+  {
+    "button": "Louhikko harvat kolmiot",
+    "text": "Louhikossa on valtavia lohkareita ja niiden välissä koloja."
+  },
+  {
+    "button": "Kallio punaharmaa",
+    "text": "Paljas kallio. Siinä ei kasva puita."
+  },
+  {
+    "button": "Jyrkänne viiva ja piikit",
+    "text": "Jyrkkä kallioseinä. Piikit osoittavat alas. Älä hyppää!"
+  }
+]

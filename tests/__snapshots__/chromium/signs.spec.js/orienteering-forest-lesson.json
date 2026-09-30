@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Helppo metsä valkoinen",
+    "text": "Isot puut kasvavat harvassa. Täällä on helppo juosta!"
+  },
+  {
+    "button": "Hidastava metsä vaalea vihreä",
+    "text": "Tiheää nuorta metsää. Juoksu hidastuu."
+  },
+  {
+    "button": "Tiheikkö vihreä",
+    "text": "Tosi tiheää! Oksat raapivat, ja pääsee vain kävellen."
+  },
+  {
+    "button": "Varvikko vihreät viivat",
+    "text": "Puita on harvassa, mutta maassa on tiheää varvikkoa ja risuja. Kettu pomppii hitaasti."
+  }
+]

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="signPage.defaultTitle"></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/kuvat/kuvake.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/kuvat/kuvake-180.png">
+  <meta name="theme-color" content="#FBF5E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Map School" data-i18n-attr="content:common.appName">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body class="sign-page" data-view="map">
+  <header class="top-bar">
+    <a class="home-button" href="index.html" data-i18n-attr="aria-label:common.toHome">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>
+    </a>
+    <span id="progress" class="progress"></span>
+    <span class="pawprints" data-i18n-attr="title:common.pawprints">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><circle cx="6" cy="9.5" r="2.2"/><circle cx="10" cy="6" r="2.2"/><circle cx="14" cy="6" r="2.2"/><circle cx="18" cy="9.5" r="2.2"/></svg>
+      <span id="pawprint-count">0</span>
+    </span>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div id="sign-icon" class="sign-icon"></div>
+      <div>
+        <h1 id="sign-name"></h1>
+        <p id="sign-sentence" class="sentence"></p>
+      </div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" data-view="map" aria-selected="true" data-i18n="signPage.onMap"></button>
+      <button role="tab" data-view="terrain" aria-selected="false" data-i18n="signPage.inTerrain"></button>
+    </div>
+
+    <section class="views">
+      <figure class="panel panel-map">
+        <figcaption data-i18n="signPage.onMap"></figcaption>
+        <svg id="map" viewBox="0 0 600 380" role="img" data-i18n-attr="aria-label:signPage.mapLabel"></svg>
+      </figure>
+      <figure class="panel panel-terrain">
+        <figcaption data-i18n="signPage.inTerrain"></figcaption>
+        <div class="terrain-frame">
+          <svg id="terrain" viewBox="0 0 600 380" role="img" data-i18n-attr="aria-label:signPage.landscapeLabel"></svg>
+          <div id="bubble" class="bubble"></div>
+        </div>
+      </figure>
+    </section>
+
+    <div class="actions">
+      <button id="start-button" class="big-button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>
+        <span data-i18n="signPage.go"></span>
+      </button>
+    </div>
+
+    <section class="hint" aria-live="polite">
+      <div class="hint-fox" id="hint-fox"></div>
+      <div>
+        <h2 data-i18n="signPage.foxKnows"></h2>
+        <p id="hint-text"></p>
+      </div>
+    </section>
+
+    <section id="lesson" class="lesson" hidden>
+      <h2 id="lesson-title"></h2>
+      <div class="lesson-body">
+        <ol id="lesson-items"></ol>
+        <figure class="lesson-figure">
+          <div id="lesson-frame" class="lesson-frame" role="img">
+            <svg id="lesson-overlay" viewBox="0 0 400 220" aria-hidden="true"></svg>
+          </div>
+          <figcaption id="lesson-text" aria-live="polite"></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="quiz" data-i18n-attr="aria-label:signPage.quiz">
+      <h2 id="quiz-question"></h2>
+      <div id="quiz-options" class="quiz-options"></div>
+      <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+    </section>
+
+    <nav class="page-nav">
+      <a id="previous" class="nav-button" href="#" data-i18n="signPage.previous"></a>
+      <a id="next" class="nav-button" href="#" data-i18n="signPage.next"></a>
+    </nav>
+  </main>
+
+  <script type="module" src="js/pages/sign.ts"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+- main:
+  - heading "Sähkölinja" [level=1]
+  - paragraph: Viiva ja Z on sähkölinja.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi SÄHKÖLINJA
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Sähkö kulkee johtoja pitkin taloon!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Sähkölinja on kartalla ohut musta viiva, jossa on välillä pieni Z. Mustat pisteet ovat pylväitä. Linjan alla metsässä on aukko. Älä koskaan kiipeä sähköpylvääseen!
+  - heading "Mitä johtoja?" [level=2]
+  - list:
+    - listitem:
+      - button "Sähkölinja viiva ja Z"
+    - listitem:
+      - button "Pylväs musta piste"
+    - listitem:
+      - button "Kaasujohto katkoviiva ja K"
+  - figure "Paina merkkiä!":
+    - img "Mitä johtoja?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on sähkölinja?" [level=2]
+    - button "Aidat"
+    - button "Sähkölinja"
+    - button "Polku ja tie"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=fences
+    - link "Seuraava →":
+      - /url: sign.html?id=bridge

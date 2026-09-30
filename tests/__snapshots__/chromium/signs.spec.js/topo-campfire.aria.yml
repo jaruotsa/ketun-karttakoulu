@@ -1,0 +1,25 @@
+- main:
+  - heading "Nuotiopaikka" [level=1]
+  - paragraph: Musta liekki on nuotiopaikka.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi NUOTIO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Makkaranpaistoon! Täällä saa tehdä tulen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Nuotiopaikalla saa sytyttää tulen. Kartalla se on musta liekki. Kartan selitteessä sen nimi on tulentekopaikka. Tulta tehdään aina aikuisen kanssa!
+  - region "Visa":
+    - heading "Missä kuvassa on nuotiopaikka?" [level=2]
+    - button "Nuotiopaikka"
+    - button "Mäki"
+    - button "Puro"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=stones
+    - link "Seuraava →":
+      - /url: sign.html?id=lookoutTower

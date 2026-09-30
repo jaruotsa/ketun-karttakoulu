@@ -1,0 +1,34 @@
+- main:
+  - heading "Pienet kohteet" [level=1]
+  - paragraph: Pienet ruskeat merkit ovat pieniä maan muotoja.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": PIENET KOHTEET
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Muurahaispesä! Tämä kannattaa kiertää.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Ruskeat merkit ovat maan muotoja: kolmio on muurahaispesä, rengas on kumpare ja V on kuoppa. Pienikin kohde auttaa löytämään rastin."
+  - heading "Pienet kohteet" [level=2]
+  - list:
+    - listitem:
+      - button "Muurahaispesä ruskea kolmio"
+    - listitem:
+      - button "Kumpare ruskea rengas"
+    - listitem:
+      - button "Kuoppa ruskea V"
+  - figure "Paina merkkiä!":
+    - img "Pienet kohteet"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on muurahaispesä?" [level=2]
+    - button "Mäki"
+    - button "Rastit"
+    - button "Pienet kohteet"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=controls

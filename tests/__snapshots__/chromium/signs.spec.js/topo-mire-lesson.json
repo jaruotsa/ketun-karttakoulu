@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Puuton suo keltainen",
+    "text": "Suo, jossa ei kasva puita. Tämä suo on kuiva, joten kettu kulkee helposti."
+  },
+  {
+    "button": "Metsäinen suo harmaa",
+    "text": "Suo, jossa kasvaa puita. Tassut kastuvat vähän, mutta kulku on helppoa."
+  },
+  {
+    "button": "Märkä avosuo keltainen ja viivat",
+    "text": "Siniset viivat: suo on märkä. Tassut uppoavat, ja kulku on hidasta."
+  },
+  {
+    "button": "Märkä metsäsuo harmaa ja viivat",
+    "text": "Märkä suo, jossa kasvaa pieniä mäntyjä. Upottaa!"
+  }
+]

@@ -1,0 +1,36 @@
+- main:
+  - heading "Ketun karttakoulu" [level=1]
+  - paragraph: Kartta on kuva maastosta ylhäältä katsottuna. Lähde ketun kanssa retkelle ja selvitä, mitä kartan merkit tarkoittavat!
+  - link "Aloitetaan!":
+    - /url: what-is-a-map.html
+  - img "Kettu"
+  - heading "Suunnistuskartan merkit" [level=2]
+  - link "Mikä on suunnistuskartta? aloita tästä":
+    - /url: what-is-a-map.html
+  - link "Järvi":
+    - /url: sign.html?id=lake
+  - link "Pelto":
+    - /url: sign.html?id=field
+  - link "Suo":
+    - /url: sign.html?id=mire
+  - link "Puro":
+    - /url: sign.html?id=stream
+  - link "Metsä":
+    - /url: sign.html?id=forest
+  - link "Polku ja tie":
+    - /url: sign.html?id=trail
+  - link "Rakennukset":
+    - /url: sign.html?id=building
+  - link "Aidat":
+    - /url: sign.html?id=fences
+  - link "Sähkölinja":
+    - /url: sign.html?id=powerLine
+  - link "Mäki":
+    - /url: sign.html?id=hill
+  - link "Kivet ja kalliot":
+    - /url: sign.html?id=stones
+  - link "Rastit":
+    - /url: sign.html?id=controls
+  - link "Pienet kohteet":
+    - /url: sign.html?id=smallFeatures
+  - paragraph: "/Karttamerkit: Maanmittauslaitoksen maastokartta ja Suomen Suunnistusliiton suunnistuskartta \\(ISOM \\d+\\)\\./"

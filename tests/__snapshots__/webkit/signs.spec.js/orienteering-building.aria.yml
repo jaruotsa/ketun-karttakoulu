@@ -1,0 +1,38 @@
+- main:
+  - heading "Rakennukset" [level=1]
+  - paragraph: Musta on talo. Oliivinvihreä on piha.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": TALO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema": Sss!
+    - text: Sss! Kissa vartioi pihaa.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla kaikki talot ovat mustia, oli talo millainen tahansa. Oliivinvihreä on piha. Pihalle ei saa mennä, joten se kierretään. Vaaleanruskea on parkkipaikka tai sorakenttä.
+  - heading "Mikä talo?" [level=2]
+  - list:
+    - listitem:
+      - button "Talo musta"
+    - listitem:
+      - button "Kaikki talot sama musta"
+    - listitem:
+      - button "Piha oliivinvihreä"
+    - listitem:
+      - button "Parkkipaikka vaaleanruskea"
+  - figure "Paina merkkiä!":
+    - img "Mikä talo?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on talo?" [level=2]
+    - button "Polku ja tie"
+    - button "Aidat"
+    - button "Rakennukset"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=trail
+    - link "Seuraava →":
+      - /url: sign.html?id=fences

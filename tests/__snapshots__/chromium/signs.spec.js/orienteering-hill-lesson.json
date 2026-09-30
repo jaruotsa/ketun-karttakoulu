@@ -1,0 +1,14 @@
+[
+  {
+    "button": "Loiva mäki käyrät harvassa",
+    "text": "Käyrät ovat kaukana toisistaan. Rinne on loiva, ja ylös on helppo kiivetä."
+  },
+  {
+    "button": "Jyrkkä mäki käyrät tiheässä",
+    "text": "Käyrät ovat lähellä toisiaan. Rinne on jyrkkä, ja ylös on vaikea kiivetä."
+  },
+  {
+    "button": "Nyppylä katkoviiva eli apukäyrä",
+    "text": "Apukäyrä näyttää pienen nyppylän, joka on liian matala tavalliselle käyrälle."
+  }
+]

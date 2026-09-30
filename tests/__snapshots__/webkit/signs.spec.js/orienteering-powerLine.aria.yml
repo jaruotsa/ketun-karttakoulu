@@ -1,0 +1,34 @@
+- main:
+  - heading "Sähkölinja" [level=1]
+  - paragraph: Ohut viiva ja poikkiviivat on sähkölinja.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": SÄHKÖLINJA
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Sähkö kulkee johtoja pitkin taloon!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla sähkölinja on ohut musta viiva. Pienet poikkiviivat ovat pylväitä. Linjan alla on aukko, jota pitkin on helppo juosta.
+  - heading "Linjat metsässä" [level=2]
+  - list:
+    - listitem:
+      - button "Sähkölinja viiva ja poikkiviivat"
+    - listitem:
+      - button "Kapea linja musta katkoviiva"
+  - figure "Paina merkkiä!":
+    - img "Linjat metsässä"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on sähkölinja?" [level=2]
+    - button "Aidat"
+    - button "Sähkölinja"
+    - button "Polku ja tie"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=fences
+    - link "Seuraava →":
+      - /url: sign.html?id=hill

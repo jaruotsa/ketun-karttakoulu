@@ -1,0 +1,22 @@
+[
+  {
+    "slider": "0",
+    "bubble": "Tässä olen minä! Näetkö mäen ja metsän?"
+  },
+  {
+    "slider": "50",
+    "bubble": "Nyt noustaan ilmaan!"
+  },
+  {
+    "slider": "100",
+    "bubble": "Ylhäältä näkyy kaikki kerralla!"
+  },
+  {
+    "slider": "150",
+    "bubble": "Nyt siitä tulee kartta…"
+  },
+  {
+    "slider": "199",
+    "bubble": "Tadaa! Tämä on suunnistuskartta."
+  }
+]

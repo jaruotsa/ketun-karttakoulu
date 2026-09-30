@@ -1,0 +1,40 @@
+- main:
+  - heading "Kivet ja kalliot" [level=1]
+  - paragraph: Pieni musta merkki on iso kivi.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi KIVI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hyppy kiven päälle! Sisilisko säikähti.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Iso kivi on kartalla pieni musta merkki. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä."
+  - heading "Kiviä ja kallioita" [level=2]
+  - list:
+    - listitem:
+      - button "Iso kivi pieni musta merkki"
+    - listitem:
+      - button "Kivikko tiheät kolmiot"
+    - listitem:
+      - button "Louhikko harvat kolmiot"
+    - listitem:
+      - button "Kallio punaharmaa"
+    - listitem:
+      - button "Jyrkänne viiva ja piikit"
+  - figure "Paina merkkiä!":
+    - img "Kiviä ja kallioita"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on iso kivi?" [level=2]
+    - button "Metsä"
+    - button "Kivet ja kalliot"
+    - button "Nuotiopaikka"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=hill
+    - link "Seuraava →":
+      - /url: sign.html?id=campfire

@@ -1,0 +1,38 @@
+- main:
+  - heading "Aidat" [level=1]
+  - paragraph: Piikkiviiva on aita, pisteviiva kiviaita.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": AIDAT
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Portista pääsee pihaan. Portti kiinni!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla aita on musta viiva, jossa on pieniä vinoja piikkejä. Kiviaita on musta viiva, jossa on pisteitä. Portin kohdalla aidassa on aukko. Aidan viertä on helppo kulkea.
+  - heading "Aidat" [level=2]
+  - list:
+    - listitem:
+      - button "Aita piikkiviiva"
+    - listitem:
+      - button "Korkea aita piikkiparit"
+    - listitem:
+      - button "Kiviaita pisteviiva"
+    - listitem:
+      - button "Portti aukko aidassa"
+  - figure "Paina merkkiä!":
+    - img "Aidat"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on aita?" [level=2]
+    - button "Pienet kohteet"
+    - button "Aidat"
+    - button "Rastit"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=building
+    - link "Seuraava →":
+      - /url: sign.html?id=powerLine

@@ -1,0 +1,38 @@
+- main:
+  - heading "Rastit" [level=1]
+  - paragraph: Violetti kolmio, ympyrät ja maali ovat rata.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": RASTIT 1 2 3
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema": 1 2 3
+    - text: Maalissa! Kävin kaikki rastit järjestyksessä.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistusrata piirretään kartalle violetilla. Kolmio on lähtö. Ympyrän keskellä on rasti, jolla on valkooranssi lippu. Rastit käydään numerojärjestyksessä, ja kaksi ympyrää sisäkkäin on maali.
+  - heading "Suunnistusrata" [level=2]
+  - list:
+    - listitem:
+      - button "Lähtö kolmio"
+    - listitem:
+      - button "Rasti ympyrä"
+    - listitem:
+      - button "Rastien järjestys numerot"
+    - listitem:
+      - button "Maali kaksi ympyrää"
+  - figure "Paina merkkiä!":
+    - img "Suunnistusrata"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on rata?" [level=2]
+    - button "Mäki"
+    - button "Rastit"
+    - button "Järvi"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=stones
+    - link "Seuraava →":
+      - /url: sign.html?id=smallFeatures

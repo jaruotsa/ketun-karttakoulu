@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="mapPage.pageTitle"></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/kuvat/kuvake.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/kuvat/kuvake-180.png">
+  <meta name="theme-color" content="#FBF5E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Map School" data-i18n-attr="content:common.appName">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body class="map-page">
+  <header class="top-bar">
+    <a class="home-button" href="index.html" data-i18n-attr="aria-label:common.toHome">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>
+    </a>
+    <span class="pawprints" data-i18n-attr="title:common.pawprints">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><circle cx="6" cy="9.5" r="2.2"/><circle cx="10" cy="6" r="2.2"/><circle cx="14" cy="6" r="2.2"/><circle cx="18" cy="9.5" r="2.2"/></svg>
+      <span id="pawprint-count">0</span>
+    </span>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div>
+        <h1 data-i18n="mapPage.topo.title"></h1>
+        <p class="sentence" data-i18n="mapPage.topo.sentence"></p>
+      </div>
+    </section>
+
+    <div class="flight-and-legend">
+      <figure class="flight flight-3d" id="flight">
+        <div class="sky"></div>
+        <canvas id="canvas" role="img" data-i18n-attr="aria-label:mapPage.canvasLabel"></canvas>
+        <svg id="fox-on-map" class="fox-3d" viewBox="-21 -21 42 42" aria-hidden="true"></svg>
+        <div id="bubble" class="bubble visible"></div>
+      </figure>
+
+      <aside class="legend">
+        <h2 data-i18n="mapPage.legendHeading"></h2>
+        <ol id="legend"></ol>
+      </aside>
+    </div>
+
+    <div class="flight-controls">
+      <button id="fly-button" class="big-button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>
+        <span data-i18n="mapPage.flyUp"></span>
+      </button>
+      <div class="slider">
+        <input id="altitude" type="range" min="0" max="200" value="0" data-i18n-attr="aria-label:mapPage.sliderLabel">
+        <div class="slider-labels"><span data-i18n="mapPage.sliderTerrain"></span><span data-i18n="mapPage.sliderAbove"></span><span data-i18n="mapPage.sliderMap"></span></div>
+      </div>
+    </div>
+
+    <nav class="page-nav">
+      <a id="next" class="nav-button" href="sign.html?id=lake" data-i18n="mapPage.firstSign"></a>
+    </nav>
+  </main>
+
+  <script type="module" src="js/pages/what-is-a-map.ts"></script>
+</body>
+</html>

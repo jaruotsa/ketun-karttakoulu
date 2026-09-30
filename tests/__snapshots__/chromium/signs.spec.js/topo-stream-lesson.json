@@ -1,0 +1,14 @@
+[
+  {
+    "button": "Pieni puro ohut sininen viiva",
+    "text": "Oja tai pieni puro, alle 2 metriä leveä. Kettu hyppää yli!"
+  },
+  {
+    "button": "Leveä puro paksu sininen viiva",
+    "text": "2–5 metriä leveä. Liian leveä hypätä!"
+  },
+  {
+    "button": "Joki sininen alue",
+    "text": "Yli 5 metriä leveä joki. Kartalla sininen alue, kuten järvi."
+  }
+]

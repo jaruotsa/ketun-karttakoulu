@@ -1,0 +1,22 @@
+[
+  {
+    "button": "Asuintalo tummanharmaa",
+    "text": "Talossa asutaan. Punainenkin talo on kartalla harmaa!"
+  },
+  {
+    "button": "Kesämökki turkoosi",
+    "text": "Mökillä ollaan lomalla. Se on usein järven rannalla."
+  },
+  {
+    "button": "Kauppa tai koulu pinkki",
+    "text": "Iso talo, jossa käy paljon ihmisiä."
+  },
+  {
+    "button": "Kirkko violetti risti",
+    "text": "Kirkko on kartalla risti. Maastossa sen tunnistaa tornista."
+  },
+  {
+    "button": "Sauna tai lato vaaleanharmaa",
+    "text": "Sauna, lato tai varasto. Niissä ei asuta."
+  }
+]

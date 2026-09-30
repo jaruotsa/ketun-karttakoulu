@@ -1,0 +1,38 @@
+- main:
+  - heading "Puro" [level=1]
+  - paragraph: Sininen viiva on puro tai oja.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": PURO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hyppy puron yli! Vesi virtaa järveen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartallakin puro on sininen viiva. Samanlainen viiva voi olla myös oja. Leveä puro on paksumpi viiva, ja sen yli pääsee kahlaamalla. Jos joen reunassa on musta viiva, sen yli ei pääse.
+  - heading "Pääseekö yli?" [level=2]
+  - list:
+    - listitem:
+      - button "Pieni puro ohut sininen viiva"
+    - listitem:
+      - button "Leveä puro paksumpi sininen viiva"
+    - listitem:
+      - button "Epäselvä puro sininen katkoviiva"
+    - listitem:
+      - button "Joki sininen, musta reuna"
+  - figure "Paina merkkiä!":
+    - img "Pääseekö yli?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on puro?" [level=2]
+    - button "Järvi"
+    - button "Puro"
+    - button "Mäki"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=mire
+    - link "Seuraava →":
+      - /url: sign.html?id=forest

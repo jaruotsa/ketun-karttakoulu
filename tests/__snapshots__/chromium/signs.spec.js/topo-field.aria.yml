@@ -1,0 +1,25 @@
+- main:
+  - heading "Pelto" [level=1]
+  - paragraph: Keltainen väri on peltoa.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi PELTO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Hups, myyrä karkasi! Pelto on kartalla keltainen.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Pellolla ei kasva metsää, joten sieltä näkee kauas. Kartalla pelto on keltainen.
+  - region "Visa":
+    - heading "Missä kuvassa on pelto?" [level=2]
+    - button "Järvi"
+    - button "Suo"
+    - button "Pelto"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=lake
+    - link "Seuraava →":
+      - /url: sign.html?id=mire

@@ -1,0 +1,38 @@
+- main:
+  - heading "Aidat" [level=1]
+  - paragraph: Pisteviiva on aita.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi AIDAT
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Portista pääsee pihaan. Portti kiinni!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Aita on kartalla ohut musta viiva, jossa on pisteitä. Kiviaitakin on kartalla aita. Portin kohdalla aidan poikki on kaksi pientä viivaa.
+  - heading "Mikä aita?" [level=2]
+  - list:
+    - listitem:
+      - button "Aita pisteviiva"
+    - listitem:
+      - button "Kiviaita sama pisteviiva"
+    - listitem:
+      - button "Portti kaksi poikkiviivaa"
+    - listitem:
+      - button "Pensasaita vihreät pisteet"
+  - figure "Paina merkkiä!":
+    - img "Mikä aita?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on aita?" [level=2]
+    - button "Polku ja tie"
+    - button "Aidat"
+    - button "Silta"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=building
+    - link "Seuraava →":
+      - /url: sign.html?id=powerLine

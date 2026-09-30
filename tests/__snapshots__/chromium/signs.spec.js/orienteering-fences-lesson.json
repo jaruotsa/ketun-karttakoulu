@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Aita piikkiviiva",
+    "text": "Musta viiva, jossa on pieniä piikkejä, on aita. Aidan viertä on helppo kulkea."
+  },
+  {
+    "button": "Korkea aita piikkiparit",
+    "text": "Korkean aidan yli ei kannata kiivetä. Etsi portti tai kierrä!"
+  },
+  {
+    "button": "Kiviaita pisteviiva",
+    "text": "Musta viiva, jossa on pisteitä, on kiviaita. Matalan kiviaidan yli pääsee hyppäämällä."
+  },
+  {
+    "button": "Portti aukko aidassa",
+    "text": "Aidassa on aukko, ja sen päissä on poikkiviivat: siinä on portti tai kulkupaikka."
+  }
+]

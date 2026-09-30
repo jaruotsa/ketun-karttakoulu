@@ -1,0 +1,38 @@
+- main:
+  - heading "Polku ja tie" [level=1]
+  - paragraph: Mustat viivat ovat polkuja ja teitä.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": TIE
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Leveä tie! Katso ensin, tuleeko auto.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartalla polut ja tiet ovat mustia. Mitä selvempi polku, sitä pidemmät viivat. Ajotie on yhtenäinen viiva, ja epäselvä polku on lyhyitä viivoja pareittain. Leveä tie on ruskea, ja sen reunoissa on mustat viivat. Polkua pitkin on nopea juosta.
+  - heading "Kuinka selvä polku?" [level=2]
+  - list:
+    - listitem:
+      - button "Leveä tie ruskea, mustat reunat"
+    - listitem:
+      - button "Ajotie musta viiva"
+    - listitem:
+      - button "Polku pitkät katkoviivat"
+    - listitem:
+      - button "Epäselvä polku viivat pareittain"
+  - figure "Paina merkkiä!":
+    - img "Kuinka selvä polku?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on polku?" [level=2]
+    - button "Mäki"
+    - button "Polku ja tie"
+    - button "Järvi"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=forest
+    - link "Seuraava →":
+      - /url: sign.html?id=building

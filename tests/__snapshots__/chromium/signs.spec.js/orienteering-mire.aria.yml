@@ -1,0 +1,38 @@
+- main:
+  - heading "Suo" [level=1]
+  - paragraph: Siniset viivat ovat suota.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": SUO
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Suo! Täällä tassut kastuvat.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Suunnistuskartallakin suo on sinisiä vaakaviivoja. Keltainen pohja kertoo, että suolla ei kasva puita. Tiheät viivat ja musta reuna tarkoittavat, että suon yli ei pääse.
+  - heading "Millainen suo?" [level=2]
+  - list:
+    - listitem:
+      - button "Soistuva maa siniset katkoviivat"
+    - listitem:
+      - button "Suo siniset viivat"
+    - listitem:
+      - button "Avosuo keltainen ja viivat"
+    - listitem:
+      - button "Ylipääsemätön suo tiheät viivat, musta reuna"
+  - figure "Paina merkkiä!":
+    - img "Millainen suo?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on suo?" [level=2]
+    - button "Suo"
+    - button "Pelto"
+    - button "Järvi"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=field
+    - link "Seuraava →":
+      - /url: sign.html?id=stream

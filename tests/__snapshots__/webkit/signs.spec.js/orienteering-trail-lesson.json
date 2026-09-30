@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Leveä tie ruskea, mustat reunat",
+    "text": "Autotie. Katso ensin, tuleeko auto!"
+  },
+  {
+    "button": "Ajotie musta viiva",
+    "text": "Hiekkatie. Sitä pitkin juoksee tosi nopeasti!"
+  },
+  {
+    "button": "Polku pitkät katkoviivat",
+    "text": "Selvä polku. Sitäkin pitkin on helppo juosta."
+  },
+  {
+    "button": "Epäselvä polku viivat pareittain",
+    "text": "Polku on vaikea nähdä. Kettu etsii sitä nenä maassa."
+  }
+]

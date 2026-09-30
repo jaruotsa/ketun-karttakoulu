@@ -1,0 +1,38 @@
+- main:
+  - heading "Polku ja tie" [level=1]
+  - paragraph: Mustat ja punaiset viivat ovat kulkureittejä.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi TIE
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Katso ensin, tuleeko auto!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Polku on musta katkoviiva, ajotie musta viiva. Autotie on punainen viiva: mitä paksumpi viiva, sitä isompi tie."
+  - heading "Kuinka iso tie?" [level=2]
+  - list:
+    - listitem:
+      - button "Polku musta katkoviiva"
+    - listitem:
+      - button "Ajotie musta viiva"
+    - listitem:
+      - button "Pieni autotie ohut punainen viiva"
+    - listitem:
+      - button "Iso autotie paksu punainen viiva"
+  - figure "Paina merkkiä!":
+    - img "Kuinka iso tie?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on tie?" [level=2]
+    - button "Puro"
+    - button "Mäki"
+    - button "Polku ja tie"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=forest
+    - link "Seuraava →":
+      - /url: sign.html?id=building

@@ -1,0 +1,25 @@
+- main:
+  - heading "Järvi" [level=1]
+  - paragraph: Sininen väri on vettä.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi JÄRVI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Järvi! Kartalla vesi on aina sinistä.
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Kun näet kartalla sinistä, siellä on vettä. Järven reunassa on tummempi sininen viiva: se on ranta."
+  - region "Visa":
+    - heading "Missä kuvassa on järvi?" [level=2]
+    - button "Pelto"
+    - button "Järvi"
+    - button "Suo"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: what-is-a-map.html
+    - link "Seuraava →":
+      - /url: sign.html?id=field

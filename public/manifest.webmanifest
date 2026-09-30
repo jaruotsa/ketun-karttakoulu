@@ -1,0 +1,16 @@
+{
+  "name": "Ketun karttakoulu",
+  "short_name": "Karttakoulu",
+  "description": "Karttamerkit ja kartan lukeminen sudenpennuille.",
+  "lang": "fi",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF5E9",
+  "theme_color": "#FBF5E9",
+  "icons": [
+    { "src": "kuvat/kuvake-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "kuvat/kuvake-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "kuvat/kuvake.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

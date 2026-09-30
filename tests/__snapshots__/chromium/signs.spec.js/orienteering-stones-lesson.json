@@ -1,0 +1,22 @@
+[
+  {
+    "button": "Kivi musta piste",
+    "text": "Musta piste on kivi. Mitä isompi piste, sitä isompi kivi."
+  },
+  {
+    "button": "Kivikko mustat kolmiot",
+    "text": "Mustat kolmiot ovat kivikko. Siellä on paljon kiviä."
+  },
+  {
+    "button": "Kallio harmaa",
+    "text": "Harmaa on paljas kallio. Siinä ei kasva puita."
+  },
+  {
+    "button": "Matala jyrkänne ohut viiva",
+    "text": "Ohut musta viiva on matala jyrkänne. Siitä pääsee kiipeämällä."
+  },
+  {
+    "button": "Korkea jyrkänne viiva ja piikit",
+    "text": "Paksu viiva ja piikit: korkea jyrkänne. Sen yli ei pääse. Kierrä!"
+  }
+]

@@ -1,0 +1,1 @@
+<svg viewBox="0 0 600 380"> {display:block visibility:visible opacity:1 fill:rgb(0, 0, 0) fill-opacity:1 stroke:none stroke-width:1px stroke-opacity:1 stroke-dasharray:none font-size:20px font-weight:400}

@@ -1,0 +1,14 @@
+[
+  {
+    "button": "Sähkölinja viiva ja Z",
+    "text": "Sähkölinja: pylväät ja johdot. Johtoja pitkin sähkö kulkee taloihin."
+  },
+  {
+    "button": "Pylväs musta piste",
+    "text": "Musta piste on pylväs. Iso pylväs on puita korkeampi. Älä koskaan kiipeä pylvääseen!"
+  },
+  {
+    "button": "Kaasujohto katkoviiva ja K",
+    "text": "Kaasujohto on maan alla. Keltaiset tolpat näyttävät, missä se kulkee."
+  }
+]

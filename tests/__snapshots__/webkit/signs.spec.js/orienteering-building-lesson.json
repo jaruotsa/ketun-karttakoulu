@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Talo musta",
+    "text": "Musta laatikko on talo. Punainenkin talo on kartalla musta!"
+  },
+  {
+    "button": "Kaikki talot sama musta",
+    "text": "Kaikki talot ovat mustia: kirkko, kauppa ja sauna."
+  },
+  {
+    "button": "Piha oliivinvihreä",
+    "text": "Piha. Sinne ei saa mennä, vaan se kierretään."
+  },
+  {
+    "button": "Parkkipaikka vaaleanruskea",
+    "text": "Parkkipaikka tai sorakenttä. Varo autoja!"
+  }
+]

@@ -1,0 +1,27 @@
+- main:
+  - heading "Mikä on kartta?" [level=1]
+  - paragraph: Kartta on kuva maastosta ylhäältä katsottuna.
+  - figure:
+    - img "Kettu ja Kettula maastossa ja ylhäältä katsottuna"
+    - text: Tässä olen minä! Näetkö mäen ja metsän?
+  - complementary:
+    - heading "Paina ja katso" [level=2]
+    - list:
+      - listitem:
+        - button "Metsä → valkoinen"
+      - listitem:
+        - button "Pelto → keltainen"
+      - listitem:
+        - button "Suo → siniset viivat"
+      - listitem:
+        - button "Mäki → ruskeat käyrät"
+      - listitem:
+        - button "Järvi → sininen"
+      - listitem:
+        - button "Polku → musta katkoviiva"
+  - button "Lennä ylös!"
+  - slider "Maastosta kartaksi": "0"
+  - text: Maastossa Ylhäältä Kartalla
+  - navigation:
+    - 'link "Ensimmäinen merkki: Järvi →"':
+      - /url: sign.html?id=lake

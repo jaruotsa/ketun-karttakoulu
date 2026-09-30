@@ -1,0 +1,36 @@
+- main:
+  - heading "Mäki" [level=1]
+  - paragraph: Ruskeat käyrät näyttävät mäen.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": MÄKI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Ylhäältä mäki näyttää ruskeilta renkailta!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: "Suunnistuskartallakin mäki on ruskeita käyriä. Käyrä kiertää mäen aina samalla korkeudella. Tiheät käyrät tarkoittavat jyrkkää rinnettä. Katkoviiva on apukäyrä: se näyttää pienen nyppylän."
+  - heading "Maan muodot" [level=2]
+  - list:
+    - listitem:
+      - button "Loiva mäki käyrät harvassa"
+    - listitem:
+      - button "Jyrkkä mäki käyrät tiheässä"
+    - listitem:
+      - button "Nyppylä katkoviiva eli apukäyrä"
+  - figure "Paina merkkiä!":
+    - img "Maan muodot"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on mäki?" [level=2]
+    - button "Suo"
+    - button "Järvi"
+    - button "Mäki"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=powerLine
+    - link "Seuraava →":
+      - /url: sign.html?id=stones

@@ -1,0 +1,26 @@
+[
+  {
+    "button": "Metsä → valkoinen tai vihreä",
+    "bubble": "Valkoisessa metsässä on helppo juosta. Vihreä on tiheää metsää."
+  },
+  {
+    "button": "Pelto → keltainen ja pisteet",
+    "bubble": "Pellolla juoksee helposti, joten se on keltainen. Pisteet kertovat, että se on pelto."
+  },
+  {
+    "button": "Suo → keltainen ja siniset viivat",
+    "bubble": "Suolla ei kasva puita, joten se on keltainen. Siniset viivat kertovat, että se on märkä."
+  },
+  {
+    "button": "Mäki → ruskeat käyrät",
+    "bubble": "Mäki on ruskeita käyriä, kuten maastokartassakin. Laen aukea on keltainen."
+  },
+  {
+    "button": "Järvi → sininen",
+    "bubble": "Järvi on sininen, ja rannassa on musta viiva."
+  },
+  {
+    "button": "Polku → musta katkoviiva",
+    "bubble": "Polut, tiet ja talot ovat mustia. Leveä tie on ruskea. Piha on vihreä: pihalle ei saa mennä!"
+  }
+]

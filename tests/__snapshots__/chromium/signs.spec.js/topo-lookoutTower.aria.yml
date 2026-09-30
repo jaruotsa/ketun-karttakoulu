@@ -1,0 +1,36 @@
+- main:
+  - heading "Näkötorni" [level=1]
+  - paragraph: Ympyrä ja tikku on näkötorni.
+  - figure "Kartalla":
+    - text: ""
+    - img "Kartta": Kettujärvi NÄKÖTORNI
+  - figure "Maastossa":
+    - text: ""
+    - img "Maisema"
+    - text: Tornista näkee kauas. Ylhäältä maasto näyttää kartalta!
+  - button "Lähde matkaan!"
+  - img "Kettu"
+  - heading "Kettu tietää" [level=2]
+  - paragraph: Näkötornista näkee kauas metsän yli. Kartalla näkötorni on pieni ympyrä, jonka päällä on tikku. Ympyrä on tornin paikka.
+  - heading "Mikä torni?" [level=2]
+  - list:
+    - listitem:
+      - button "Näkötorni ympyrä ja tikku"
+    - listitem:
+      - button "Tuulivoimala ympyrä, tikku ja siivet"
+    - listitem:
+      - button "Vesitorni musta pallo"
+    - listitem:
+      - button "Masto piste ja nuoli"
+  - figure "Paina merkkiä!":
+    - img "Mikä torni?"
+    - text: ""
+  - region "Visa":
+    - heading "Missä kuvassa on näkötorni?" [level=2]
+    - button "Näkötorni"
+    - button "Nuotiopaikka"
+    - button "Kivet ja kalliot"
+    - paragraph
+  - navigation:
+    - link "← Edellinen":
+      - /url: sign.html?id=campfire

@@ -1,0 +1,18 @@
+[
+  {
+    "button": "Pieni puro ohut sininen viiva",
+    "text": "Pieni puro tai oja. Kettu hyppää yli!"
+  },
+  {
+    "button": "Leveä puro paksumpi sininen viiva",
+    "text": "Leveä puro tai oja. Sen yli pääsee kahlaamalla. Tassut kastuvat!"
+  },
+  {
+    "button": "Epäselvä puro sininen katkoviiva",
+    "text": "Oja, jossa on vettä vain välillä. Kettu kävelee yli."
+  },
+  {
+    "button": "Joki sininen, musta reuna",
+    "text": "Musta reuna: joen yli ei pääse. Etsi silta!"
+  }
+]

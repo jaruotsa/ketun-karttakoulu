@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="home.pageTitle"></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/kuvat/kuvake.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/kuvat/kuvake-180.png">
+  <meta name="theme-color" content="#FBF5E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Map School" data-i18n-attr="content:common.appName">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+  <header class="top-bar">
+    <span class="pawprints" data-i18n-attr="title:common.pawprints">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><circle cx="6" cy="9.5" r="2.2"/><circle cx="10" cy="6" r="2.2"/><circle cx="14" cy="6" r="2.2"/><circle cx="18" cy="9.5" r="2.2"/></svg>
+      <span id="pawprint-count">0</span>
+    </span>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <div>
+        <h1 data-i18n-html="home.heroTitle"></h1>
+        <p data-i18n="home.heroText"></p>
+        <a class="big-button" href="what-is-a-map.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>
+          <span data-i18n="home.letsStart"></span>
+        </a>
+      </div>
+      <div class="hero-fox" id="hero-fox"></div>
+    </section>
+
+    <h2 class="section-heading" id="section-heading"></h2>
+    <div class="sign-grid" id="sign-grid"></div>
+
+    <p class="footer" data-i18n="home.footer"></p>
+  </main>
+
+  <script type="module" src="js/pages/home.ts"></script>
+</body>
+</html>

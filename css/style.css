@@ -450,6 +450,7 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .sign-page main { display: flex; flex-direction: column; }
   .sign-page .page-title { order: -2; }
   .sign-page .actions { order: -1; margin: 0 0 16px; }
+  .sign-page .hint { margin-top: 16px; }
   /* What is a map?: the fly button above the 3D view and the slider right below it, then the
      legend. */
   .map-page main { display: flex; flex-direction: column; }

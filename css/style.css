@@ -435,6 +435,16 @@ h1, h2 { margin: 0; line-height: 1.1; }
   .sign-page main { display: flex; flex-direction: column; }
   .sign-page .page-title { order: -2; }
   .sign-page .actions { order: -1; margin: 0 0 16px; }
+  /* What is a map?: the fly button above the 3D view and the slider right below it, then the
+     legend. */
+  .map-page main { display: flex; flex-direction: column; }
+  .map-page .flight-and-legend, .map-page .flight-controls { display: contents; }
+  .map-page .page-title { order: 1; }
+  .map-page #fly-button { order: 2; justify-content: center; margin-bottom: 16px; }
+  .map-page .flight { order: 3; }
+  .map-page .slider { order: 4; margin-top: 12px; }
+  .map-page .legend { order: 5; margin-top: 16px; }
+  .map-page .page-nav { order: 6; }
 }
 
 @media (max-width: 560px) {

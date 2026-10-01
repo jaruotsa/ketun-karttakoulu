@@ -241,6 +241,32 @@
     },
     "hill": {
       "mapLabel": "MÄKI",
+      "lesson": {
+        "title": "Korkeuskäyrät",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "gentleHill": {
+            "name": "Loiva mäki",
+            "summary": "käyrät harvassa",
+            "text": "Käyrät ovat kaukana toisistaan. Rinne on loiva, ja ylös on helppo kiivetä."
+          },
+          "steepHill": {
+            "name": "Jyrkkä mäki",
+            "summary": "käyrät tiheässä",
+            "text": "Käyrät ovat lähellä toisiaan. Rinne on jyrkkä, ja ylös on vaikea kiivetä."
+          },
+          "highHill": {
+            "name": "Korkea mäki",
+            "summary": "paksu käyrä ja numero",
+            "text": "Joka neljäs käyrä on paksumpi. Sen numero kertoo, kuinka monta metriä se on meren pinnan yläpuolella."
+          },
+          "mound": {
+            "name": "Nyppylä",
+            "summary": "katkoviiva eli apukäyrä",
+            "text": "Apukäyrä näyttää pienen nyppylän, joka on liian matala tavalliselle käyrälle."
+          }
+        }
+      },
       "orienteeringLesson": {
         "title": "Maan muodot",
         "instruction": "Paina merkkiä!",

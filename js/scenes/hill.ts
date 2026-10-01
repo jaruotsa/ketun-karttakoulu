@@ -12,9 +12,9 @@ import { Foxwood } from '../foxwood';
 import { Orienteering } from '../orienteering';
 import { animate } from '../animation';
 import { World } from '../world';
-import { t } from '../i18n';
-import type { Scene } from '../scene-types';
-import type { LessonStage } from '../lesson-panel';
+import { formatNumber, t } from '../i18n';
+import type { LessonItem, Scene } from '../scene-types';
+import type { LessonStage, StageSettings } from '../lesson-panel';
 import type { Point } from '../types';
 
 // The summit of the hill (map coordinates) and the height from which the camera looks down (m).
@@ -23,9 +23,19 @@ const VIEW_HEIGHT = 330;
 // The state of the parts (World.PARTS: forest, field, mire, hill, lake, path): 0 = terrain, 1 =
 // map.
 const partStates = (t: number) => World.PARTS.map(() => t);
-// Lesson panel (orienteering map): the colour of the contours and the line the fox starts from.
+// Lesson panels: the colour of the contours on the topo map (as on the map of Foxwood) and on the
+// orienteering map, the height of the index contour (m above the sea), the line the fox starts
+// from and the stage.
+const TOPO_BROWN = '#B8652A';
 const BROWN = Orienteering.COLORS.brown;
+const INDEX_HEIGHT = 60;
 const FOX_Z = 3;
+const STAGE: StageSettings = {
+  camera: [2, 7, 17],
+  gaze: [4, 1, -2],
+  fox: 1.5,
+  foxPosition: [-3, FOX_Z],
+};
 
 const scene: Scene = {
   map: Foxwood.map({
@@ -79,79 +89,145 @@ const scene: Scene = {
     },
   },
 
+  // On the topo map landforms are brown contours (MML legend): a thin contour every 5 m, a thick
+  // index contour with its height every 20 m, and a dashed form line at 2.5 m.
+  lesson: {
+    title: t('scenes.hill.lesson.title'),
+    instruction: t('scenes.hill.lesson.instruction'),
+    stage: STAGE,
+    items: [
+      gentleHill('lesson', TOPO_BROWN),
+      steepHill('lesson', TOPO_BROWN),
+      {
+        name: t('scenes.hill.lesson.items.highHill.name'),
+        summary: t('scenes.hill.lesson.items.highHill.summary'),
+        text: t('scenes.hill.lesson.items.highHill.text'),
+        icon: icon(
+          rings(TOPO_BROWN, [1, 0.3]) +
+            `<ellipse cx="50" cy="25" rx="25" ry="12.5" fill="none" stroke="${TOPO_BROWN}" stroke-width="5"/>` +
+            heightNumber(75, 30, 14),
+        ),
+        camera: { position: [1, 9.5, 20], gaze: [4.5, 3, -3] },
+        show: async (o, motion) => {
+          const m = hill(o, {
+            center: [6, -3],
+            height: 7.2,
+            radius: 10,
+            contours: [1.3, 2.6, 3.9, 5.2, 6.5],
+            index: 3,
+            color: TOPO_BROWN,
+          });
+          await climb(o, motion, m, false, () => indexNumber(o, m));
+        },
+      },
+      mound('lesson', TOPO_BROWN),
+    ],
+  },
+
   // On the orienteering map landforms are brown contours (ISOM 101–103).
   orienteering: {
     lesson: {
       title: t('scenes.hill.orienteeringLesson.title'),
       instruction: t('scenes.hill.orienteeringLesson.instruction'),
-      stage: { camera: [2, 7, 17], gaze: [4, 1, -2], fox: 1.5, foxPosition: [-3, FOX_Z] },
+      stage: STAGE,
       items: [
-        {
-          name: t('scenes.hill.orienteeringLesson.items.gentleHill.name'),
-          summary: t('scenes.hill.orienteeringLesson.items.gentleHill.summary'),
-          text: t('scenes.hill.orienteeringLesson.items.gentleHill.text'),
-          icon: icon(rings([1, 0.55])),
-          camera: { position: [1, 7, 16], gaze: [4.5, 2.2, -3] },
-          show: (o, motion) =>
-            climb(
-              o,
-              motion,
-              hill(o, { center: [6, -3], height: 4, radius: 10, contours: [1.3, 2.6] }),
-              false,
-            ),
-        },
-        {
-          name: t('scenes.hill.orienteeringLesson.items.steepHill.name'),
-          summary: t('scenes.hill.orienteeringLesson.items.steepHill.summary'),
-          text: t('scenes.hill.orienteeringLesson.items.steepHill.text'),
-          icon: icon(rings([1, 0.8, 0.6, 0.4])),
-          show: (o, motion) =>
-            climb(
-              o,
-              motion,
-              hill(o, { center: [6, -3], height: 6.5, radius: 5, contours: [1.3, 2.6, 3.9, 5.2] }),
-              true,
-            ),
-        },
-        {
-          name: t('scenes.hill.orienteeringLesson.items.mound.name'),
-          summary: t('scenes.hill.orienteeringLesson.items.mound.summary'),
-          text: t('scenes.hill.orienteeringLesson.items.mound.text'),
-          icon: icon(rings([0.7], 'stroke-dasharray="7 4"')),
-          show: (o, motion) =>
-            crossKnoll(
-              o,
-              motion,
-              hill(o, {
-                center: [5, FOX_Z - 0.5],
-                height: 0.8,
-                radius: 4.5,
-                contours: [0.55],
-                dashed: true,
-              }),
-            ),
-        },
+        gentleHill('orienteeringLesson', BROWN),
+        steepHill('orienteeringLesson', BROWN),
+        mound('orienteeringLesson', BROWN),
       ],
     },
   },
 };
 
-// ---------- Lesson panel (orienteering map): landforms on the 3D stage (lesson-panel.ts)
-// ----------
+// ---------- Lesson panels: landforms on the 3D stage (lesson-panel.ts) ----------
+type LessonKey = 'lesson' | 'orienteeringLesson';
+function text(key: LessonKey, item: string) {
+  return {
+    name: t(`scenes.hill.${key}.items.${item}.name`),
+    summary: t(`scenes.hill.${key}.items.${item}.summary`),
+    text: t(`scenes.hill.${key}.items.${item}.text`),
+  };
+}
+function gentleHill(key: LessonKey, color: string): LessonItem {
+  return {
+    ...text(key, 'gentleHill'),
+    icon: icon(rings(color, [1, 0.55])),
+    camera: { position: [1, 7, 16], gaze: [4.5, 2.2, -3] },
+    show: (o, motion) =>
+      climb(
+        o,
+        motion,
+        hill(o, { center: [6, -3], height: 4, radius: 10, contours: [1.3, 2.6], color }),
+        false,
+      ),
+  };
+}
+function steepHill(key: LessonKey, color: string): LessonItem {
+  return {
+    ...text(key, 'steepHill'),
+    icon: icon(rings(color, [1, 0.8, 0.6, 0.4])),
+    show: (o, motion) =>
+      climb(
+        o,
+        motion,
+        hill(o, { center: [6, -3], height: 6.5, radius: 5, contours: [1.3, 2.6, 3.9, 5.2], color }),
+        true,
+      ),
+  };
+}
+function mound(key: LessonKey, color: string): LessonItem {
+  return {
+    ...text(key, 'mound'),
+    icon: icon(rings(color, [0.7], 'stroke-dasharray="7 4"')),
+    show: (o, motion) =>
+      crossKnoll(
+        o,
+        motion,
+        hill(o, {
+          center: [5, FOX_Z - 0.5],
+          height: 0.8,
+          radius: 4.5,
+          contours: [0.55],
+          dashed: true,
+          color,
+        }),
+      ),
+  };
+}
+
 function icon(content: string) {
   return `<rect width="100" height="50" fill="#fff"/>${content}`;
 }
 // Nested contours on the map: the sizes relative to the outermost.
-function rings(sizes: number[], extra = '') {
-  return `<g fill="none" stroke="${BROWN}" stroke-width="2.5" ${extra}>${sizes.map((k: number) => `<ellipse cx="50" cy="25" rx="${40 * k}" ry="${20 * k}"/>`).join('')}</g>`;
+function rings(color: string, sizes: number[], extra = '') {
+  return `<g fill="none" stroke="${color}" stroke-width="2.5" ${extra}>${sizes.map((k: number) => `<ellipse cx="50" cy="25" rx="${40 * k}" ry="${20 * k}"/>`).join('')}</g>`;
+}
+// The height of the index contour, written on the line like on the map: the paper colour around
+// the digits breaks the line.
+function heightNumber(x: number, y: number, size: number) {
+  return `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="700" fill="${TOPO_BROWN}" stroke="#fff" stroke-width="${size / 4}" paint-order="stroke">${formatNumber(INDEX_HEIGHT)}</text>`;
+}
+// The number on the right side of the index contour on the 3D stage (overlay layer), so that the
+// thick line is seen in front.
+function indexNumber(o: LessonStage, m: Hill) {
+  const level = m.levels[m.index!];
+  const r = o.toScreen(m.center[0] + m.radii[m.index!], level, m.center[1]);
+  if (!r) return;
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.innerHTML = heightNumber(r[0], r[1] + 6, 18);
+  o.overlay.appendChild(g);
 }
 
 // A round hill: the height h(r) = height · (1 + cos(π r / radius)) / 2. The contours go around the
-// hill at the given heights. A round hill on the 3D stage: the mound, the contour rings (hidden at
-// first) and the height of the ground at a point (x, z).
+// hill at the given heights; the ring number index is a thick index contour. A round hill on the
+// 3D stage: the mound, the contour rings (hidden at first), their heights and radii, and the height
+// of the ground at a point (x, z).
 interface Hill {
   mound: THREE.Group;
   rings: THREE.Group[];
+  levels: number[];
+  radii: number[];
+  index?: number;
   onSurface: (x: number, z: number) => number;
   center: Point;
   radius: number;
@@ -164,7 +240,17 @@ function hill(
     radius,
     contours,
     dashed = false,
-  }: { center: Point; height: number; radius: number; contours: number[]; dashed?: boolean },
+    index,
+    color,
+  }: {
+    center: Point;
+    height: number;
+    radius: number;
+    contours: number[];
+    dashed?: boolean;
+    index?: number;
+    color: string;
+  },
 ): Hill {
   const { group, castShadows } = o.models;
   const h = (r: number) =>
@@ -182,19 +268,22 @@ function hill(
   o.add(g, center);
   // The contours are brown rings on the slope. A dashed line is made of pieces of a ring.
   const material = new THREE.MeshLambertMaterial({
-    color: BROWN,
-    emissive: BROWN,
+    color,
+    emissive: color,
     emissiveIntensity: 0.3,
   });
-  const rings = contours.map((level) => {
-    const r = (radius * Math.acos((2 * level) / height - 1)) / Math.PI;
+  const radii = contours.map((level) => (radius * Math.acos((2 * level) / height - 1)) / Math.PI);
+  const rings = contours.map((level, n) => {
+    const r = radii[n];
     const segments = dashed ? 14 : 1;
     const ring = group();
     ring.position.y = level + 0.03;
     for (let i = 0; i < segments; i++) {
       const arc = dashed ? ((2 * Math.PI) / segments) * 0.62 : 2 * Math.PI;
       const m = new THREE.Mesh(
-        new THREE.TorusGeometry(r, 0.09, 6, dashed ? 8 : 96, arc).rotateX(Math.PI / 2),
+        new THREE.TorusGeometry(r, n === index ? 0.2 : 0.09, 6, dashed ? 8 : 96, arc).rotateX(
+          Math.PI / 2,
+        ),
         material,
       );
       m.rotation.y = ((2 * Math.PI) / segments) * i;
@@ -206,7 +295,7 @@ function hill(
   });
   // The fox walks on the ground surface: the height at the map point (x, z).
   const onSurface = (x: number, z: number) => h(Math.hypot(x - center[0], z - center[1]));
-  return { mound: g, rings, onSurface, center, radius };
+  return { mound: g, rings, levels: contours, radii, index, onSurface, center, radius };
 }
 
 // The hill grows, and the contours are drawn on the slope from the lowest to the highest.
@@ -222,7 +311,8 @@ async function showHill(o: LessonStage, motion: number, { mound, rings }: Hill) 
 }
 
 // The fox climbs to the top of a gentle hill. At the foot of a steep hill it stops and looks up.
-async function climb(o: LessonStage, motion: number, m: Hill, steep: boolean) {
+// drawn() is called when the contours are on the slope.
+async function climb(o: LessonStage, motion: number, m: Hill, steep: boolean, drawn?: () => void) {
   const { fox } = o;
   const [sx, sz] = [-3, FOX_Z];
   const [cx, cz] = m.center;
@@ -240,6 +330,7 @@ async function climb(o: LessonStage, motion: number, m: Hill, steep: boolean) {
   };
   o.turn((Math.atan2(-(cz - sz), cx - sx) * 180) / Math.PI);
   await showHill(o, motion, m);
+  drawn?.();
   if (!motion) return walk(end);
   fox.poses.set('walking');
   await o.animate(steep ? 1600 : 3600, (t) => walk(end * t));

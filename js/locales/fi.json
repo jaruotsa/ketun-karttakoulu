@@ -237,7 +237,38 @@
   },
   "scenes": {
     "campfire": {
-      "mapLabel": "NUOTIO"
+      "mapLabel": "NUOTIO",
+      "lesson": {
+        "title": "Retkelle!",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "campfire": {
+            "name": "Nuotio&shy;paikka",
+            "summary": "musta liekki",
+            "text": "Nuotiopaikalla saa tehdä tulen. Kartalla se on musta liekki, jonka alla on kaksi kolmiota."
+          },
+          "reserve": {
+            "name": "Luonnon&shy;suojelu&shy;alue",
+            "summary": "vihreä viiva ja vinot viivat",
+            "text": "Luonnonsuojelualueella eläimet ja kasvit saavat olla rauhassa. Kartalla alueen reunassa on vihreä viiva. Pienet vinot viivat ovat alueen sisäpuolella."
+          },
+          "naturalFeature": {
+            "name": "Luonto&shy;kohde",
+            "summary": "musta tähti",
+            "text": "Luontokohde on jotain erikoista, esimerkiksi valtavan iso kivi. Kartalla se on musta tähti, jonka keskellä on valkoinen piste."
+          },
+          "recreationArea": {
+            "name": "Urheilu&shy;kenttä",
+            "summary": "vaalea keltavihreä alue",
+            "text": "Urheilukentällä voi pelata ja juosta. Kartalla urheilu- ja virkistysalue on vaalea keltavihreä."
+          },
+          "park": {
+            "name": "Puisto",
+            "summary": "vihreä alue",
+            "text": "Puistossa on nurmikkoa, puita ja penkkejä. Kartalla puisto on vihreä."
+          }
+        }
+      }
     },
     "hill": {
       "mapLabel": "MÄKI",

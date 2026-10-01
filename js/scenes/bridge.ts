@@ -139,7 +139,7 @@ const scene: Scene = {
         name: t('scenes.bridge.lesson.items.bridge.name'),
         summary: t('scenes.bridge.lesson.items.bridge.summary'),
         text: t('scenes.bridge.lesson.items.bridge.text'),
-        icon: icon(`<path d="M50,0 C44,12 56,20 50,30 C45,38 52,44 50,50" fill="none" stroke="#0077C0" stroke-width="3"/>
+        icon: icon(`<path d="M50,0 C44,12 56,20 50,30 C45,38 52,44 50,50" fill="none" stroke="#0074B0" stroke-width="3"/>
           <path d="M4,25 H96" stroke="#1a1a1a" stroke-width="9"/><path d="M4,25 H96" stroke="#B0412E" stroke-width="5.4"/>
           <path d="M36,25 H64" stroke="#3D0F06" stroke-width="5.4"/>`),
         show: (o, motion) => crossBridge(o, motion),
@@ -158,7 +158,7 @@ const scene: Scene = {
         name: t('scenes.bridge.lesson.items.ferry.name'),
         summary: t('scenes.bridge.lesson.items.ferry.summary'),
         text: t('scenes.bridge.lesson.items.ferry.text'),
-        icon: icon(`<rect x="30" width="40" height="50" fill="#7FD3F7"/><path d="M30,0 V50 M70,0 V50" stroke="#0077C0" stroke-width="2"/>
+        icon: icon(`<rect x="30" width="40" height="50" fill="#71C8E6"/><path d="M30,0 V50 M70,0 V50" stroke="#0067A5" stroke-width="2"/>
           <path d="M2,25 H30 M70,25 H98" stroke="#1a1a1a" stroke-width="7"/><path d="M2,25 H30 M70,25 H98" stroke="#B0412E" stroke-width="4"/>
           <path d="M33,25 H68" stroke="#C8602E" stroke-width="2.6" stroke-dasharray="6 4"/>`),
         camera: { position: [8, 6.5, 22], gaze: [8, 0.3, -1] },

@@ -131,7 +131,7 @@ const scene: Scene = {
         summary: t('scenes.stream.lesson.items.river.summary'),
         text: t('scenes.stream.lesson.items.river.text'),
         icon: `<rect width="100" height="50" fill="#fff"/>
-          <path d="M0,12 C24,2 34,24 52,20 C70,16 76,32 100,28 L100,44 C76,48 68,32 52,36 C34,40 22,20 0,28 Z" fill="#7FD3F7" stroke="#0077C0" stroke-width="2"/>`,
+          <path d="M0,12 C24,2 34,24 52,20 C70,16 76,32 100,28 L100,44 C76,48 68,32 52,36 C34,40 22,20 0,28 Z" fill="#71C8E6" stroke="#0067A5" stroke-width="2"/>`,
         camera: { position: [4.5, 4.5, 15], gaze: [5, 0.3, -1] },
         show: (o, motion) =>
           stopAtBank(o, motion, brook(o, 9, t('scenes.stream.widthLabels.river'))),
@@ -186,7 +186,7 @@ const scene: Scene = {
 // ---------- Lesson panel: the width of a brook ----------
 // On the map a brook or ditch under 2 m wide is a thin line, a brook 2–5 m wide a thicker line
 // and a river over 5 m wide a blue area with shorelines (MML).
-function lineIcon(thickness: number, color = '#0077C0', dash?: string) {
+function lineIcon(thickness: number, color = '#0074B0', dash?: string) {
   return `<rect width="100" height="50" fill="#fff"/>
     <path d="M6,14 C24,6 32,30 50,26 C68,22 72,42 94,38" fill="none" stroke="${color}" stroke-width="${thickness}" stroke-linecap="${dash ? 'butt' : 'round'}"${dash ? ` stroke-dasharray="${dash}"` : ''}/>`;
 }

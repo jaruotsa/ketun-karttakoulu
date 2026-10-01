@@ -14,7 +14,7 @@ const startPicture = `<svg viewBox="0 0 200 70" aria-hidden="true">
   <path d="M52,16 C70,8 92,20 90,40 C88,60 62,62 56,48 C50,36 40,24 52,16Z" fill="#2F6E9E"/>
   <path d="M104,35 h14 m-5,-6 l6,6 l-6,6" stroke="#8A7B62" stroke-width="3" fill="none" stroke-linecap="round"/>
   <rect x="122" width="78" height="70" rx="6" fill="#FBF8F0" stroke="#E7DCC5"/>
-  <path d="M150,16 C166,8 186,20 184,40 C182,60 158,62 152,48 C146,36 138,24 150,16Z" fill="#7FD3F7" stroke="#0077C0" stroke-width="2"/>
+  <path d="M150,16 C166,8 186,20 184,40 C182,60 158,62 152,48 C146,36 138,24 150,16Z" fill="#71C8E6" stroke="#0067A5" stroke-width="2"/>
 </svg>`;
 // The start card of the orienteering map: the same Foxwood as an orienteering map.
 const orienteeringStartPicture = `<svg viewBox="0 0 200 70" aria-hidden="true">

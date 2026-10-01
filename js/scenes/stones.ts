@@ -46,6 +46,16 @@ function cliffShot(terrain: Terrain) {
     target: [330, 176, h(330, 176) + 3] as Vec3,
   };
 }
+// At the shore the camera rises behind the fox and looks over the lake, so that all three stones
+// (Foxwood.WATER_STONES) are in view.
+const STONES_CENTER: Point = [514, 308];
+function stonesShot(terrain: Terrain) {
+  const h = (x: number, y: number) => terrain.world.heightAt(x, y);
+  return {
+    position: [525, 331, h(525, 331) + 10] as Vec3,
+    target: [STONES_CENTER[0], STONES_CENTER[1], 0.5] as Vec3,
+  };
+}
 // The top of the stone is about 2.4 m above the bottom of the lake (world.ts: stoneModel). The
 // fox and the lizard are lifted from the water surface.
 const topHeight = (terrain: Terrain) =>
@@ -107,6 +117,8 @@ const scene: Scene = {
     async arrive({ fox, wait, terrain }) {
       const [x0, y0] = terrain.routePoint(1);
       const top = topHeight(terrain);
+      const { position, target } = stonesShot(terrain);
+      await animate(1000, (t) => terrain.fly(t * t * (3 - 2 * t), position, target));
       // The lizard basks on top of the stone; the fox notices it.
       terrain.place(lizard!, STONE[0] - 0.3, STONE[1], top - 0.15, [x0, y0]);
       fox.poses.add('curious');
@@ -146,10 +158,14 @@ const scene: Scene = {
     },
 
     reset(terrainSvg, terrain, mapSvg) {
-      // The line of sight from the lake side to the cliff and the fox.
+      // The lines of sight from the lake side to the cliff and the fox, and from the shore to the
+      // stones.
       const {
         position: [cx, cy],
       } = cliffShot(terrain);
+      const {
+        position: [sx, sy],
+      } = stonesShot(terrain);
       const linePoints = ([ax, ay]: Point, [bx, by]: Point) =>
         Array.from(
           { length: 16 },
@@ -157,7 +173,12 @@ const scene: Scene = {
         );
       const route = Array.from({ length: 301 }, (_, i) => terrain.routePoint(i / 300));
       terrain.world.clearing(
-        [...route, ...linePoints([cx, cy], BREAK_SPOT), ...linePoints([cx, cy], CLIFF_CENTER)],
+        [
+          ...route,
+          ...linePoints([cx, cy], BREAK_SPOT),
+          ...linePoints([cx, cy], CLIFF_CENTER),
+          ...linePoints([sx, sy], STONES_CENTER),
+        ],
         6,
       );
       terrainSvg.querySelector('.cliff-marker')!.setAttribute('opacity', String(0));

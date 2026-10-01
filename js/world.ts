@@ -385,7 +385,7 @@ function surface(x: number, y: number) {
 const STONE_TOP = 2.4;
 function waterStoneSize(level: StoneLevel, x: number, y: number) {
   if (level === 'above') return 1;
-  const top = level === 'surface' ? WATER_LEVEL + 0.15 : WATER_LEVEL - 0.5;
+  const top = level === 'surface' ? WATER_LEVEL + 0.3 : WATER_LEVEL - 0.25;
   return (top - initialHeight(x, y)) / STONE_TOP;
 }
 

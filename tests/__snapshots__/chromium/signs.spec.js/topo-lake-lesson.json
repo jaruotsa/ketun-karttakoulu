@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "button": "42 Järvi sininen alue ja numero",
+    "text": "Järvi on sininen, ja rannassa on tumma viiva. Numero kertoo, kuinka monta metriä järven pinta on meren pinnan yläpuolella."
+  },
+  {
+    "button": "Kaislikko vaalea sininen ja mustat tupsut",
+    "text": "Kaislat kasvavat matalassa vedessä. Kartalla ne ovat pieniä mustia tupsuja vaalean sinisellä."
+  },
+  {
+    "button": "Laituri musta viiva veteen",
+    "text": "Laituri on musta viiva, joka menee rannasta veteen. Laiturilta näkee kalat!"
+  },
+  {
+    "button": "Lähde musta U ja sininen piste",
+    "text": "Lähteessä vesi pulppuaa maan alta, ja siitä voi alkaa puro. Kartalla lähde on sininen piste mustan U:n sisällä."
+  },
+  {
+    "button": "Kaivo sininen ympyrä ja viiva",
+    "text": "Kaivosta nostetaan vettä ämpärillä. Kartalla kaivo on sininen ympyrä, jonka läpi menee viiva."
+  }
+]

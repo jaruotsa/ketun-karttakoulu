@@ -12,7 +12,7 @@ import { animate } from '../animation';
 import { Creatures } from '../creatures';
 import { t } from '../i18n';
 import type { Scene } from '../scene-types';
-import type { LessonStage } from '../lesson-panel';
+import type { LessonStage, StageSettings } from '../lesson-panel';
 import type { Point } from '../types';
 
 // Map coordinates: the south edge of the field at the track, the vole's burrow in the field and the
@@ -23,9 +23,23 @@ const ESCAPE: Point = [140, 104];
 // The vole and the tuft of grass are 3D models (creatures.ts).
 let vole: ReturnType<typeof Creatures.vole> | null = null,
   grass: ReturnType<typeof Creatures.grass> | null = null;
-// Lesson panel (orienteering map): the colours and the line the fox walks from left to right.
+// Lesson panels: the colours on the topo map (MML legend) and on the orienteering map, the line the
+// fox walks from left to right and the stage.
+const MML = {
+  field: '#FBD58D',
+  gardenDot: '#009949',
+  meadow: '#FFE981',
+  clearCut: '#BDC129',
+  black: '#1A1919',
+};
 const V = Orienteering.COLORS;
 const FOX_Z = 3;
+const STAGE: StageSettings = {
+  camera: [3, 5.5, 16],
+  gaze: [4, 0.5, -2],
+  fox: 1.5,
+  foxPosition: [-3, FOX_Z],
+};
 
 const scene: Scene = {
   map: Foxwood.map({
@@ -91,12 +105,56 @@ const scene: Scene = {
     },
   },
 
+  // On the topo map (MML legend) a field is dark yellow, a garden has green dots on it, a meadow is
+  // light yellow with a grass tuft, and a clear-cut (open forest land) has green diagonal dashes on
+  // white.
+  lesson: {
+    title: t('scenes.field.lesson.title'),
+    instruction: t('scenes.field.lesson.instruction'),
+    stage: STAGE,
+    items: [
+      {
+        name: t('scenes.field.lesson.items.field.name'),
+        summary: t('scenes.field.lesson.items.field.summary'),
+        text: t('scenes.field.lesson.items.field.text'),
+        icon: icon(`<rect x="10" y="6" width="80" height="38" fill="${MML.field}"/>`),
+        show: (o, motion) => walk(o, motion, crops(o), 3000),
+      },
+      {
+        name: t('scenes.field.lesson.items.garden.name'),
+        summary: t('scenes.field.lesson.items.garden.summary'),
+        text: t('scenes.field.lesson.items.garden.text'),
+        icon: icon(`<defs><pattern id="lesson-topo-garden" width="8" height="8" patternUnits="userSpaceOnUse">
+              <rect width="8" height="8" fill="${MML.field}"/><circle cx="4" cy="4" r="1.6" fill="${MML.gardenDot}"/></pattern></defs>
+            <rect x="10" y="6" width="80" height="38" fill="url(#lesson-topo-garden)"/>`),
+        show: (o, motion) => walk(o, motion, orchard(o), 3000),
+      },
+      {
+        name: t('scenes.field.lesson.items.meadow.name'),
+        summary: t('scenes.field.lesson.items.meadow.summary'),
+        text: t('scenes.field.lesson.items.meadow.text'),
+        icon: icon(`<rect x="10" y="6" width="80" height="38" fill="${MML.meadow}"/>
+            <path d="M47,20 V30 M53,20 V30" stroke="${MML.black}" stroke-width="2"/>`),
+        show: (o, motion) => walk(o, motion, meadow(o), 1800),
+      },
+      {
+        name: t('scenes.field.lesson.items.clearCut.name'),
+        summary: t('scenes.field.lesson.items.clearCut.summary'),
+        text: t('scenes.field.lesson.items.clearCut.text'),
+        icon: icon(`<defs><pattern id="lesson-topo-clear-cut" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+              <path d="M0,3 H4" stroke="${MML.clearCut}" stroke-width="1.6"/></pattern></defs>
+            <rect x="10" y="6" width="80" height="38" fill="url(#lesson-topo-clear-cut)" stroke="#D8D8D0" stroke-width="1"/>`),
+        show: (o, motion) => walk(o, motion, heath(o), 3400, 0.3),
+      },
+    ],
+  },
+
   // On the orienteering map yellow tells of an open place where no trees grow (ISOM 401–403, 412).
   orienteering: {
     lesson: {
       title: t('scenes.field.orienteeringLesson.title'),
       instruction: t('scenes.field.orienteeringLesson.instruction'),
-      stage: { camera: [3, 5.5, 16], gaze: [4, 0.5, -2], fox: 1.5, foxPosition: [-3, FOX_Z] },
+      stage: STAGE,
       items: [
         {
           name: t('scenes.field.orienteeringLesson.items.openArea.name'),
@@ -135,8 +193,7 @@ const scene: Scene = {
   },
 };
 
-// ---------- Lesson panel (orienteering map): open areas on the 3D stage (lesson-panel.ts)
-// ----------
+// ---------- Lesson panels: open areas on the 3D stage (lesson-panel.ts) ----------
 function icon(content: string) {
   return `<rect width="100" height="50" fill="#fff"/>${content}`;
 }
@@ -238,6 +295,37 @@ function semiOpen(o: LessonStage) {
     ] as [number, number, (height?: number) => THREE.Group, number][]
   ).map(([x, z, model, k]) => o.add(model(k), [x, z]));
   return [...forestEdge(o, [5, -1], 12, 7, 5), ...trees];
+}
+
+// Garden: rows of apple trees on the grass. The fox walks in front of the rows.
+function orchard(o: LessonStage) {
+  const { mesh, group, castShadows, patch, seeded } = o.models;
+  const r = seeded(24);
+  o.add(patch(12, 7, '#A8CC70', 6), [5, -1]);
+  const trees = [];
+  for (const z of [-6, -3, 0])
+    for (let x = -2; x <= 13; x += 3) {
+      const k = 0.9 + r() * 0.2;
+      const tree = group(
+        mesh(new THREE.CylinderGeometry(0.09, 0.12, 1.2, 6).translate(0, 0.6, 0), '#7A5638'),
+        mesh(new THREE.IcosahedronGeometry(0.9, 1), '#5E9148', 0, 1.7, 0),
+      );
+      for (let i = 0; i < 7; i++) {
+        const [a, b] = [r() * 2 * Math.PI, 0.3 + r() * 0.9];
+        tree.add(
+          mesh(
+            new THREE.IcosahedronGeometry(0.11, 0),
+            '#D0402E',
+            Math.cos(a) * 0.82,
+            1.1 + b,
+            Math.sin(a) * 0.82,
+          ),
+        );
+      }
+      tree.scale.setScalar(k);
+      trees.push(o.add(castShadows(tree), [x + (r() - 0.5) * 0.4, z]));
+    }
+  return trees;
 }
 
 // Field: brown soil and rows of growing grain. The fox walks along the south edge of the field.

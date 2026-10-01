@@ -291,6 +291,32 @@
     },
     "field": {
       "mapLabel": "PELTO",
+      "lesson": {
+        "title": "Avoimet paikat",
+        "instruction": "Paina merkkiä!",
+        "items": {
+          "field": {
+            "name": "Pelto",
+            "summary": "tumma keltainen",
+            "text": "Pellolla kasvaa viljaa. Kartalla pelto on tumman keltainen."
+          },
+          "garden": {
+            "name": "Puutarha",
+            "summary": "vihreät pisteet",
+            "text": "Puutarhassa kasvaa omenapuita riveissä. Vihreät pisteet ovat kuin puut."
+          },
+          "meadow": {
+            "name": "Niitty",
+            "summary": "vaalea keltainen ja ruohotupsu",
+            "text": "Niityllä kasvaa heinää ja kukkia. Pienet viivat ovat kuin ruohotupsuja."
+          },
+          "clearCut": {
+            "name": "Hakkuu&shy;aukea",
+            "summary": "vihreät vinoviivat",
+            "text": "Täältä on kaadettu metsä, ja jäljellä on kantoja ja pieniä taimia. Kartalla on vihreitä vinoviivoja."
+          }
+        }
+      },
       "orienteeringLesson": {
         "title": "Kuinka avointa?",
         "instruction": "Paina merkkiä!",

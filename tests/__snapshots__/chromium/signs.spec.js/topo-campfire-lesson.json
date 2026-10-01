@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "button": "Nuotio­paikka musta liekki",
+    "text": "Nuotiopaikalla saa tehdä tulen. Kartalla se on musta liekki, jonka alla on kaksi kolmiota."
+  },
+  {
+    "button": "Luonnon­suojelu­alue vihreä viiva ja vinot viivat",
+    "text": "Luonnonsuojelualueella eläimet ja kasvit saavat olla rauhassa. Kartalla alueen reunassa on vihreä viiva. Pienet vinot viivat ovat alueen sisäpuolella."
+  },
+  {
+    "button": "Luonto­kohde musta tähti",
+    "text": "Luontokohde on jotain erikoista, esimerkiksi valtavan iso kivi. Kartalla se on musta tähti, jonka keskellä on valkoinen piste."
+  },
+  {
+    "button": "Urheilu­kenttä vaalea keltavihreä alue",
+    "text": "Urheilukentällä voi pelata ja juosta. Kartalla urheilu- ja virkistysalue on vaalea keltavihreä."
+  },
+  {
+    "button": "Puisto vihreä alue",
+    "text": "Puistossa on nurmikkoa, puita ja penkkejä. Kartalla puisto on vihreä."
+  }
+]

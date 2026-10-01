@@ -403,8 +403,9 @@ export const SIGNS: Sign[] = [
       options: ['forest', 'stones', 'campfire'],
       correct: 'stones',
     },
+    // Terrain map: a stone in a lake (⊥), stony ground and a cliff.
     icon: base(
-      `${Symbols.stone(30, 28, 2.6)}${Symbols.triangles(56, 12, 32, 30, 8, 4.5)}${Symbols.cliff(14, 54, 86, 54, 1.6)}`,
+      `<ellipse cx="30" cy="28" rx="22" ry="15" fill="#7FD3F7" stroke="#0077C0" stroke-width="1.5"/>${Symbols.stone(30, 28, 1.8)}${Symbols.triangles(56, 12, 32, 30, 8, 4.5)}${Symbols.cliff(14, 54, 86, 54, 1.6)}`,
     ),
     // Orienteering map: a stone is a black dot (ISOM 204–205), stony ground black triangles (208),
     // bare rock grey (214) and a cliff a black line (202), an impassable one a thick line with

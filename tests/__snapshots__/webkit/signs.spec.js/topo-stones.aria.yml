@@ -1,6 +1,6 @@
 - main:
   - heading "Kivet ja kalliot" [level=1]
-  - paragraph: Pieni musta merkki on iso kivi.
+  - paragraph: Pieni musta merkki järvessä on kivi.
   - figure "Kartalla":
     - text: ""
     - img "Kartta": Kettujärvi KIVI
@@ -11,11 +11,15 @@
   - button "Lähde matkaan!"
   - img "Kettu"
   - heading "Kettu tietää" [level=2]
-  - paragraph: "Iso kivi on kartalla pieni musta merkki. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä."
+  - paragraph: "Järven kivi on kartalla pieni musta merkki. Merkin viiva on veden pinta: kivi voi olla sen päällä, pinnassa tai veden alla. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä."
   - heading "Kiviä ja kallioita" [level=2]
   - list:
     - listitem:
-      - button "Iso kivi pieni musta merkki"
+      - button "Kivi veden päällä kivi viivan päällä"
+    - listitem:
+      - button "Kivi pinnassa risti"
+    - listitem:
+      - button "Kivi veden alla kivi viivan alla"
     - listitem:
       - button "Kivikko tiheät kolmiot"
     - listitem:
@@ -28,7 +32,7 @@
     - img "Kiviä ja kallioita"
     - text: ""
   - region "Visa":
-    - heading "Missä kuvassa on iso kivi?" [level=2]
+    - heading "Missä kuvassa on kivi vedessä?" [level=2]
     - button "Metsä"
     - button "Kivet ja kalliot"
     - button "Nuotiopaikka"

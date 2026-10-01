@@ -394,10 +394,9 @@ async function sportsField(o: LessonStage, motion: number) {
   );
   const BALL: Point = [4, 0.5],
     GOAL: Point = [CENTER[0] + L / 2 - 0.7, CENTER[1]];
-  const ball = o.add(
-    castShadows(group(mesh(new THREE.IcosahedronGeometry(0.22, 1), '#F4F2EC', 0, 0.22))),
-    BALL,
-  );
+  // The ball rests on the turf (0.04 m thick). It spins around its own centre as it rolls.
+  const sphere = mesh(new THREE.IcosahedronGeometry(0.22, 1), '#F4F2EC', 0, 0.26);
+  const ball = o.add(castShadows(group(sphere)), BALL);
   await o.grow([field], motion, 800);
   await o.grow([ball], motion, 400);
   const spot: Point = [3.1, 0.6];
@@ -412,7 +411,7 @@ async function sportsField(o: LessonStage, motion: number) {
   await o.animate(1200, (t) => {
     const k = 1 - (1 - t) * (1 - t);
     ball.position.set(BALL[0] + (GOAL[0] - BALL[0]) * k, 0, BALL[1] + (GOAL[1] - BALL[1]) * k);
-    ball.rotation.z = -k * 20;
+    sphere.rotation.z = -k * 20;
   });
   finish(o, spot, motion);
 }

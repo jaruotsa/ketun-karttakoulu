@@ -323,7 +323,7 @@ const bigStone = (o: LessonStage) => [o.add(World.models.stone(), [2.5, -1])];
 // through the water. The icon has the water of the terrain map behind the sign.
 function waterIcon(level: StoneLevel) {
   return icon(
-    `<ellipse cx="50" cy="25" rx="40" ry="20" fill="#7FD3F7" stroke="#0077C0" stroke-width="2"/>${Symbols.stone(50, 25, 2.4, level)}`,
+    `<ellipse cx="50" cy="25" rx="40" ry="20" fill="#71C8E6" stroke="#0067A5" stroke-width="2"/>${Symbols.stone(50, 25, 2.4, level)}`,
   );
 }
 const POND: Point = [3.5, -2];

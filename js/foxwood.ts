@@ -261,8 +261,8 @@ const parts = {
   </g>`,
   hill: `<g class="feature-hill" fill="none" stroke="#B8652A" stroke-width="1.6">${shapes.hill.map((d) => `<path d="${d}"/>`).join('')}</g>`,
   lake: `<g class="feature-lake">
-    <path d="${shapes.lake}" fill="#7FD3F7" stroke="#0077C0" stroke-width="3"/>
-    <text x="490" y="205" text-anchor="middle" fill="#0077C0" font-style="italic" font-size="22" letter-spacing="2">${t('foxwood.lakeName')}</text>
+    <path d="${shapes.lake}" fill="#71C8E6" stroke="#0067A5" stroke-width="3"/>
+    <text x="490" y="205" text-anchor="middle" fill="#0067A5" font-style="italic" font-size="22" letter-spacing="2">${t('foxwood.lakeName')}</text>
   </g>`,
   trail: `<path d="${shapes.trail}" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-dasharray="9 6"/>`,
   // MML: a track is a black line, a small (class III) road a thin red line with black edges.
@@ -271,7 +271,7 @@ const parts = {
   // picked from the legend).
   carRoad: `<g class="feature-carRoad" fill="none"><path d="${shapes.carRoad}" stroke="#1a1a1a" stroke-width="5.5"/><path d="${shapes.carRoad}" stroke="#B0412E" stroke-width="3.2"/>
     <g class="feature-bridge"><path d="${shapes.bridge}" stroke="#1a1a1a" stroke-width="5.5"/><path d="${shapes.bridge}" stroke="#3D0F06" stroke-width="3.2"/></g></g>`,
-  stream: `<path class="feature-stream" d="${shapes.stream}" fill="none" stroke="#0077C0" stroke-width="2.4" stroke-linecap="round"/>`,
+  stream: `<path class="feature-stream" d="${shapes.stream}" fill="none" stroke="#0074B0" stroke-width="2.4" stroke-linecap="round"/>`,
   campfire: `<g class="feature-campfire">${Symbols.fire(CAMPFIRE[0], CAMPFIRE[1], 1.3)}</g>`,
   building: `<g class="feature-building">${Object.values(BUILDINGS)
     .map((r) => Symbols.building(...r))
@@ -318,7 +318,7 @@ function map({
   route,
   name,
   namePosition,
-  nameColor = '#0077C0',
+  nameColor = '#0067A5',
 }: {
   route: string;
   name: string;

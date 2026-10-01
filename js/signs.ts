@@ -33,7 +33,7 @@ export const SIGNS: Sign[] = [
     bubble: t('signs.lake.bubble'),
     hint: t('signs.lake.hint'),
     icon: base(
-      '<path d="M22,20 C40,6 78,10 82,30 C86,52 60,62 40,58 C20,55 8,34 22,20Z" fill="#7FD3F7" stroke="#0077C0" stroke-width="2.5"/>',
+      '<path d="M22,20 C40,6 78,10 82,30 C86,52 60,62 40,58 C20,55 8,34 22,20Z" fill="#71C8E6" stroke="#0067A5" stroke-width="2.5"/>',
     ),
     quiz: {
       question: t('signs.lake.quiz.question'),
@@ -116,7 +116,7 @@ export const SIGNS: Sign[] = [
       correct: 'stream',
     },
     icon: base(
-      '<path d="M10,14 C26,10 30,30 46,32 C62,34 60,50 76,52 C84,53 88,56 92,60" fill="none" stroke="#0077C0" stroke-width="3.5" stroke-linecap="round"/>',
+      '<path d="M10,14 C26,10 30,30 46,32 C62,34 60,50 76,52 C84,53 88,56 92,60" fill="none" stroke="#0074B0" stroke-width="3.5" stroke-linecap="round"/>',
     ),
     // Orienteering map: a brook or ditch is a blue line (ISOM 304–306). A wide brook is a thicker
     // line and an indistinct one a dashed line. A river is a blue area whose black edge tells that
@@ -357,7 +357,7 @@ export const SIGNS: Sign[] = [
     },
     icon: base(
       `<g fill="none">
-        <path d="M50,4 C42,18 58,26 50,36 C44,44 54,54 50,66" stroke="#0077C0" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M50,4 C42,18 58,26 50,36 C44,44 54,54 50,66" stroke="#0074B0" stroke-width="3.5" stroke-linecap="round"/>
         <path d="M10,35 H90" stroke="#1a1a1a" stroke-width="9"/><path d="M10,35 H90" stroke="#B0412E" stroke-width="5.4"/>
         <path d="M36,35 H64" stroke="#3D0F06" stroke-width="5.4"/>
       </g>`,
@@ -405,7 +405,7 @@ export const SIGNS: Sign[] = [
     },
     // Terrain map: a stone in a lake (⊥), stony ground and a cliff.
     icon: base(
-      `<ellipse cx="30" cy="28" rx="22" ry="15" fill="#7FD3F7" stroke="#0077C0" stroke-width="1.5"/>${Symbols.stone(30, 28, 1.8)}${Symbols.triangles(56, 12, 32, 30, 8, 4.5)}${Symbols.cliff(14, 54, 86, 54, 1.6)}`,
+      `<ellipse cx="30" cy="28" rx="22" ry="15" fill="#71C8E6" stroke="#0067A5" stroke-width="1.5"/>${Symbols.stone(30, 28, 1.8)}${Symbols.triangles(56, 12, 32, 30, 8, 4.5)}${Symbols.cliff(14, 54, 86, 54, 1.6)}`,
     ),
     // Orienteering map: a stone is a black dot (ISOM 204–205), stony ground black triangles (208),
     // bare rock grey (214) and a cliff a black line (202), an impassable one a thick line with

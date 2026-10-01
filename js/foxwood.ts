@@ -3,7 +3,7 @@
 // The landscape of every lesson must show the same things as this map.
 import * as MapType from './map-type';
 import type { Point } from './types';
-import { Symbols, type BuildingKind } from './symbols';
+import { Symbols, type BuildingKind, type StoneLevel } from './symbols';
 import { t } from './i18n';
 
 const MAP_WIDTH = 600; // map width
@@ -50,8 +50,8 @@ const shapes = {
   fences: 'M207,21 H257 V71 H207 Z',
   // Power line along the road (for highlighting; the exact line is in POWER_LINE).
   powerLine: 'M0,18 L122,16 L212,19 L300,20 L500,21 L600,22',
-  // Big stone on the south shore of Fox Lake. The shape is for highlighting.
-  stones: 'M526,322 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0',
+  // Stones in Fox Lake near the south shore. The shape is for highlighting.
+  stones: 'M494,309 a19,19 0 1,0 38,0 a19,19 0 1,0 -38,0',
 };
 // The roads and the brook that reach the edge of the map continue outside the map in the 3D world
 // (the map is cropped, the terrain is not). The extensions are not shown on the map.
@@ -73,21 +73,33 @@ const BRIDGE: { start: Point; end: Point; width: number } = {
   end: [281, 10.41],
   width: 10,
 };
-const STONE: Point = [540, 322];
+// Stones in water (MML: "stones" in the water section): the big stone that the fox jumps on stands
+// above the water a few metres from the south shore of Fox Lake. Next to it one stone reaches the
+// water surface and one is under it. The terrain map has no sign for a single stone on land.
+const STONE: Point = [513, 315];
+const WATER_STONES: { at: Point; level: StoneLevel }[] = [
+  { at: STONE, level: 'above' },
+  { at: [500, 310], level: 'surface' },
+  { at: [526, 304], level: 'under' },
+];
 // Cliff on the east slope of the hill below the lookout tower: the rock wall faces the lake. The
-// points go from south to north, so the spikes on the map (the lower slope) point east. There are
-// boulders at the foot [x, y, size].
+// points go from south to north, so the spikes on the map (the lower slope) point east. Below the
+// north end of the wall there is a boulder field [x, y, size].
 const CLIFF: Point[] = [
   [321, 193],
   [326, 182],
   [327, 170],
   [324, 158],
 ];
-// The boulders are at the ends of the cliff, so that their signs do not cover the spikes of the
-// cliff on the map.
+// The boulders have fallen from the north end of the wall. On the terrain map they are a boulder
+// field (sparse black triangles), on the orienteering map each boulder is a dot. They stay off the
+// fox's route along the foot of the wall.
 const BOULDERS: [number, number, number][] = [
-  [334, 194, 0.8],
-  [335, 157, 1],
+  [333, 158, 1],
+  [338, 152, 0.7],
+  [337, 164, 0.6],
+  [343, 158, 0.8],
+  [331, 150, 0.5],
 ];
 // Lookout tower at the top of the hill: from the tower you can see over the forest to the lake.
 const LOOKOUT_TOWER: Point = [288, 170];
@@ -264,9 +276,9 @@ const parts = {
   building: `<g class="feature-building">${Object.values(BUILDINGS)
     .map((r) => Symbols.building(...r))
     .join('')}</g>`,
-  stones: `<g class="feature-stones">${Symbols.stone(STONE[0], STONE[1], 1.2)}</g>`,
-  // The cliff and the boulders (stones) at its foot on the east slope of the hill.
-  cliff: `<g class="feature-cliff">${Symbols.cliffLine(CLIFF, 1)}${BOULDERS.map(([x, y]) => Symbols.stone(x, y, 0.7)).join('')}</g>`,
+  stones: `<g class="feature-stones">${WATER_STONES.map(({ at: [x, y], level }) => Symbols.stone(x, y, 1, level)).join('')}</g>`,
+  // The cliff and the boulder field at its foot on the east slope of the hill.
+  cliff: `<g class="feature-cliff">${Symbols.cliffLine(CLIFF, 1)}${BOULDERS.map(([x, y], i) => Symbols.triangle(x, y, 4.5, i * 47)).join('')}</g>`,
   lookoutTower: `<g class="feature-lookoutTower">${Symbols.lookoutTower(LOOKOUT_TOWER[0], LOOKOUT_TOWER[1], 1.4)}</g>`,
   // Fences: the yard fence is a closed line with two cross lines at the gate. A stone wall is the
   // same fence sign. Power line: the main line along the road and branches to the house and the
@@ -385,11 +397,20 @@ const aerial = {
           : `<rect x="${x0}" y="${y0}" width="${L / 2}" height="${K}" fill="${valo}"/><rect x="${x}" y="${y0}" width="${L / 2}" height="${K}" fill="${varjo}"/>`;
       })
       .join('')}`,
-  // Stone from above: a grey lump whose light side is in the north-west, and a shadow.
+  // Stones in the lake from above: the stone above the water is a grey lump whose light side is in
+  // the north-west, the stone at the surface a small lump with a ring of ripples, and the stone
+  // under the water only a dim shadow.
   stones: `<g transform="translate(${STONE[0]} ${STONE[1]})">
-    <ellipse cx="2.5" cy="2.5" rx="8" ry="6.5" fill="#1E3A1E" opacity=".45"/>
+    <ellipse rx="9" ry="8" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
     <ellipse rx="7.5" ry="6.5" fill="#7E7B74"/><ellipse cx="-1.8" cy="-1.6" rx="5" ry="4" fill="#ABA79D"/>
-  </g>`,
+  </g>
+  ${WATER_STONES.filter(({ level }) => level !== 'above')
+    .map(({ at: [x, y], level }) =>
+      level === 'surface'
+        ? `<ellipse cx="${x}" cy="${y}" rx="5" ry="4.5" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/><ellipse cx="${x}" cy="${y}" rx="3" ry="2.6" fill="#8E8A80"/>`
+        : `<ellipse cx="${x}" cy="${y}" rx="4" ry="3.5" fill="#4F6E72" opacity=".6"/>`,
+    )
+    .join('')}`,
 };
 
 export const Foxwood = {
@@ -400,6 +421,7 @@ export const Foxwood = {
   CAMPFIRE,
   BUILDINGS,
   STONE,
+  WATER_STONES,
   CLIFF,
   BOULDERS,
   LOOKOUT_TOWER,

@@ -51,9 +51,23 @@ function building(kind: BuildingKind, x: number, y: number, w: number, h: number
   return `<rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" ${edge}/>`;
 }
 
-// Big stone: a black ⊥ (in the legend: "stones"). Centre (x, y), height about 10 * s.
-function stone(x: number, y: number, s = 1) {
-  return `<path d="M-5,5 H5 M0,5 V-5" transform="translate(${x} ${y}) scale(${s})" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>`;
+// Stone in water (in the legend: "stones", in the water section). The horizontal line is the water
+// surface: a stone above the water is ⊥, a stone at the surface + and a stone under the water T.
+// The terrain map has no sign for a single stone on land. Centre (x, y), height about 10 * s.
+export type StoneLevel = 'above' | 'surface' | 'under';
+const STONE_PATHS: Record<StoneLevel, string> = {
+  above: 'M-5,5 H5 M0,5 V-5',
+  surface: 'M-5,0 H5 M0,-5 V5',
+  under: 'M-5,-5 H5 M0,-5 V5',
+};
+function stone(x: number, y: number, s = 1, level: StoneLevel = 'above') {
+  return `<path d="${STONE_PATHS[level]}" transform="translate(${x} ${y}) scale(${s})" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>`;
+}
+
+// One black triangle of stony ground or a boulder field, centre (x, y), turned by `rotation`
+// degrees.
+function triangle(x: number, y: number, size = 4, rotation = 0) {
+  return `<path d="M0,${-size * 0.6} L${size * 0.5},${size * 0.3} L${-size * 0.5},${size * 0.3} Z" transform="translate(${x} ${y}) rotate(${rotation})" fill="#1a1a1a"/>`;
 }
 
 // Stony ground and boulder field: black triangles inside the rectangle (x, y, w, h). In stony
@@ -67,10 +81,10 @@ function triangles(x: number, y: number, w: number, h: number, spacing: number, 
     for (let px = x + spacing / 2; px < x + w; px += spacing) {
       const tx = (px + (random() - 0.5) * spacing * 0.6).toFixed(1);
       const ty = (py + (random() - 0.5) * spacing * 0.6).toFixed(1);
-      s += `<path d="M0,${-size * 0.6} L${size * 0.5},${size * 0.3} L${-size * 0.5},${size * 0.3} Z" transform="translate(${tx} ${ty}) rotate(${Math.round(random() * 120)})"/>`;
+      s += triangle(+tx, +ty, size, Math.round(random() * 120));
     }
   }
-  return `<g fill="#1a1a1a">${s}</g>`;
+  return `<g>${s}</g>`;
 }
 
 // Bare rock is a greyish-pink area. The colour is picked from the legend.
@@ -187,6 +201,7 @@ export const Symbols = {
   BUILDING_COLORS,
   building,
   stone,
+  triangle,
   triangles,
   BEDROCK,
   MIRE,

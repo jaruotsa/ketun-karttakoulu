@@ -1,20 +1,20 @@
-// Stone scene: the fox walks along the path past the campfire site to the shore of Fox Lake. On the
-// shore there is a big stone with a lizard basking on top. The lizard gets scared and darts away,
-// and the fox jumps on top of the stone.
+// Stone scene: the fox walks along the path past the campfire site to the shore of Fox Lake. A few
+// metres from the shore a big stone rises from the water with a lizard basking on top. The lizard
+// gets scared and dives into the water, and the fox jumps on top of the stone.
 //
 // The terrain is the 3D world of Foxwood (sign-3d.ts). The fox walks east along the south shore of
 // the lake, and the camera follows it from the south: the lake is on the left and the summer cabin
 // and the sauna are visible on the opposite shore.
 import * as THREE from 'three';
 import * as MapType from '../map-type';
-import { Symbols } from '../symbols';
+import { Symbols, type StoneLevel } from '../symbols';
 import { Foxwood } from '../foxwood';
 import { Orienteering } from '../orienteering';
 import { animate } from '../animation';
 import { Creatures } from '../creatures';
 import { World } from '../world';
 import { t } from '../i18n';
-import type { Scene } from '../scene-types';
+import type { LessonItem, Scene } from '../scene-types';
 import type { Terrain } from '../sign-terrain';
 import type { LessonStage } from '../lesson-panel';
 import type { Point, Vec3 } from '../types';
@@ -46,8 +46,12 @@ function cliffShot(terrain: Terrain) {
     target: [330, 176, h(330, 176) + 3] as Vec3,
   };
 }
-// The top of the stone is about 2.4 m above the ground (world.ts: stoneModel).
-const TOP_HEIGHT = 2.3;
+// The top of the stone is about 2.4 m above the bottom of the lake (world.ts: stoneModel). The
+// fox and the lizard are lifted from the water surface.
+const topHeight = (terrain: Terrain) =>
+  terrain.world.heightAt(...STONE) + 2.3 - terrain.world.surface(...STONE);
+// The lizard dives into the lake on the far side of the stone.
+const DIVE: Point = [STONE[0] - 6, STONE[1] - 3];
 // The lizard is exaggerated in size (about 1.2 m), so that it can be seen (creatures.ts).
 let lizard: ReturnType<typeof Creatures.lizard> | null = null;
 let stopRunning: (() => void) | null = null;
@@ -58,7 +62,7 @@ const scene: Scene = {
     // campfire site and along the south shore of the lake to the stone.
     route:
       'M30,345 C110,335 140,290 210,292 C280,294 316,256 336,244 C352,234 346,200 339,180 ' +
-      'C346,176 360,184 366,200 C372,222 374,240 384,254 C392,266 394,278 396,292 C402,318 418,340 452,342 C482,344 505,332 524,326',
+      'C346,176 360,184 366,200 C372,222 374,240 384,254 C392,266 394,278 396,292 C402,318 418,340 452,342 C482,344 503,334 517,324',
     name: t('scenes.stones.mapLabel'),
     namePosition: [480, 272],
     nameColor: '#6E6C66',
@@ -102,25 +106,27 @@ const scene: Scene = {
 
     async arrive({ fox, wait, terrain }) {
       const [x0, y0] = terrain.routePoint(1);
+      const top = topHeight(terrain);
       // The lizard basks on top of the stone; the fox notices it.
-      terrain.place(lizard!, STONE[0] - 0.3, STONE[1], TOP_HEIGHT - 0.15, [x0, y0]);
+      terrain.place(lizard!, STONE[0] - 0.3, STONE[1], top - 0.15, [x0, y0]);
       fox.poses.add('curious');
       await wait(700);
-      // The lizard gets scared and darts down the side of the stone to the ground and away.
+      // The lizard gets scared and darts down the far side of the stone into the water.
       stopRunning = terrain.everyFrame((time) => lizard!.run(time));
-      const direction = Math.atan2(1, 5);
+      const direction = Math.atan2(DIVE[1] - STONE[1], DIVE[0] - STONE[0]);
       await animate(900, (t) => {
         terrain.place(
           lizard!,
-          STONE[0] + 7 * t,
-          STONE[1] + 1.4 * t,
-          (TOP_HEIGHT - 0.15) * (1 - t * t),
+          STONE[0] + (DIVE[0] - STONE[0]) * t,
+          STONE[1] + (DIVE[1] - STONE[1]) * t,
+          (top - 0.15) * (1 - t * t),
           direction,
         );
         lizard!.rotation.z = -0.5 * Math.sin(Math.PI * Math.min(1, t * 1.5));
       });
       stopRunning!();
       lizard!.removeFromParent();
+      terrain.splash(...DIVE);
       fox.poses.remove('curious');
       await wait(300);
       // A leap on top of the stone.
@@ -129,11 +135,11 @@ const scene: Scene = {
         terrain.moveFox(
           x0 + (STONE[0] - x0) * t,
           y0 + (STONE[1] - y0) * t,
-          TOP_HEIGHT * t + 2.5 * jump,
+          top * t + 2.5 * jump,
           -18 * jump,
         );
       });
-      terrain.moveFox(STONE[0], STONE[1], TOP_HEIGHT);
+      terrain.moveFox(STONE[0], STONE[1], top);
       await wait(300);
       fox.poses.add('facingViewer');
       await wait(700);
@@ -177,13 +183,17 @@ const scene: Scene = {
     instruction: t('scenes.stones.lesson.instruction'),
     stage: { camera: [0, 3, 12], gaze: [1.2, 1.4, -1], fox: 1.9, foxPosition: [-4, 3.5] },
     items: [
-      {
-        name: t('scenes.stones.lesson.items.largeStone.name'),
-        summary: t('scenes.stones.lesson.items.largeStone.summary'),
-        text: t('scenes.stones.lesson.items.largeStone.text'),
-        icon: icon(Symbols.stone(50, 25, 2.8)),
-        show: (o, motion) => raise(o, motion, bigStone(o)),
-      },
+      ...(['above', 'surface', 'under'] as const).map(
+        (level): LessonItem => ({
+          name: t(`scenes.stones.lesson.items.${level}.name`),
+          summary: t(`scenes.stones.lesson.items.${level}.summary`),
+          text: t(`scenes.stones.lesson.items.${level}.text`),
+          icon: waterIcon(level),
+          // The camera looks down into the pond, so that the stone under the water can be seen.
+          camera: { position: [-1, 8, 14], gaze: [1.5, 0, -1.5] },
+          show: (o, motion) => waterStone(o, motion, level),
+        }),
+      ),
       {
         name: t('scenes.stones.lesson.items.stoneField.name'),
         summary: t('scenes.stones.lesson.items.stoneField.summary'),
@@ -284,8 +294,75 @@ function icon(content: string) {
   return `<rect width="100" height="50" fill="#fff"/>${content}`;
 }
 
-// The big stone is the same model as on the shore of Foxwood (about 2.4 m high).
+// The big stone is the same model as in Fox Lake (about 2.4 m high).
 const bigStone = (o: LessonStage) => [o.add(World.models.stone(), [2.5, -1])];
+
+// Stones in water: a pond with clear water inside a low earth bank. The water surface is
+// WATER_DEPTH m above the ground of the stage, so that a stone under the surface can be seen
+// through the water. The icon has the water of the terrain map behind the sign.
+function waterIcon(level: StoneLevel) {
+  return icon(
+    `<ellipse cx="50" cy="25" rx="40" ry="20" fill="#7FD3F7" stroke="#0077C0" stroke-width="2"/>${Symbols.stone(50, 25, 2.4, level)}`,
+  );
+}
+const POND: Point = [3.5, -2];
+const POND_RADII: Point = [5, 3.2];
+const WATER_DEPTH = 1.1;
+const STONE_SPOT: Point = [2.5, -1.2];
+// The height of the stone (m): above the water, just at the surface or half a metre under it.
+const STONE_HEIGHTS: Record<StoneLevel, number> = {
+  above: WATER_DEPTH + 0.9,
+  surface: WATER_DEPTH + 0.1,
+  under: WATER_DEPTH - 0.5,
+};
+function pond(o: LessonStage) {
+  const { mesh, group, material, castShadows } = o.models;
+  const [rx, rz] = POND_RADII;
+  const D = WATER_DEPTH;
+  const profile = [
+    [1, 0],
+    [1, D + 0.05],
+    [1.08, D + 0.15],
+    [1.3, 0],
+  ].map(([r, y]) => new THREE.Vector2(r, y));
+  const bank = new THREE.Mesh(
+    new THREE.LatheGeometry(profile, 48),
+    material('#7E9A4E', { side: THREE.DoubleSide }),
+  );
+  const bottom = mesh(new THREE.CircleGeometry(1, 48).rotateX(-Math.PI / 2), '#A89A6A', 0, 0.01);
+  const water = new THREE.Mesh(
+    new THREE.CylinderGeometry(1, 1, D, 48).translate(0, D / 2, 0),
+    new THREE.MeshPhongMaterial({
+      color: '#3F92C8',
+      specular: '#D6ECF6',
+      shininess: 70,
+      transparent: true,
+      opacity: 0.45,
+      depthWrite: false,
+    }),
+  );
+  const g = group(castShadows(bank), bottom, water);
+  g.scale.set(rx, 1, rz);
+  return o.add(g, POND);
+}
+
+// The stone rises in the pond. The fox jumps on a stone above the water; at the other stones it
+// only wonders, because they are not safe to stand on.
+async function waterStone(o: LessonStage, motion: number, level: StoneLevel) {
+  const height = STONE_HEIGHTS[level];
+  const stone = o.add(o.models.rock(height, 3), STONE_SPOT, 30);
+  await raise(o, motion, [pond(o), stone], 0.3);
+  if (level !== 'above') return;
+  const [x, z] = STONE_SPOT;
+  if (!motion) return o.foxTo(x, z, height);
+  const { x: x0, z: z0 } = o.fox.group.position;
+  o.fox.poses.set();
+  await o.animate(800, (t) => {
+    const jump = Math.sin(Math.PI * t);
+    o.foxTo(x0 + (x - x0) * t, z0 + (z - z0) * t, height * t + 2 * jump, -20 * jump);
+  });
+  o.fox.poses.set('facingViewer', 'cheering');
+}
 
 // Stony ground: many small stones side by side.
 function stonyGround(o: LessonStage) {

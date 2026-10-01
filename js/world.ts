@@ -13,6 +13,7 @@ import * as THREE from 'three';
 import { Foxwood } from './foxwood';
 import { Orienteering } from './orienteering';
 import type { Point, Vec3 } from './types';
+import type { StoneLevel } from './symbols';
 
 // A tree, a seedling or a tussock: a place on the map and how it is drawn. The last fields are set
 // later (clearing, bend).
@@ -378,6 +379,16 @@ function surface(x: number, y: number) {
     : heightAt(x, y);
 }
 
+// The size of a stone in the lake (stoneModel scale, top about 2.4 m * size above the bottom): a
+// stone above the water is a big stone, the others are sized so that the top just reaches the
+// surface or stays about half a metre under it.
+const STONE_TOP = 2.4;
+function waterStoneSize(level: StoneLevel, x: number, y: number) {
+  if (level === 'above') return 1;
+  const top = level === 'surface' ? WATER_LEVEL + 0.15 : WATER_LEVEL - 0.5;
+  return (top - initialHeight(x, y)) / STONE_TOP;
+}
+
 // ---------- Is the place free for a tree? ----------
 const BUILDINGS = Object.entries(Foxwood.BUILDINGS);
 function isFree(x: number, y: number) {
@@ -447,9 +458,15 @@ function check(treeCount: number) {
       );
   }
   if (LAKE.inside(...Foxwood.CAMPFIRE)) add('error', 'The campfire site is in the lake.');
-  if (LAKE.inside(...Foxwood.STONE)) add('error', 'The big stone is in the lake.');
-  else if (LAKE.distance(...Foxwood.STONE) < 4)
-    add('warning', 'The big stone is right at the shoreline.');
+  for (const { at, level } of Foxwood.WATER_STONES) {
+    if (!LAKE.inside(...at)) add('error', `The stone (${level}) is not in the lake.`);
+    else if (waterStoneSize(level, ...at) < 0.2)
+      add('error', `The lake is too shallow for the stone (${level}).`);
+  }
+  // The fox jumps on the big stone from the shore.
+  if (LAKE.distance(...Foxwood.STONE) > 8) add('warning', 'The big stone is far from the shore.');
+  if (initialHeight(...Foxwood.STONE) + STONE_TOP < WATER_LEVEL + 1)
+    add('warning', 'The big stone barely rises above the water.');
   for (const [road, t] of Object.entries(ROADS)) {
     if (t.points.some(([a, b]) => LAKE.inside(a, b)))
       add('error', `The road (${road}) goes through the lake.`);
@@ -1658,12 +1675,11 @@ async function create({ orienteering = false } = {}) {
     part: 'trail',
     baseLevel: () => heightAt(...Foxwood.CAMPFIRE),
   });
-  objects.push({
-    model: stoneModel(),
-    x: Foxwood.STONE[0],
-    y: Foxwood.STONE[1],
-    part: 'lake',
-    baseLevel: () => heightAt(...Foxwood.STONE),
+  Foxwood.WATER_STONES.forEach(({ at: [x, y], level }, i) => {
+    const model = stoneModel();
+    model.scale.setScalar(waterStoneSize(level, x, y));
+    model.rotation.y = i * 1.7;
+    objects.push({ model, x, y, part: 'lake', baseLevel: () => heightAt(x, y) });
   });
   const [tx, ty] = Foxwood.LOOKOUT_TOWER;
   const tower = {

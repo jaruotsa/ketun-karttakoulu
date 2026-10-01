@@ -180,11 +180,11 @@
     },
     "stones": {
       "name": "Kivet ja kalliot",
-      "sentence": "Pieni musta merkki on iso kivi.",
+      "sentence": "Pieni musta merkki järvessä on kivi.",
       "bubble": "Hyppy kiven päälle! Sisilisko säikähti.",
-      "hint": "Iso kivi on kartalla pieni musta merkki. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä.",
+      "hint": "Järven kivi on kartalla pieni musta merkki. Merkin viiva on veden pinta: kivi voi olla sen päällä, pinnassa tai veden alla. Monta mustaa kolmiota on kivikko. Musta viiva, jossa on piikkejä, on jyrkänne: jyrkkä kallioseinä.",
       "quiz": {
-        "question": "Missä kuvassa on iso kivi?"
+        "question": "Missä kuvassa on kivi vedessä?"
       },
       "orienteering": {
         "sentence": "Musta piste on kivi. Piikkiviiva on jyrkänne.",
@@ -725,10 +725,20 @@
         "title": "Kiviä ja kallioita",
         "instruction": "Paina merkkiä!",
         "items": {
-          "largeStone": {
-            "name": "Iso kivi",
-            "summary": "pieni musta merkki",
-            "text": "Iso kivi on kartalla pieni musta merkki."
+          "above": {
+            "name": "Kivi veden päällä",
+            "summary": "kivi viivan päällä",
+            "text": "Viiva on veden pinta. Kivi on viivan päällä: se nousee vedestä. Sille voi hypätä!"
+          },
+          "surface": {
+            "name": "Kivi pinnassa",
+            "summary": "risti",
+            "text": "Kivi on juuri veden pinnassa: se ylettyy pintaan asti. Veneellä varovasti!"
+          },
+          "under": {
+            "name": "Kivi veden alla",
+            "summary": "kivi viivan alla",
+            "text": "Kivi on piilossa veden alla. Sitä on vaikea nähdä, mutta vene voi osua siihen."
           },
           "stoneField": {
             "name": "Kivikko",

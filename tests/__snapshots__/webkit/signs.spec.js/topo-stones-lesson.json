@@ -1,7 +1,15 @@
 [
   {
-    "button": "Iso kivi pieni musta merkki",
-    "text": "Iso kivi on kartalla pieni musta merkki."
+    "button": "Kivi veden päällä kivi viivan päällä",
+    "text": "Viiva on veden pinta. Kivi on viivan päällä: se nousee vedestä. Sille voi hypätä!"
+  },
+  {
+    "button": "Kivi pinnassa risti",
+    "text": "Kivi on juuri veden pinnassa: se ylettyy pintaan asti. Veneellä varovasti!"
+  },
+  {
+    "button": "Kivi veden alla kivi viivan alla",
+    "text": "Kivi on piilossa veden alla. Sitä on vaikea nähdä, mutta vene voi osua siihen."
   },
   {
     "button": "Kivikko tiheät kolmiot",

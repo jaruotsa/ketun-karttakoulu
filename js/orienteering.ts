@@ -238,7 +238,11 @@ const parts = {
       )
       .join('')}
   </g>`,
-  stones: `<g class="feature-stones">${stone(Foxwood.STONE[0], Foxwood.STONE[1], 1.4)}</g>`,
+  // Stones in the lake: the stone above the water is a large stone and the stone at the surface a
+  // stone. The stone under the water cannot be seen, so it is not on the map.
+  stones: `<g class="feature-stones">${Foxwood.WATER_STONES.filter(({ level }) => level !== 'under')
+    .map(({ at: [x, y], level }) => (level === 'above' ? stone : smallStone)(x, y, 1.4))
+    .join('')}</g>`,
   // The cliff and the boulders at its foot: the biggest is a large stone, the others stones.
   cliff: `<g class="feature-cliff">${cliff(Foxwood.CLIFF, 1.3)}
     ${Foxwood.BOULDERS.map(([x, y, size]) => (size >= 1 ? stone : smallStone)(x, y, 1.4)).join('')}</g>`,
